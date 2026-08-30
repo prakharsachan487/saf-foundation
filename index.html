@@ -30,7 +30,8 @@
           </div>
         </a>
 
-        <nav>
+        <!-- Desktop Navigation Links -->
+        <nav class="desktop-nav">
           <ul class="nav-links">
             <li><a href="#about" class="nav-link-item">About</a></li>
             <li><a href="#founder" class="nav-link-item">Founder</a></li>
@@ -41,13 +42,54 @@
           </ul>
         </nav>
 
-        <div>
-          <button class="btn-pill-red" data-open-donate data-campaign-title="General Impact Fund">
+        <div class="nav-cta-wrap">
+          <button class="btn-pill-red nav-donate-btn" data-open-donate data-campaign-title="General Impact Fund">
             Donate Now
+          </button>
+          <!-- Mobile Hamburger Toggle Button -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars-staggered"></i>
           </button>
         </div>
       </div>
     </div>
+
+    <!-- Mobile Slide-Out Drawer Navigation -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-wrapper">
+          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <h2>SAF Foundation</h2>
+          </div>
+        </div>
+        <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-links">
+        <li><a href="#about" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        <li><a href="#founder" class="mobile-nav-link"><i class="fa-solid fa-user-tie"></i> Founder & Leadership</a></li>
+        <li><a href="#areas" class="mobile-nav-link"><i class="fa-solid fa-hand-holding-heart"></i> Our Work</a></li>
+        <li><a href="#impact-map" class="mobile-nav-link"><i class="fa-solid fa-map-location-dot"></i> Footprint Map</a></li>
+        <li><a href="#campaigns" class="mobile-nav-link"><i class="fa-solid fa-bullhorn"></i> Active Campaigns</a></li>
+        <li><a href="#stories" class="mobile-nav-link"><i class="fa-solid fa-book-open"></i> Real Stories</a></li>
+        <li><a href="#transparency" class="mobile-nav-link"><i class="fa-solid fa-shield-halved"></i> Governance & Trust</a></li>
+        <li><a href="#help" class="mobile-nav-link"><i class="fa-solid fa-hands-holding-child"></i> Ways to Help</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn-pill-red" style="width:100%; justify-content:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
+          Donate Now
+        </button>
+        <div style="font-size:0.78rem; color:var(--text-muted); text-align:center; margin-top:1rem;">
+          80G Tax Exempted • 12A Certified
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Backdrop Overlay -->
+    <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
   </header>
 
   <!-- ==================== 2. HERO SECTION ==================== -->

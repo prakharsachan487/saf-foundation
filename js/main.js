@@ -12,15 +12,41 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsletter();
 });
 
-/* ==================== 1. NAVBAR ==================== */
+/* ==================== 1. NAVBAR & MOBILE DRAWER ==================== */
 function initNavbar() {
   const header = document.querySelector('.site-header');
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileDrawerClose = document.getElementById('mobileDrawerClose');
+  const mobileBackdrop = document.getElementById('mobileBackdrop');
+  const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
   window.addEventListener('scroll', () => {
     if (window.scrollY > 40) {
       header?.classList.add('scrolled');
     } else {
       header?.classList.remove('scrolled');
     }
+  });
+
+  function openMobileMenu() {
+    mobileDrawer?.classList.add('open');
+    mobileBackdrop?.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileDrawer?.classList.remove('open');
+    mobileBackdrop?.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  mobileMenuBtn?.addEventListener('click', openMobileMenu);
+  mobileDrawerClose?.addEventListener('click', closeMobileMenu);
+  mobileBackdrop?.addEventListener('click', closeMobileMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
   });
 }
 
