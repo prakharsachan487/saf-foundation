@@ -919,12 +919,13 @@ button {
 /* ==================== 7. FOOTPRINT ACROSS INDIA (MAP) ==================== */
 .map-section {
   padding: 5rem 0;
+  background: var(--bg-body);
 }
 
 .map-3d-container {
   background: #FFFFFF;
   border-radius: var(--radius-card-lg);
-  padding: 3.5rem 2.75rem;
+  padding: 3.5rem 3rem;
   box-shadow: var(--shadow-card);
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -937,8 +938,8 @@ button {
 .india-map-visual-wrap {
   position: relative;
   text-align: center;
-  min-height: 440px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -948,33 +949,69 @@ button {
   width: 100%;
   max-width: 480px;
   height: auto;
+  filter: drop-shadow(0 10px 20px rgba(15, 23, 42, 0.05));
 }
 
-/* Map Floating Pills */
-.map-floating-pill {
-  position: absolute;
-  background: #FFFFFF;
-  padding: 0.45rem 0.95rem;
-  border-radius: var(--radius-pill);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+/* Simple Clean Map Legend Bar */
+.map-legend-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.15rem;
+  background: #F8FAFC;
   border: 1px solid var(--border-light);
-  font-size: 0.8rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--navy-heading);
-  animation: floatBadge 3.5s ease-in-out infinite;
+  color: var(--text-muted);
+}
+
+.legend-item {
   display: flex;
   align-items: center;
-  gap: 0.4rem;
-  z-index: 10;
+  gap: 0.45rem;
 }
 
-.pill-pos-1 { top: 0px; left: 10px; animation-delay: 0s; }
-.pill-pos-2 { top: 10px; right: 20px; animation-delay: 1s; }
-.pill-pos-3 { top: 120px; left: -10px; animation-delay: 2s; }
-.pill-pos-4 { bottom: 120px; left: 10px; animation-delay: 1.5s; }
-.pill-pos-5 { bottom: 20px; left: 60px; animation-delay: 2.5s; }
-.pill-pos-6 { bottom: 40px; right: 20px; animation-delay: 0.5s; }
-.pill-pos-7 { top: 160px; right: -5px; animation-delay: 3s; }
+.legend-swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: 3px;
+  display: inline-block;
+}
+
+.swatch-flagship {
+  background: #F59E0B;
+  box-shadow: 0 0 6px rgba(245, 158, 11, 0.6);
+}
+
+.swatch-network {
+  background: #EDEAE3;
+  border: 1px solid #D2CDC0;
+}
+
+/* Right Content Column */
+.map-content-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-flagship-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--navy-heading);
+  background: rgba(245, 158, 11, 0.12);
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 1rem;
+  width: fit-content;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
 
 .map-stats-3d-grid {
   display: grid;
@@ -988,6 +1025,12 @@ button {
   border-radius: var(--radius-card-sm);
   border: 1px solid var(--border-light);
   transition: all 0.25s ease;
+}
+
+.map-stat-card-item:hover {
+  background: #FFFFFF;
+  border-color: var(--accent-gold);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
 }
 
 .map-stat-card-item .num {
