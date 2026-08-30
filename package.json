@@ -1,0 +1,19 @@
+{
+  "name": "saf-foundation",
+  "version": "1.0.0",
+  "description": "Official Web Portal for SAF Foundation (S. A. Foundation)",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 3000 .",
+    "start": "npx serve -l 3000 .",
+    "py": "python -m http.server 3000 --bind 127.0.0.1"
+  },
+  "keywords": [
+    "saf-foundation",
+    "s-a-foundation",
+    "anand-singh",
+    "ngo-india"
+  ],
+  "author": "S. A. Foundation",
+  "license": "MIT"
+}
