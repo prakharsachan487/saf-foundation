@@ -137,19 +137,29 @@ function initCounters() {
 
 /* ==================== 5. ACTIONS & SMOOTH SCROLL ==================== */
 function initActionButtons() {
+  function closeDrawerIfOpen() {
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const mobileBackdrop = document.getElementById('mobileBackdrop');
+    mobileDrawer?.classList.remove('open');
+    mobileBackdrop?.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
   document.querySelectorAll('[data-open-donate]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      closeDrawerIfOpen();
       document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-      showToast('❤️ Thank you for your support! Please connect with us below for contribution details.');
+      showToast('Thank you for choosing to empower village communities! Please connect with us below for official contribution details.', 'Heartfelt Gratitude ❤️', 'fa-heart');
     });
   });
 
   document.querySelectorAll('[data-open-volunteer], [data-open-partner]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
+      closeDrawerIfOpen();
       document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-      showToast('🤝 Please connect via our official contact desk below.');
+      showToast('Please connect with our official grassroots desk below.', 'Welcome Aboard 🤝', 'fa-handshake-angle');
     });
   });
 }
@@ -161,24 +171,51 @@ function initNewsletter() {
     newsletterForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const email = newsletterForm.querySelector('input[type="email"]')?.value;
-      showToast(`✨ Thank you! ${email} has been subscribed to SAF Foundation updates.`);
+      showToast(`Thank you! ${email} has been subscribed to SAF Foundation updates.`, 'Subscribed Successfully ✨', 'fa-circle-check');
       newsletterForm.reset();
     });
   }
 }
 
-function showToast(message) {
+let toastTimeout = null;
+
+function showToast(message, title = 'Notification', icon = 'fa-circle-check') {
   let toast = document.getElementById('liveToast');
   if (!toast) {
     toast = document.createElement('div');
     toast.id = 'liveToast';
-    toast.className = 'toast-msg';
+    toast.className = 'toast-notification-card';
     document.body.appendChild(toast);
   }
-  toast.innerHTML = `<i class="fa-solid fa-circle-check" style="color:var(--industrial-aqua); font-size:1.2rem;"></i> <span>${message}</span>`;
+
+  if (toastTimeout) {
+    clearTimeout(toastTimeout);
+  }
+
+  toast.innerHTML = `
+    <div class="toast-icon-wrap">
+      <i class="fa-solid ${icon}" style="color:var(--accent-gold);"></i>
+    </div>
+    <div class="toast-body-wrap">
+      <div class="toast-title">${title}</div>
+      <div class="toast-message">${message}</div>
+    </div>
+    <button class="toast-close-btn" onclick="hideToast()" aria-label="Close notification">&times;</button>
+  `;
+
+  // Force reflow
+  void toast.offsetWidth;
   toast.classList.add('show');
-  setTimeout(() => {
+
+  toastTimeout = setTimeout(() => {
+    hideToast();
+  }, 4500);
+}
+
+function hideToast() {
+  const toast = document.getElementById('liveToast');
+  if (toast) {
     toast.classList.remove('show');
-  }, 4000);
+  }
 }
 
