@@ -170,10 +170,25 @@ function initActionButtons() {
   });
 }
 
-/* ==================== 5.5. INTERACTIVE GALLERY & LIGHTBOX ==================== */
+/* ==================== 5.5. INTERACTIVE 3D GALLERY & LIGHTBOX ==================== */
 function initInteractiveGallery() {
-  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
-  const cards = document.querySelectorAll('.gallery-item-card');
+  const stageCards = document.querySelectorAll('.gallery-3d-card');
+  const prevBtn = document.getElementById('galleryPrevBtn');
+  const nextBtn = document.getElementById('galleryNextBtn');
+  const counterEl = document.getElementById('gallerySlideCounter');
+  const autoplayBtn = document.getElementById('galleryAutoplayBtn');
+  
+  const mode3DBtn = document.getElementById('mode3DShowcaseBtn');
+  const modeGridBtn = document.getElementById('modeFullGridBtn');
+  const exploreAllBtn = document.getElementById('exploreAllBtn');
+  const collapse3DBtn = document.getElementById('collapse3DBtn');
+
+  const stageWrap = document.getElementById('gallery3DStageWrap');
+  const gridView = document.getElementById('galleryFullGridView');
+
+  const filterBtns = document.querySelectorAll('.gallery-full-grid-view .gallery-filter-btn');
+  const gridCards = document.querySelectorAll('.gallery-item-card');
+
   const modal = document.getElementById('galleryLightboxModal');
   const modalImg = document.getElementById('galleryModalImg');
   const modalTitle = document.getElementById('galleryModalTitle');
@@ -182,14 +197,161 @@ function initInteractiveGallery() {
   const closeBtn = document.getElementById('galleryModalClose');
   const closeBtn2 = document.getElementById('galleryModalCloseBtn');
 
-  // Filter Buttons
+  let currentIndex = 0;
+  const totalCards = stageCards.length;
+  let autoplayTimer = null;
+  let isAutoplaying = true;
+
+  // 1. Update 3D Stage Positions
+  function update3DStage() {
+    if (!stageCards.length) return;
+
+    stageCards.forEach((card, idx) => {
+      // Remove all position classes
+      card.classList.remove('pos-center', 'pos-left', 'pos-right', 'pos-far-left', 'pos-far-right', 'pos-hidden');
+
+      // Relative index calculation
+      let diff = (idx - currentIndex) % totalCards;
+      if (diff < 0) diff += totalCards;
+
+      if (diff === 0) {
+        card.classList.add('pos-center');
+      } else if (diff === 1) {
+        card.classList.add('pos-right');
+      } else if (diff === 2) {
+        card.classList.add('pos-far-right');
+      } else if (diff === totalCards - 1) {
+        card.classList.add('pos-left');
+      } else if (diff === totalCards - 2) {
+        card.classList.add('pos-far-left');
+      } else {
+        card.classList.add('pos-hidden');
+      }
+    });
+
+    if (counterEl) {
+      counterEl.textContent = `${String(currentIndex + 1).padStart(2, '0')} / ${String(totalCards).padStart(2, '0')}`;
+    }
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalCards;
+    update3DStage();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalCards) % totalCards;
+    update3DStage();
+  }
+
+  // 2. 3D Card Interactions
+  stageCards.forEach((card, idx) => {
+    card.addEventListener('click', () => {
+      if (card.classList.contains('pos-center')) {
+        // Open Lightbox
+        openLightbox({
+          img: card.getAttribute('data-img'),
+          title: card.getAttribute('data-title'),
+          desc: card.getAttribute('data-desc'),
+          location: card.getAttribute('data-location')
+        });
+      } else if (card.classList.contains('pos-left') || card.classList.contains('pos-far-left')) {
+        prevSlide();
+      } else if (card.classList.contains('pos-right') || card.classList.contains('pos-far-right')) {
+        nextSlide();
+      }
+    });
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    prevSlide();
+    pauseAutoplayTemporarily();
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    nextSlide();
+    pauseAutoplayTemporarily();
+  });
+
+  // 3. Autoplay Loop
+  function startAutoplay() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    autoplayTimer = setInterval(() => {
+      nextSlide();
+    }, 4000);
+    isAutoplaying = true;
+    if (autoplayBtn) {
+      autoplayBtn.classList.add('playing');
+      autoplayBtn.innerHTML = '<i class="fa-solid fa-pause"></i> Auto 3D';
+    }
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) clearInterval(autoplayTimer);
+    isAutoplaying = false;
+    if (autoplayBtn) {
+      autoplayBtn.classList.remove('playing');
+      autoplayBtn.innerHTML = '<i class="fa-solid fa-play"></i> Play 3D';
+    }
+  }
+
+  function pauseAutoplayTemporarily() {
+    if (isAutoplaying) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = setInterval(() => {
+        nextSlide();
+      }, 5500);
+    }
+  }
+
+  autoplayBtn?.addEventListener('click', () => {
+    if (isAutoplaying) {
+      stopAutoplay();
+    } else {
+      startAutoplay();
+    }
+  });
+
+  // Initialize 3D carousel
+  update3DStage();
+  startAutoplay();
+
+  // 4. View Mode Switching (3D Showcase <-> Full Grid)
+  function show3DMode() {
+    mode3DBtn?.classList.add('active');
+    modeGridBtn?.classList.remove('active');
+    if (stageWrap) stageWrap.style.display = 'block';
+    if (gridView) gridView.classList.remove('active');
+    startAutoplay();
+  }
+
+  function showGridMode() {
+    modeGridBtn?.classList.add('active');
+    mode3DBtn?.classList.remove('active');
+    if (stageWrap) stageWrap.style.display = 'none';
+    if (gridView) gridView.classList.add('active');
+    stopAutoplay();
+  }
+
+  mode3DBtn?.addEventListener('click', show3DMode);
+  modeGridBtn?.addEventListener('click', showGridMode);
+  exploreAllBtn?.addEventListener('click', () => {
+    showGridMode();
+    gridView?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  collapse3DBtn?.addEventListener('click', () => {
+    show3DMode();
+    stageWrap?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  // 5. Grid View Filtering
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.getAttribute('data-filter');
 
-      cards.forEach(card => {
+      gridCards.forEach(card => {
         const cat = card.getAttribute('data-category');
         if (filter === 'all' || cat === filter || (filter === 'health' && (cat === 'health' || cat === 'community'))) {
           card.style.display = 'flex';
@@ -208,32 +370,40 @@ function initInteractiveGallery() {
     });
   });
 
-  // Lightbox Open
-  cards.forEach(card => {
+  // Grid Card click for Lightbox
+  gridCards.forEach(card => {
     card.addEventListener('click', () => {
-      const img = card.getAttribute('data-img');
-      const title = card.getAttribute('data-title');
-      const desc = card.getAttribute('data-desc');
-      const location = card.getAttribute('data-location');
-
-      if (modal && modalImg && modalTitle && modalDesc) {
-        modalImg.src = img;
-        modalTitle.textContent = title;
-        modalDesc.textContent = desc;
-        if (modalLocation) {
-          modalLocation.innerHTML = `<i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> ${location}`;
-        }
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
+      openLightbox({
+        img: card.getAttribute('data-img'),
+        title: card.getAttribute('data-title'),
+        desc: card.getAttribute('data-desc'),
+        location: card.getAttribute('data-location')
+      });
     });
   });
 
-  // Lightbox Close
+  // 6. Lightbox Helper
+  function openLightbox({ img, title, desc, location }) {
+    if (modal && modalImg && modalTitle && modalDesc) {
+      modalImg.src = img;
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      if (modalLocation) {
+        modalLocation.innerHTML = `<i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> ${location}`;
+      }
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      stopAutoplay();
+    }
+  }
+
   function closeModal() {
     if (modal) {
       modal.classList.remove('active');
       document.body.style.overflow = '';
+      if (stageWrap && stageWrap.style.display !== 'none') {
+        startAutoplay();
+      }
     }
   }
 
@@ -246,6 +416,10 @@ function initInteractiveGallery() {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && modal?.classList.contains('active')) {
       closeModal();
+    } else if (e.key === 'ArrowRight' && (!modal || !modal.classList.contains('active'))) {
+      nextSlide();
+    } else if (e.key === 'ArrowLeft' && (!modal || !modal.classList.contains('active'))) {
+      prevSlide();
     }
   });
 }
