@@ -1408,61 +1408,126 @@ button {
   font-weight: 500;
 }
 
-/* ==================== 6. OUR AREAS OF WORK ==================== */
+/* ==================== 6. OUR AREAS OF WORK (WITH THEMATIC PHOTOS & 3D ICONS) ==================== */
 .areas-section {
-  padding: 5rem 0;
+  padding: 5.5rem 0;
+  background: var(--bg-body);
 }
 
 .areas-3d-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
 }
 
 .area-3d-card {
   background: #FFFFFF;
   border-radius: var(--radius-card);
-  padding: 2.25rem 1.75rem;
+  overflow: hidden;
   box-shadow: var(--shadow-card);
-  text-align: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 310px;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   border: 1px solid var(--border-light);
   position: relative;
-  cursor: pointer;
+  cursor: default; /* Non clickable as requested */
 }
 
-.area-icon-3d-wrapper {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 1.25rem;
+.area-3d-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 35px -10px rgba(15, 23, 42, 0.12), 0 0 20px rgba(245, 158, 11, 0.15);
+  border-color: #CBD5E1;
+}
+
+.area-photo-box {
+  width: 100%;
+  height: 190px;
+  position: relative;
+  overflow: hidden;
+  background: #E2E8F0;
+}
+
+.area-photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.area-3d-card:hover .area-photo-box img {
+  transform: scale(1.08);
+}
+
+.area-icon-floating-badge {
+  position: absolute;
+  bottom: -22px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.35rem;
+  border: 2px solid #FFFFFF;
+  z-index: 5;
+  transition: transform 0.3s ease;
 }
 
-.area-icon-3d-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
+.area-3d-card:hover .area-icon-floating-badge {
+  transform: scale(1.12) rotate(6deg);
 }
 
-.area-3d-card h3 {
+.area-card-content {
+  padding: 1.75rem 1.6rem 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.area-pillar-tag {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.6rem;
+}
+
+.area-card-content h3 {
   font-family: var(--font-main);
   font-size: 1.25rem;
   font-weight: 700;
   color: var(--navy-heading);
-  margin-bottom: 0.45rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.35;
 }
 
-.area-3d-card p {
-  font-size: 0.875rem;
+.area-card-content p {
+  font-size: 0.9rem;
   color: var(--text-muted);
-  line-height: 1.55;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+
+.area-impact-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--navy-heading);
+  margin-top: auto;
 }
 
 /* ==================== 7. FOOTPRINT ACROSS INDIA (MAP) ==================== */
