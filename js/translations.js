@@ -431,6 +431,8 @@ function setSiteLanguage(lang) {
       link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-circle-info"></i> ' : '<i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'हमारे बारे में' : 'About Us');
     } else if (href === 'leadership.html' || href === '#founder') {
       link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-user-tie"></i> ' : '<i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'हमारा नेतृत्व एवं न्यासी' : 'Our Leadership & Trustees');
+    } else if (href === 'gallery.html' || href === '#gallery') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-images"></i> ' : '<i class="fa-solid fa-images" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'जमीनी गैलरी' : 'Ground Gallery');
     } else if (href === '#areas') {
       link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-hand-holding-heart"></i> ' : '') + t.nav_work;
     } else if (href === '#impact-map') {

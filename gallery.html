@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Ground Gallery &bull; S. A. Foundation</title>
+  <meta name="description" content="Explore authentic 3D visual dispatches from grassroots initiatives, rural schools, and disaster relief across India with SAF Foundation.">
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* Dedicated 3D Gallery Page Enhancements */
+    .gallery-page-hero {
+      padding: 3.5rem 0 2.5rem 0;
+      background: radial-gradient(circle at 50% 10%, rgba(245, 158, 11, 0.12) 0%, rgba(251, 251, 250, 1) 70%);
+      text-align: center;
+      position: relative;
+    }
+
+    .gallery-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: #FFFFFF;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-light);
+      margin-bottom: 1.25rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+
+    .gallery-breadcrumb a {
+      color: var(--navy-heading);
+    }
+
+    .gallery-breadcrumb a:hover {
+      color: var(--accent-gold);
+    }
+
+    .gallery-view-toggle-bar {
+      display: inline-flex;
+      background: #FFFFFF;
+      padding: 5px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      margin: 1.5rem auto 2.5rem;
+      gap: 4px;
+    }
+
+    .gallery-toggle-btn {
+      padding: 8px 20px;
+      border-radius: var(--radius-pill);
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: transparent;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .gallery-toggle-btn.active {
+      background: var(--navy-heading);
+      color: #FFFFFF;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    }
+
+    .gallery-full-archive-section {
+      padding: 2.5rem 0 4.5rem 0;
+    }
+
+    .gallery-perspective-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 2rem;
+    }
+
+    .gallery-card-3d-item {
+      background: #FFFFFF;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .gallery-card-3d-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12), 0 0 25px rgba(245, 158, 11, 0.18);
+      border-color: rgba(245, 158, 11, 0.5);
+    }
+
+    .gallery-card-3d-item .img-box {
+      width: 100%;
+      height: 230px;
+      position: relative;
+      overflow: hidden;
+      background: #E2E8F0;
+    }
+
+    .gallery-card-3d-item .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .gallery-card-3d-item:hover .img-box img {
+      transform: scale(1.1);
+    }
+
+    .gallery-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.1) 0%, rgba(15, 23, 42, 0.8) 100%);
+      opacity: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding: 1.25rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .gallery-card-3d-item:hover .gallery-card-overlay {
+      opacity: 1;
+    }
+
+    .gallery-card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
+    }
+
+    .gallery-card-body h3 {
+      font-family: var(--font-main);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy-heading);
+      margin-bottom: 0.45rem;
+      line-height: 1.35;
+    }
+
+    .gallery-card-body p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .gallery-meta-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-light);
+      padding-top: 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="site-header" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <a href="index.html" class="brand-wrapper">
+          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <h2>SAF Foundation</h2>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="desktop-nav">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-house" style="font-size:0.85rem; margin-right:4px;"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> About Us</a></li>
+            <li><a href="leadership.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> Our Leadership & Trustees</a></li>
+            <li><a href="gallery.html" class="nav-link-item active" style="font-weight:700; font-size:0.95rem; color:var(--accent-gold);"><i class="fa-solid fa-images" style="font-size:0.85rem; margin-right:4px;"></i> Ground Gallery</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-cta-wrap">
+          <!-- Language Switcher Toggle (EN / HI) -->
+          <div class="lang-switch-wrap" id="headerLangSwitch" title="Switch Language (English / हिन्दी)">
+            <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="hi" aria-label="Switch to Hindi">हिन्दी</button>
+          </div>
+
+          <button class="btn-pill-red nav-donate-btn" data-open-donate data-campaign-title="General Impact Fund">
+            Donate Now
+          </button>
+          <!-- Mobile Hamburger Toggle Button -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Out Drawer Navigation -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-wrapper">
+          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <h2>SAF Foundation</h2>
+          </div>
+        </div>
+        <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        <li><a href="leadership.html" class="mobile-nav-link"><i class="fa-solid fa-user-tie"></i> Our Leadership & Trustees</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link active" style="color:var(--accent-gold); font-weight:700;"><i class="fa-solid fa-images"></i> Ground Gallery</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <div style="display:flex; justify-content:center; margin-bottom:1rem;">
+          <div class="lang-switch-wrap" style="background:#F1F5F9;">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="hi">हिन्दी</button>
+          </div>
+        </div>
+
+        <button class="btn-pill-red" style="width:100%; justify-content:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
+          Donate Now
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav-backdrop" id="mobileDrawerBackdrop"></div>
+  </header>
+
+  <!-- ==================== 1. GALLERY PAGE HERO & BREADCRUMB ==================== -->
+  <section class="gallery-page-hero">
+    <div class="container">
+      <div class="gallery-breadcrumb reveal-3d">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <i class="fa-solid fa-chevron-right" style="font-size:0.65rem; color:#94A3B8;"></i>
+        <span>Ground Gallery</span>
+      </div>
+
+      <div class="hero-tag-badge reveal-3d" style="margin-bottom:0.75rem;">
+        <span class="badge-dot"></span> Real Change in Action
+      </div>
+
+      <h1 class="section-title reveal-3d" style="font-size:clamp(2.1rem, 4vw, 3rem); margin-bottom:0.85rem;">
+        Moments of Hope: Stories from Ground Zero
+      </h1>
+
+      <p class="section-subtitle reveal-3d" style="margin-bottom:1.5rem;">
+        Step into our interactive 3D visual gallery documenting live humanitarian operations, digital science labs, solar crafts, and transformed rural families across India.
+      </p>
+
+      <!-- View Toggle Bar -->
+      <div class="gallery-view-toggle-bar reveal-3d">
+        <button class="gallery-toggle-btn active" id="viewCoverflowBtn" data-target="coverflow">
+          <i class="fa-solid fa-cube" style="color:var(--accent-gold);"></i> 3D Showcase Stage
+        </button>
+        <button class="gallery-toggle-btn" id="viewGridBtn" data-target="grid">
+          <i class="fa-solid fa-table-cells" style="color:var(--teal-subtle);"></i> 3D Perspective Archive
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 2. VIEW 1: 3D SPOTLIGHT COVERFLOW ==================== -->
+  <section class="gallery-section" id="coverflowSection" style="border-top:none;">
+    <div class="container">
+      <div class="gallery-3d-stage-wrap reveal-3d" id="gallery3DStageWrap">
+        <div class="gallery-3d-stage" id="gallery3DStage">
+
+          <!-- 3D Card 1 -->
+          <div class="gallery-3d-card" data-index="0" data-img="assets/images/field-education.jpg" data-title="Smart Digital Science Labs" data-desc="Setting up interactive digital tablet labs and STEM curriculum across underserved rural schools." data-location="Patna, Bihar">
+            <div class="gallery-img-wrap">
+              <img src="assets/images/field-education.jpg" alt="Smart Digital Classroom">
+              <div class="gallery-item-overlay">
+                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
+              </div>
+              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <div class="gallery-info-box">
+              <span class="gallery-tag-pill">Education & STEM</span>
+              <h3>Smart Digital Science Labs</h3>
+              <p>Interactive STEM tablets and digital literacy empowering over 3,500 rural students.</p>
+              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Patna, Bihar</div>
+            </div>
+          </div>
+
+          <!-- 3D Card 2 -->
+          <div class="gallery-3d-card" data-index="1" data-img="assets/images/campaign-relief.jpg" data-title="Monsoon Flood Rescue & Clean Water" data-desc="Rapid deployment of disaster rescue boats and distribution of 50,000 clean water packs to displaced families." data-location="Kosi Basin, Bihar">
+            <div class="gallery-img-wrap">
+              <img src="assets/images/campaign-relief.jpg" alt="Monsoon Relief Operation">
+              <div class="gallery-item-overlay">
+                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
+              </div>
+              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <div class="gallery-info-box">
+              <span class="gallery-tag-pill" style="background:rgba(236,70,36,0.12); color:#EC4624;">Emergency Relief</span>
+              <h3>Monsoon Flood Relief</h3>
+              <p>Deploying emergency rescue units and 50,000 clean drinking water packs in submerged zones.</p>
+              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Kosi Basin, Bihar</div>
+            </div>
+          </div>
+
+          <!-- 3D Card 3 -->
+          <div class="gallery-3d-card" data-index="2" data-img="assets/images/campaign-women.jpg" data-title="Women Solar Craft Cooperatives" data-desc="Self-help sewing clusters powered by solar machines providing steady livelihood and direct market access." data-location="Madhubani, Bihar">
+            <div class="gallery-img-wrap">
+              <img src="assets/images/campaign-women.jpg" alt="Women Solar Sewing Hub">
+              <div class="gallery-item-overlay">
+                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
+              </div>
+              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <div class="gallery-info-box">
+              <span class="gallery-tag-pill" style="background:rgba(13,148,136,0.12); color:var(--teal-subtle);">Women Welfare</span>
+              <h3>Solar Sewing Craft Hubs</h3>
+              <p>Empowering 400 rural women artisans with direct market linkage and financial independence.</p>
+              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Madhubani, Bihar</div>
+            </div>
+          </div>
+
+          <!-- 3D Card 4 -->
+          <div class="gallery-3d-card" data-index="3" data-img="assets/images/hero-community.jpg" data-title="Community Nutritional Security" data-desc="Door-to-door distribution of nutritious dry rations and fortified mid-day meals for vulnerable households." data-location="Muzaffarpur, Bihar">
+            <div class="gallery-img-wrap">
+              <img src="assets/images/hero-community.jpg" alt="Community Food Distribution">
+              <div class="gallery-item-overlay">
+                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
+              </div>
+              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <div class="gallery-info-box">
+              <span class="gallery-tag-pill">Community & Food</span>
+              <h3>Nutritional Security Drive</h3>
+              <p>Hot nutritious mid-day meals and monthly ration kits delivered directly to vulnerable families.</p>
+              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Muzaffarpur, Bihar</div>
+            </div>
+          </div>
+
+          <!-- 3D Card 5 -->
+          <div class="gallery-3d-card" data-index="4" data-img="assets/images/story-devi.jpg" data-title="Pediatric Malnutrition Recovery" data-desc="Timely clinical diagnosis, essential medicines, and high-protein therapeutic food saving infant lives." data-location="Samastipur, Bihar">
+            <div class="gallery-img-wrap">
+              <img src="assets/images/story-devi.jpg" alt="Pediatric Health Checkup">
+              <div class="gallery-item-overlay">
+                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
+              </div>
+              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <div class="gallery-info-box">
+              <span class="gallery-tag-pill" style="background:rgba(225,29,72,0.12); color:#E11D48;">Health & Wellness</span>
+              <h3>Pediatric Clinical Care</h3>
+              <p>Dedicated medical vans diagnosing malnutrition and providing vital therapeutic pediatric care.</p>
+              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Samastipur, Bihar</div>
+            </div>
+          </div>
+
+          <!-- 3D Card 6 -->
+          <div class="gallery-3d-card" data-index="5" data-img="assets/images/story-shanti.jpg" data-title="Clean Water Wells & Cooperative Farms" data-desc="Solar clean water pumps and community farming cooperatives led by village women leaders." data-location="Gaya, Bihar">
+            <div class="gallery-img-wrap">
+              <img src="assets/images/story-shanti.jpg" alt="Solar Clean Water Well">
+              <div class="gallery-item-overlay">
+                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
+              </div>
+              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <div class="gallery-info-box">
+              <span class="gallery-tag-pill" style="background:rgba(13,148,136,0.12); color:var(--teal-subtle);">Clean Water & Farms</span>
+              <h3>Solar Water Infrastructure</h3>
+              <p>Erecting solar clean water wells and establishing collective farms managed by 120 women.</p>
+              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Gaya, Bihar</div>
+            </div>
+          </div>
+
+          <!-- 3D Card 7 -->
+          <div class="gallery-3d-card" data-index="6" data-img="assets/images/campaign-education.jpg" data-title="5,000 Smart Tablets Distribution" data-desc="Distributing customized learning tablets with preloaded curriculum to rural girl students." data-location="Darbhanga, Bihar">
+            <div class="gallery-img-wrap">
+              <img src="assets/images/campaign-education.jpg" alt="Tablet Distribution Drive">
+              <div class="gallery-item-overlay">
+                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
+              </div>
+              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <div class="gallery-info-box">
+              <span class="gallery-tag-pill">Education</span>
+              <h3>Digital Study Tablets</h3>
+              <p>Equipping rural girl students with interactive digital curriculum tablets and mentoring.</p>
+              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Darbhanga, Bihar</div>
+            </div>
+          </div>
+
+          <!-- 3D Card 8 -->
+          <div class="gallery-3d-card" data-index="7" data-img="assets/images/story-brothers.jpg" data-title="Child Labor to Merit Scholars" data-desc="Rescuing children from brick kilns and providing full educational scholarships into mainstream schools." data-location="Nalanda, Bihar">
+            <div class="gallery-img-wrap">
+              <img src="assets/images/story-brothers.jpg" alt="Merit Scholarship Scholars">
+              <div class="gallery-item-overlay">
+                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
+              </div>
+              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
+            </div>
+            <div class="gallery-info-box">
+              <span class="gallery-tag-pill">Scholarships</span>
+              <h3>Youth Education Breakthrough</h3>
+              <p>From laboring at local kilns to securing district merit ranks with SAF smart tablets.</p>
+              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Nalanda, Bihar</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Clean Minimal 3D Controls -->
+        <div class="gallery-3d-controls">
+          <button class="gallery-nav-btn" id="galleryPrevBtn" aria-label="Previous story">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+
+          <button class="gallery-nav-btn" id="galleryNextBtn" aria-label="Next story">
+            <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 3. VIEW 2: 3D PERSPECTIVE ARCHIVE WITH CATEGORY FILTERS ==================== -->
+  <section class="gallery-full-archive-section" id="gridSection" style="display:none;">
+    <div class="container">
+      
+      <!-- Category Filter Tabs -->
+      <div class="gallery-filter-tabs reveal-3d" style="display:flex; justify-content:center; gap:0.6rem; flex-wrap:wrap; margin-bottom:2.5rem;">
+        <button class="gallery-filter-btn active" data-filter="all">All Field Dispatches</button>
+        <button class="gallery-filter-btn" data-filter="education">Education & STEM</button>
+        <button class="gallery-filter-btn" data-filter="relief">Emergency Relief</button>
+        <button class="gallery-filter-btn" data-filter="women">Women Welfare</button>
+        <button class="gallery-filter-btn" data-filter="health">Health & Nutrition</button>
+      </div>
+
+      <!-- 3D Perspective Grid -->
+      <div class="gallery-perspective-grid reveal-3d reveal-3d-stagger">
+        
+        <!-- Grid Item 1 -->
+        <div class="gallery-card-3d-item" data-category="education" data-title="Smart Digital Science Labs" data-desc="Setting up interactive digital tablet labs and STEM curriculum across underserved rural schools." data-location="Patna, Bihar" data-img="assets/images/field-education.jpg">
+          <div class="img-box">
+            <img src="assets/images/field-education.jpg" alt="Smart Digital Science Labs" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span style="color:#FFFFFF; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Inspect Visual</span>
+              <span style="color:var(--accent-gold); font-size:0.82rem; font-weight:700;"><i class="fa-solid fa-circle-info"></i> Full Story</span>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div>
+              <span class="gallery-tag-pill" style="margin-bottom:0.5rem; display:inline-block;">Education & STEM</span>
+              <h3>Smart Digital Science Labs</h3>
+              <p>Interactive STEM tablets and digital literacy empowering over 3,500 rural students in government schools.</p>
+            </div>
+            <div class="gallery-meta-footer">
+              <span><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Patna, Bihar</span>
+              <span style="color:var(--teal-subtle);"><i class="fa-solid fa-circle-check"></i> Verified Ground Impact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid Item 2 -->
+        <div class="gallery-card-3d-item" data-category="relief" data-title="Monsoon Flood Rescue & Clean Water" data-desc="Rapid deployment of disaster rescue boats and distribution of 50,000 clean water packs to displaced families." data-location="Kosi Basin, Bihar" data-img="assets/images/campaign-relief.jpg">
+          <div class="img-box">
+            <img src="assets/images/campaign-relief.jpg" alt="Monsoon Relief Operation" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span style="color:#FFFFFF; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Inspect Visual</span>
+              <span style="color:var(--accent-gold); font-size:0.82rem; font-weight:700;"><i class="fa-solid fa-circle-info"></i> Full Story</span>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div>
+              <span class="gallery-tag-pill" style="background:rgba(236,70,36,0.12); color:#EC4624; margin-bottom:0.5rem; display:inline-block;">Emergency Relief</span>
+              <h3>Monsoon Flood Relief Operation</h3>
+              <p>Deploying emergency rescue units and 50,000 clean drinking water packs in submerged flood zones.</p>
+            </div>
+            <div class="gallery-meta-footer">
+              <span><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Kosi Basin, Bihar</span>
+              <span style="color:var(--teal-subtle);"><i class="fa-solid fa-circle-check"></i> Verified Ground Impact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid Item 3 -->
+        <div class="gallery-card-3d-item" data-category="women" data-title="Women Solar Craft Cooperatives" data-desc="Self-help sewing clusters powered by solar machines providing steady livelihood and direct market access." data-location="Madhubani, Bihar" data-img="assets/images/campaign-women.jpg">
+          <div class="img-box">
+            <img src="assets/images/campaign-women.jpg" alt="Women Solar Sewing Hub" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span style="color:#FFFFFF; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Inspect Visual</span>
+              <span style="color:var(--accent-gold); font-size:0.82rem; font-weight:700;"><i class="fa-solid fa-circle-info"></i> Full Story</span>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div>
+              <span class="gallery-tag-pill" style="background:rgba(13,148,136,0.12); color:var(--teal-subtle); margin-bottom:0.5rem; display:inline-block;">Women Welfare</span>
+              <h3>Solar Sewing Craft Hubs</h3>
+              <p>Empowering 400 rural women artisans with direct market linkage and financial independence.</p>
+            </div>
+            <div class="gallery-meta-footer">
+              <span><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Madhubani, Bihar</span>
+              <span style="color:var(--teal-subtle);"><i class="fa-solid fa-circle-check"></i> Verified Ground Impact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid Item 4 -->
+        <div class="gallery-card-3d-item" data-category="health" data-title="Community Nutritional Security" data-desc="Door-to-door distribution of nutritious dry rations and fortified mid-day meals for vulnerable households." data-location="Muzaffarpur, Bihar" data-img="assets/images/hero-community.jpg">
+          <div class="img-box">
+            <img src="assets/images/hero-community.jpg" alt="Community Food Distribution" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span style="color:#FFFFFF; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Inspect Visual</span>
+              <span style="color:var(--accent-gold); font-size:0.82rem; font-weight:700;"><i class="fa-solid fa-circle-info"></i> Full Story</span>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div>
+              <span class="gallery-tag-pill" style="margin-bottom:0.5rem; display:inline-block;">Community & Food</span>
+              <h3>Nutritional Security Drive</h3>
+              <p>Hot nutritious mid-day meals and monthly ration kits delivered directly to vulnerable families.</p>
+            </div>
+            <div class="gallery-meta-footer">
+              <span><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Muzaffarpur, Bihar</span>
+              <span style="color:var(--teal-subtle);"><i class="fa-solid fa-circle-check"></i> Verified Ground Impact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid Item 5 -->
+        <div class="gallery-card-3d-item" data-category="health" data-title="Pediatric Malnutrition Recovery" data-desc="Timely clinical diagnosis, essential medicines, and high-protein therapeutic food saving infant lives." data-location="Samastipur, Bihar" data-img="assets/images/story-devi.jpg">
+          <div class="img-box">
+            <img src="assets/images/story-devi.jpg" alt="Pediatric Health Checkup" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span style="color:#FFFFFF; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Inspect Visual</span>
+              <span style="color:var(--accent-gold); font-size:0.82rem; font-weight:700;"><i class="fa-solid fa-circle-info"></i> Full Story</span>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div>
+              <span class="gallery-tag-pill" style="background:rgba(225,29,72,0.12); color:#E11D48; margin-bottom:0.5rem; display:inline-block;">Health & Wellness</span>
+              <h3>Pediatric Clinical Care</h3>
+              <p>Dedicated medical vans diagnosing malnutrition and providing vital therapeutic pediatric care.</p>
+            </div>
+            <div class="gallery-meta-footer">
+              <span><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Samastipur, Bihar</span>
+              <span style="color:var(--teal-subtle);"><i class="fa-solid fa-circle-check"></i> Verified Ground Impact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid Item 6 -->
+        <div class="gallery-card-3d-item" data-category="women" data-title="Clean Water Wells & Cooperative Farms" data-desc="Solar clean water pumps and community farming cooperatives led by village women leaders." data-location="Gaya, Bihar" data-img="assets/images/story-shanti.jpg">
+          <div class="img-box">
+            <img src="assets/images/story-shanti.jpg" alt="Solar Clean Water Well" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span style="color:#FFFFFF; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Inspect Visual</span>
+              <span style="color:var(--accent-gold); font-size:0.82rem; font-weight:700;"><i class="fa-solid fa-circle-info"></i> Full Story</span>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div>
+              <span class="gallery-tag-pill" style="background:rgba(13,148,136,0.12); color:var(--teal-subtle); margin-bottom:0.5rem; display:inline-block;">Clean Water & Farms</span>
+              <h3>Solar Water Infrastructure</h3>
+              <p>Erecting solar clean water wells and establishing collective farms managed by 120 women.</p>
+            </div>
+            <div class="gallery-meta-footer">
+              <span><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Gaya, Bihar</span>
+              <span style="color:var(--teal-subtle);"><i class="fa-solid fa-circle-check"></i> Verified Ground Impact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid Item 7 -->
+        <div class="gallery-card-3d-item" data-category="education" data-title="5,000 Smart Tablets Distribution" data-desc="Distributing customized learning tablets with preloaded curriculum to rural girl students." data-location="Darbhanga, Bihar" data-img="assets/images/campaign-education.jpg">
+          <div class="img-box">
+            <img src="assets/images/campaign-education.jpg" alt="Tablet Distribution Drive" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span style="color:#FFFFFF; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Inspect Visual</span>
+              <span style="color:var(--accent-gold); font-size:0.82rem; font-weight:700;"><i class="fa-solid fa-circle-info"></i> Full Story</span>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div>
+              <span class="gallery-tag-pill" style="margin-bottom:0.5rem; display:inline-block;">Education</span>
+              <h3>Digital Study Tablets</h3>
+              <p>Equipping rural girl students with interactive digital curriculum tablets and mentoring.</p>
+            </div>
+            <div class="gallery-meta-footer">
+              <span><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Darbhanga, Bihar</span>
+              <span style="color:var(--teal-subtle);"><i class="fa-solid fa-circle-check"></i> Verified Ground Impact</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grid Item 8 -->
+        <div class="gallery-card-3d-item" data-category="education" data-title="Child Labor to Merit Scholars" data-desc="Rescuing children from brick kilns and providing full educational scholarships into mainstream schools." data-location="Nalanda, Bihar" data-img="assets/images/story-brothers.jpg">
+          <div class="img-box">
+            <img src="assets/images/story-brothers.jpg" alt="Merit Scholarship Scholars" loading="lazy">
+            <div class="gallery-card-overlay">
+              <span style="color:#FFFFFF; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Inspect Visual</span>
+              <span style="color:var(--accent-gold); font-size:0.82rem; font-weight:700;"><i class="fa-solid fa-circle-info"></i> Full Story</span>
+            </div>
+          </div>
+          <div class="gallery-card-body">
+            <div>
+              <span class="gallery-tag-pill" style="margin-bottom:0.5rem; display:inline-block;">Scholarships</span>
+              <h3>Youth Education Breakthrough</h3>
+              <p>From laboring at local kilns to securing district merit ranks with SAF smart tablets.</p>
+            </div>
+            <div class="gallery-meta-footer">
+              <span><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Nalanda, Bihar</span>
+              <span style="color:var(--teal-subtle);"><i class="fa-solid fa-circle-check"></i> Verified Ground Impact</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 4. MEGA CTA BANNER ==================== -->
+  <section class="mega-cta-section" style="padding-top:1rem;">
+    <div class="container">
+      <div class="mega-cta-3d-card reveal-3d">
+        <div>
+          <h2>Be the Reason Behind the Next Story of Hope</h2>
+          <p style="font-size:1.1rem; color:#E2E8F0; margin-bottom:2rem; line-height:1.65;">
+            Your contribution directly funds smart tablets, emergency rescue boats, and rural women craft hubs.
+          </p>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <button class="btn-pill-red" data-open-donate data-campaign-title="Ground Gallery Support">
+              Donate to This Work
+            </button>
+            <a href="index.html" class="btn-pill-outline" style="background:rgba(255,255,255,0.1); color:#FFFFFF; border-color:rgba(255,255,255,0.3);">
+              Back to Home
+            </a>
+          </div>
+        </div>
+        <div class="mega-cta-img-wrap">
+          <img src="assets/images/anand-singh.jpg" alt="Anand Singh with children">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MEGA FOOTER ==================== -->
+  <footer class="mega-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid-cols">
+        <div>
+          <div class="footer-logo-wrap">
+            <img src="assets/images/logo.png" alt="SAF Logo">
+            <span>SAF Foundation</span>
+          </div>
+          <p style="font-size:0.875rem; line-height:1.65; margin-bottom:1.25rem; color:var(--text-muted);">
+            S. A. Foundation is a national non-profit organization dedicated to empowering grassroots communities across India.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Quick Links</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="leadership.html">Our Leadership & Trustees</a></li>
+            <li><a href="gallery.html">Ground Gallery</a></li>
+            <li><a href="index.html#areas">Our Work</a></li>
+            <li><a href="index.html#campaigns">Campaigns</a></li>
+            <li><a href="index.html#help">Get Involved</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Contact Info</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
+            <li><i class="fa-solid fa-building" style="color:var(--accent-gold);"></i> HQ: New Delhi - 110001</li>
+            <li><i class="fa-solid fa-map-pin" style="color:var(--accent-gold);"></i> Field: Patna, Bihar - 800001</li>
+            <li><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +91 11 4987 6500</li>
+            <li><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> contact@saf-foundation.org</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Newsletter Signup</h4>
+          <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.6rem;">
+            <input type="email" placeholder="Your Email Address" required style="padding:0.8rem 1.1rem; border-radius:var(--radius-pill); font-size:0.875rem; border:1px solid var(--border-light); outline:none; background:#ffffff;">
+            <button class="btn-pill-dark" type="submit" style="justify-content:center;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--border-light); padding-top:1.5rem; text-align:center; font-size:0.825rem; color:var(--text-muted);">
+        &copy; 2026 S. A. Foundation. All rights reserved. 80G & 12A Certified NGO.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="gallery-modal-backdrop" id="galleryLightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="gallery-modal-dialog">
+      <button class="gallery-modal-close-btn" id="galleryModalClose" aria-label="Close dialog">&times;</button>
+      <div class="gallery-modal-img-wrap">
+        <img src="" alt="Gallery Preview" id="galleryModalImg">
+      </div>
+      <div class="gallery-modal-content">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem; flex-wrap:wrap; gap:8px;">
+          <h3 id="galleryModalTitle" style="font-size:1.35rem; font-weight:700; color:var(--navy-heading); margin:0;"></h3>
+          <span id="galleryModalLocation" style="font-size:0.82rem; font-weight:700; color:var(--text-muted); background:var(--bg-subtle); padding:4px 10px; border-radius:var(--radius-pill); border:1px solid var(--border-light);"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Location</span>
+        </div>
+        <p id="galleryModalDesc" style="color:var(--text-body); font-size:0.95rem; line-height:1.65; margin-bottom:1.5rem;"></p>
+        <div style="display:flex; gap:10px;">
+          <button class="btn-pill-red" style="font-size:0.85rem; padding:0.65rem 1.25rem;" data-open-donate>Support This Cause</button>
+          <button class="btn-pill-outline" style="font-size:0.85rem; padding:0.65rem 1.25rem;" id="galleryModalCloseBtn">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Donation Modal -->
+  <div class="modal-backdrop" id="donateModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close dialog">&times;</button>
+      <div class="modal-header">
+        <h3 id="modalCampaignTitle">Support S. A. Foundation</h3>
+        <p>Your contribution directly transforms grassroots lives with 50% 80G tax exemption.</p>
+      </div>
+      <form id="donationForm">
+        <div style="display:flex; gap:8px; margin-bottom:1.25rem;">
+          <button type="button" class="btn-pill-outline amt-btn" style="flex:1; padding:0.6rem 0.5rem; font-size:0.85rem;" data-amount="1000">₹1,000</button>
+          <button type="button" class="btn-pill-outline amt-btn" style="flex:1; padding:0.6rem 0.5rem; font-size:0.85rem;" data-amount="2500">₹2,500</button>
+          <button type="button" class="btn-pill-outline amt-btn" style="flex:1; padding:0.6rem 0.5rem; font-size:0.85rem;" data-amount="5000">₹5,000</button>
+        </div>
+        <div style="display:flex; flex-direction:column; gap:0.75rem; margin-bottom:1.25rem;">
+          <input type="number" id="customAmount" placeholder="Enter Custom Amount (₹)" required style="padding:0.8rem 1rem; border-radius:10px; border:1px solid var(--border-light); font-size:0.95rem; outline:none;">
+          <input type="text" id="donorName" placeholder="Full Name" required style="padding:0.8rem 1rem; border-radius:10px; border:1px solid var(--border-light); font-size:0.95rem; outline:none;">
+          <input type="email" id="donorEmail" placeholder="Email Address (for 80G receipt)" required style="padding:0.8rem 1rem; border-radius:10px; border:1px solid var(--border-light); font-size:0.95rem; outline:none;">
+          <input type="tel" id="donorPhone" placeholder="Mobile Number" required style="padding:0.8rem 1rem; border-radius:10px; border:1px solid var(--border-light); font-size:0.95rem; outline:none;">
+        </div>
+        <button type="submit" class="btn-pill-red" style="width:100%; justify-content:center; padding:0.9rem;">
+          Proceed to Secure Payment &bull; ₹<span id="submitAmountDisplay">2500</span>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Card -->
+  <div class="toast-notification-card" id="toastNotification">
+    <div class="toast-icon-wrap" style="color:var(--accent-gold);"><i class="fa-solid fa-circle-check"></i></div>
+    <div class="toast-text-wrap" id="toastMessage">Action completed successfully!</div>
+  </div>
+
+  <!-- Core Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+
+  <script>
+    // Gallery Page Dedicated Interactive Switcher
+    document.addEventListener('DOMContentLoaded', () => {
+      const coverflowBtn = document.getElementById('viewCoverflowBtn');
+      const gridBtn = document.getElementById('viewGridBtn');
+      const coverflowSec = document.getElementById('coverflowSection');
+      const gridSec = document.getElementById('gridSection');
+
+      coverflowBtn?.addEventListener('click', () => {
+        coverflowBtn.classList.add('active');
+        gridBtn.classList.remove('active');
+        if (coverflowSec) coverflowSec.style.display = 'block';
+        if (gridSec) gridSec.style.display = 'none';
+      });
+
+      gridBtn?.addEventListener('click', () => {
+        gridBtn.classList.add('active');
+        coverflowBtn.classList.remove('active');
+        if (coverflowSec) coverflowSec.style.display = 'none';
+        if (gridSec) gridSec.style.display = 'block';
+      });
+
+      // Perspective Grid Category Filters
+      const filterBtns = document.querySelectorAll('.gallery-filter-tabs .gallery-filter-btn');
+      const gridCards = document.querySelectorAll('.gallery-perspective-grid .gallery-card-3d-item');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const filter = btn.getAttribute('data-filter');
+
+          gridCards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.style.display = 'flex';
+              setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'scale(1)'; }, 50);
+            } else {
+              card.style.opacity = '0';
+              card.style.transform = 'scale(0.92)';
+              setTimeout(() => { card.style.display = 'none'; }, 200);
+            }
+          });
+        });
+      });
+
+      // Grid card click to open lightbox
+      gridCards.forEach(card => {
+        card.addEventListener('click', () => {
+          const modal = document.getElementById('galleryLightboxModal');
+          const modalImg = document.getElementById('galleryModalImg');
+          const modalTitle = document.getElementById('galleryModalTitle');
+          const modalDesc = document.getElementById('galleryModalDesc');
+          const modalLoc = document.getElementById('galleryModalLocation');
+
+          if (modal && modalImg) {
+            modalImg.src = card.getAttribute('data-img');
+            modalTitle.textContent = card.getAttribute('data-title');
+            modalDesc.textContent = card.getAttribute('data-desc');
+            if (modalLoc) modalLoc.innerHTML = `<i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> ${card.getAttribute('data-location')}`;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
