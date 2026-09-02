@@ -162,22 +162,12 @@
           <span class="badge-dot"></span> Real Change in Action
         </div>
         <h2 class="section-title">Moments of Hope: Stories from Ground Zero</h2>
-        <p class="section-subtitle reveal-3d" style="margin-bottom:1.5rem;">
+        <p class="section-subtitle reveal-3d" style="margin-bottom:2rem;">
           Witness firsthand the lives transformed by your kindness — from smart digital classrooms and emergency disaster relief to rural women leading self-reliant communities.
         </p>
-
-        <!-- Interactive View Mode Switcher -->
-        <div class="gallery-mode-switch reveal-3d">
-          <button class="gallery-mode-btn active" id="mode3DShowcaseBtn" data-mode="3d">
-            <i class="fa-solid fa-cube" style="color:var(--accent-gold);"></i> 3D Showcase
-          </button>
-          <button class="gallery-mode-btn" id="modeFullGridBtn" data-mode="grid">
-            <i class="fa-solid fa-table-cells" style="color:var(--red-cta);"></i> Explore All (8 Stories)
-          </button>
-        </div>
       </div>
 
-      <!-- ================= VIEW 1: 3D SPOTLIGHT COVERFLOW (DEFAULT) ================= -->
+      <!-- ================= 3D SPOTLIGHT COVERFLOW ================= -->
       <div class="gallery-3d-stage-wrap reveal-3d" id="gallery3DStageWrap">
         <div class="gallery-3d-stage" id="gallery3DStage">
 
@@ -319,190 +309,14 @@
 
         </div>
 
-        <!-- 3D Carousel Interactive Controls Bar -->
+        <!-- Clean Minimal 3D Controls -->
         <div class="gallery-3d-controls">
           <button class="gallery-nav-btn" id="galleryPrevBtn" aria-label="Previous story">
             <i class="fa-solid fa-arrow-left"></i>
           </button>
-          
-          <div class="gallery-slide-counter" id="gallerySlideCounter">
-            01 / 08
-          </div>
 
           <button class="gallery-nav-btn" id="galleryNextBtn" aria-label="Next story">
             <i class="fa-solid fa-arrow-right"></i>
-          </button>
-
-          <button class="gallery-autoplay-btn playing" id="galleryAutoplayBtn" aria-label="Toggle auto rotate">
-            <i class="fa-solid fa-pause"></i> Auto 3D
-          </button>
-        </div>
-
-        <!-- Interactive Explore All Invitation Action -->
-        <div class="gallery-explore-action-box">
-          <button class="btn-explore-gallery-all" id="exploreAllBtn">
-            <i class="fa-solid fa-sparkles" style="color:var(--accent-gold);"></i> View All 8 Field Stories &bull; Explore Full Archive <i class="fa-solid fa-arrow-right" style="margin-left:4px;"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- ================= VIEW 2: FULL INTERACTIVE 3D GRID ================= -->
-      <div class="gallery-full-grid-view" id="galleryFullGridView">
-        
-        <!-- Category Filter Tabs -->
-        <div class="gallery-filter-tabs">
-          <button class="gallery-filter-btn active" data-filter="all">All Initiatives</button>
-          <button class="gallery-filter-btn" data-filter="education">Education & STEM</button>
-          <button class="gallery-filter-btn" data-filter="relief">Emergency Relief</button>
-          <button class="gallery-filter-btn" data-filter="women">Women Empowerment</button>
-          <button class="gallery-filter-btn" data-filter="health">Health & Nutrition</button>
-        </div>
-
-        <!-- Full Grid -->
-        <div class="gallery-3d-grid" id="galleryGrid">
-          
-          <!-- Item 1: Education -->
-          <div class="gallery-item-card card-3d-interactive" data-category="education" data-title="Smart Digital Science Labs" data-desc="Setting up interactive digital tablet labs and STEM curriculum across underserved rural schools." data-location="Patna, Bihar" data-img="assets/images/field-education.jpg">
-            <div class="gallery-img-wrap" style="height:220px;">
-              <img src="assets/images/field-education.jpg" alt="Smart Digital Classroom" loading="lazy">
-              <div class="gallery-item-overlay">
-                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
-              </div>
-              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-            </div>
-            <div class="gallery-info-box">
-              <span class="gallery-tag-pill">Education</span>
-              <h3>Smart Digital Science Labs</h3>
-              <p>Interactive STEM tablets and digital literacy empowering over 3,500 rural students.</p>
-              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Patna, Bihar</div>
-            </div>
-          </div>
-
-          <!-- Item 2: Relief -->
-          <div class="gallery-item-card card-3d-interactive" data-category="relief" data-title="Monsoon Flood Rescue & Clean Water" data-desc="Rapid deployment of disaster rescue boats and distribution of 50,000 clean water packs to displaced families." data-location="Kosi Basin, Bihar" data-img="assets/images/campaign-relief.jpg">
-            <div class="gallery-img-wrap" style="height:220px;">
-              <img src="assets/images/campaign-relief.jpg" alt="Monsoon Relief Operation" loading="lazy">
-              <div class="gallery-item-overlay">
-                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
-              </div>
-              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-            </div>
-            <div class="gallery-info-box">
-              <span class="gallery-tag-pill" style="background:rgba(236,70,36,0.12); color:#EC4624;">Emergency Relief</span>
-              <h3>Monsoon Flood Relief Operation</h3>
-              <p>Deploying emergency rescue units and 50,000 clean drinking water packs in submerged zones.</p>
-              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Kosi Basin, Bihar</div>
-            </div>
-          </div>
-
-          <!-- Item 3: Women -->
-          <div class="gallery-item-card card-3d-interactive" data-category="women" data-title="Women Solar Craft Cooperatives" data-desc="Self-help sewing clusters powered by solar machines providing steady livelihood and direct market access." data-location="Madhubani, Bihar" data-img="assets/images/campaign-women.jpg">
-            <div class="gallery-img-wrap" style="height:220px;">
-              <img src="assets/images/campaign-women.jpg" alt="Women Solar Sewing Hub" loading="lazy">
-              <div class="gallery-item-overlay">
-                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
-              </div>
-              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-            </div>
-            <div class="gallery-info-box">
-              <span class="gallery-tag-pill" style="background:rgba(13,148,136,0.12); color:var(--teal-subtle);">Women Welfare</span>
-              <h3>Solar Sewing Craft Hubs</h3>
-              <p>Empowering 400 rural women artisans with direct market linkage and financial independence.</p>
-              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Madhubani, Bihar</div>
-            </div>
-          </div>
-
-          <!-- Item 4: Community & Health -->
-          <div class="gallery-item-card card-3d-interactive" data-category="health" data-title="Community Nutritional Security" data-desc="Door-to-door distribution of nutritious dry rations and fortified mid-day meals for vulnerable households." data-location="Muzaffarpur, Bihar" data-img="assets/images/hero-community.jpg">
-            <div class="gallery-img-wrap" style="height:220px;">
-              <img src="assets/images/hero-community.jpg" alt="Community Food Distribution" loading="lazy">
-              <div class="gallery-item-overlay">
-                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
-              </div>
-              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-            </div>
-            <div class="gallery-info-box">
-              <span class="gallery-tag-pill">Community & Food</span>
-              <h3>Nutritional Security Drive</h3>
-              <p>Hot nutritious mid-day meals and monthly ration kits delivered directly to vulnerable families.</p>
-              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Muzaffarpur, Bihar</div>
-            </div>
-          </div>
-
-          <!-- Item 5: Health -->
-          <div class="gallery-item-card card-3d-interactive" data-category="health" data-title="Pediatric Malnutrition Recovery" data-desc="Timely clinical diagnosis, essential medicines, and high-protein therapeutic food saving infant lives." data-location="Samastipur, Bihar" data-img="assets/images/story-devi.jpg">
-            <div class="gallery-img-wrap" style="height:220px;">
-              <img src="assets/images/story-devi.jpg" alt="Pediatric Health Checkup" loading="lazy">
-              <div class="gallery-item-overlay">
-                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
-              </div>
-              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-            </div>
-            <div class="gallery-info-box">
-              <span class="gallery-tag-pill" style="background:rgba(225,29,72,0.12); color:#E11D48;">Health & Wellness</span>
-              <h3>Pediatric Clinical Care</h3>
-              <p>Dedicated medical vans diagnosing malnutrition and providing vital therapeutic pediatric care.</p>
-              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Samastipur, Bihar</div>
-            </div>
-          </div>
-
-          <!-- Item 6: Community & Women -->
-          <div class="gallery-item-card card-3d-interactive" data-category="women" data-title="Clean Water Wells & Cooperative Farms" data-desc="Solar clean water pumps and community farming cooperatives led by village women leaders." data-location="Gaya, Bihar" data-img="assets/images/story-shanti.jpg">
-            <div class="gallery-img-wrap" style="height:220px;">
-              <img src="assets/images/story-shanti.jpg" alt="Solar Clean Water Well" loading="lazy">
-              <div class="gallery-item-overlay">
-                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
-              </div>
-              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-            </div>
-            <div class="gallery-info-box">
-              <span class="gallery-tag-pill" style="background:rgba(13,148,136,0.12); color:var(--teal-subtle);">Clean Water & Farms</span>
-              <h3>Solar Water Infrastructure</h3>
-              <p>Erecting solar clean water wells and establishing collective farms managed by 120 women.</p>
-              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Gaya, Bihar</div>
-            </div>
-          </div>
-
-          <!-- Item 7: Education -->
-          <div class="gallery-item-card card-3d-interactive" data-category="education" data-title="5,000 Smart Tablets Distribution" data-desc="Distributing customized learning tablets with preloaded curriculum to rural girl students." data-location="Darbhanga, Bihar" data-img="assets/images/campaign-education.jpg">
-            <div class="gallery-img-wrap" style="height:220px;">
-              <img src="assets/images/campaign-education.jpg" alt="Tablet Distribution Drive" loading="lazy">
-              <div class="gallery-item-overlay">
-                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
-              </div>
-              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-            </div>
-            <div class="gallery-info-box">
-              <span class="gallery-tag-pill">Education</span>
-              <h3>Digital Study Tablets</h3>
-              <p>Equipping rural girl students with interactive digital curriculum tablets and mentoring.</p>
-              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Darbhanga, Bihar</div>
-            </div>
-          </div>
-
-          <!-- Item 8: Education & Youth -->
-          <div class="gallery-item-card card-3d-interactive" data-category="education" data-title="Child Labor to Merit Scholars" data-desc="Rescuing children from brick kilns and providing full educational scholarships into mainstream schools." data-location="Nalanda, Bihar" data-img="assets/images/story-brothers.jpg">
-            <div class="gallery-img-wrap" style="height:220px;">
-              <img src="assets/images/story-brothers.jpg" alt="Merit Scholarship Scholars" loading="lazy">
-              <div class="gallery-item-overlay">
-                <span style="color:#fff; font-size:0.82rem; font-weight:600;"><i class="fa-solid fa-expand"></i> Click to Zoom</span>
-              </div>
-              <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
-            </div>
-            <div class="gallery-info-box">
-              <span class="gallery-tag-pill">Scholarships</span>
-              <h3>Youth Education Breakthrough</h3>
-              <p>From laboring at local kilns to securing district merit ranks with SAF smart tablets.</p>
-              <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Nalanda, Bihar</div>
-            </div>
-          </div>
-
-        </div>
-
-        <!-- Collapse back to 3D button -->
-        <div style="text-align:center; margin-top:2.5rem;">
-          <button class="btn-pill-outline" id="collapse3DBtn" style="font-size:0.88rem; padding:0.65rem 1.5rem;">
-            <i class="fa-solid fa-cube" style="color:var(--accent-gold); margin-right:6px;"></i> Return to 3D Showcase
           </button>
         </div>
       </div>
