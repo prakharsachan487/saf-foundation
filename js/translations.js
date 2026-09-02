@@ -429,8 +429,8 @@ function setSiteLanguage(lang) {
       link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-house"></i> ' : '<i class="fa-solid fa-house" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'होम' : 'Home');
     } else if (href === 'about.html' || href === '#about') {
       link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-circle-info"></i> ' : '<i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'हमारे बारे में' : 'About Us');
-    } else if (href === '#founder') {
-      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-user-tie"></i> ' : '') + t.nav_founder;
+    } else if (href === 'leadership.html' || href === '#founder') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-user-tie"></i> ' : '<i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'हमारा नेतृत्व एवं न्यासी' : 'Our Leadership & Trustees');
     } else if (href === '#areas') {
       link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-hand-holding-heart"></i> ' : '') + t.nav_work;
     } else if (href === '#impact-map') {

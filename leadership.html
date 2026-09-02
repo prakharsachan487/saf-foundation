@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us | SAF Foundation - S. A. FOUNDATION</title>
-  <meta name="description" content="Learn about S. A. Foundation (SAF), our mission, vision, grassroots development models, and commitment to uplifting underserved communities across India.">
+  <title>Our Leadership & Vision | Anand Singh — Managing Trustee | SAF Foundation</title>
+  <meta name="description" content="Meet Anand Singh, Founder and Managing Trustee of S. A. Foundation (SAF). Discover our leadership philosophy, governance standards, and grassroots vision.">
 
   <!-- Google Fonts (Poppins) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="css/styles.css">
 
   <style>
-    /* Dedicated About Page Styles */
+    /* Dedicated Leadership Page Styles */
     .page-hero-section {
       padding: 8rem 0 3.5rem;
       background: radial-gradient(circle at 10% 20%, rgba(254, 243, 199, 0.45) 0%, rgba(248, 250, 252, 1) 90%);
@@ -50,22 +50,23 @@
       color: var(--red-cta);
     }
 
-    .about-deep-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3.5rem;
-      align-items: center;
-      margin: 4rem 0;
+    .leadership-deep-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-card);
+      padding: 2.5rem;
+      box-shadow: var(--shadow-sm);
+      margin: 3rem 0;
     }
 
-    .about-values-grid {
+    .pillars-grid-3 {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      margin-top: 2.5rem;
+      margin-top: 2rem;
     }
 
-    .value-card-3d {
+    .pillar-card-box {
       background: #FFFFFF;
       border: 1px solid var(--border-light);
       border-radius: var(--radius-card);
@@ -74,30 +75,18 @@
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .value-card-3d:hover {
+    .pillar-card-box:hover {
       transform: translateY(-6px);
       box-shadow: var(--shadow-hover);
       border-color: #CBD5E1;
     }
 
-    .value-icon-circle {
-      width: 54px;
-      height: 54px;
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1.25rem;
-    }
-
     @media (max-width: 900px) {
-      .about-deep-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
       .page-hero-section {
         padding: 6.5rem 0 2.5rem;
+      }
+      .leadership-deep-card {
+        padding: 1.5rem;
       }
     }
   </style>
@@ -119,8 +108,8 @@
         <nav class="desktop-nav">
           <ul class="nav-links">
             <li><a href="index.html" class="nav-link-item"><i class="fa-solid fa-house" style="font-size:0.85rem; margin-right:4px;"></i> Home</a></li>
-            <li><a href="about.html" class="nav-link-item active" style="font-weight:700; color:var(--navy-heading);"><i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> About Us</a></li>
-            <li><a href="leadership.html" class="nav-link-item"><i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> Our Leadership & Trustees</a></li>
+            <li><a href="about.html" class="nav-link-item"><i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> About Us</a></li>
+            <li><a href="leadership.html" class="nav-link-item active" style="font-weight:700; color:var(--navy-heading);"><i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> Our Leadership & Trustees</a></li>
           </ul>
         </nav>
 
@@ -159,8 +148,8 @@
 
       <ul class="mobile-nav-links">
         <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="about.html" class="mobile-nav-link" style="color:var(--navy-heading); font-weight:700;"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
-        <li><a href="leadership.html" class="mobile-nav-link"><i class="fa-solid fa-user-tie"></i> Our Leadership & Trustees</a></li>
+        <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        <li><a href="leadership.html" class="mobile-nav-link" style="color:var(--navy-heading); font-weight:700;"><i class="fa-solid fa-user-tie"></i> Our Leadership & Trustees</a></li>
       </ul>
 
       <div class="mobile-drawer-footer">
@@ -184,129 +173,132 @@
     <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
   </header>
 
-  <!-- ==================== ABOUT PAGE HERO & BREADCRUMB ==================== -->
+  <!-- ==================== LEADERSHIP PAGE HERO & BREADCRUMB ==================== -->
   <section class="page-hero-section">
     <div class="container">
       <div class="page-breadcrumb">
         <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
         <span>/</span>
-        <span style="color:var(--text-body);">About Us</span>
+        <span style="color:var(--text-body);">Our Leadership & Trustees</span>
       </div>
 
       <h1 class="hero-heading" style="font-size:clamp(2rem, 4vw, 2.85rem); margin-bottom:1rem;">
-        About S. A. Foundation
+        Leadership & Vision — Anand Singh
       </h1>
       <p class="hero-description" style="max-width:760px; font-size:1.05rem;">
-        Pioneering scalable, community-owned solutions in education, healthcare, and sustainable livelihood to build an inclusive, self-reliant India.
+        Visionary leadership fusing corporate execution rigor with deep grassroots empathy to transform millions of lives across India.
       </p>
     </div>
   </section>
 
-  <!-- ==================== MISSION, VISION & 3D VISUALS ==================== -->
-  <section class="about-section" style="padding: 4.5rem 0;">
+  <!-- ==================== FOUNDER & TRUSTEE PROFILE SECTION ==================== -->
+  <section class="founder-section" style="padding: 4.5rem 0;">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-content reveal-3d">
-          <div class="hero-tag-badge" style="margin-bottom:1rem;">
-            <span class="badge-dot"></span> Purpose & Driving Philosophy
-          </div>
-          <h2 class="section-title" style="text-align:left; margin-bottom:1.25rem;">Transforming Grassroots Communities</h2>
-          <p style="font-size:1.025rem; color:var(--text-body); line-height:1.75; margin-bottom:1.75rem;">
-            S. A. Foundation is dedicated to breaking cycles of intergenerational poverty through community-owned, data-driven social models in education, healthcare, and sustainable livelihood across India.
-          </p>
-
-          <div class="mission-vision-boxes">
-            <div class="mv-3d-box card-3d-interactive">
-              <h4>Mission</h4>
-              <p>Build sustainable community ecosystems that provide holistic nourishment and quality education to every child.</p>
-            </div>
-            <div class="mv-3d-box card-3d-interactive">
-              <h4>Vision</h4>
-              <p>An inclusive India where vulnerable families achieve dignity, economic freedom, and self-reliance.</p>
-            </div>
+      <div class="founder-main-layout reveal-3d">
+        <div class="founder-profile-grid">
+          <div class="founder-img-card-3d card-3d-interactive">
+            <img src="assets/images/founder-anand-singh.jpg" alt="Anand Singh - Founder & Managing Trustee SAF Foundation">
           </div>
 
-          <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="index.html#founder" class="btn-pill-dark">
-              Meet Our Leadership
-            </a>
-            <a href="index.html#contact" class="btn-pill-red" data-open-donate>
-              Support Our Mission
+          <div class="founder-details">
+            <h2>Anand Singh</h2>
+            <div class="founder-tagline">Founder & Managing Trustee, S. A. Foundation</div>
+
+            <div class="founder-quote-3d card-3d-interactive">
+              “Social responsibility of each individual builds and economically empowers communities.”
+              <br><strong style="font-size:0.85rem; color:var(--text-muted);">— Anand Singh</strong>
+            </div>
+
+            <p style="font-size:0.98rem; color:var(--text-body); line-height:1.75; margin-bottom:1.5rem;">
+              Anand Singh channeled his entrepreneurial success into building scalable grassroots systems across India. Under his visionary stewardship, S. A. Foundation has mobilized hundreds of millions in relief aid, established modern digital classrooms, and fostered self-reliant village cooperatives.
+            </p>
+
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.7; margin-bottom:1.75rem;">
+              His hands-on ground leadership ensures every rupee donated directly reaches the vulnerable child, mother, and farmer, fostering generational socio-economic resilience.
+            </p>
+
+            <a href="index.html#contact" class="btn-pill-dark" data-open-partner>
+              Connect With Founder & Board
             </a>
           </div>
         </div>
 
-        <div class="about-3d-visual reveal-3d">
-          <div class="about-circle-container">
-            <img src="assets/images/about-circle-3d.jpg" alt="Community Collaboration">
+        <!-- 5 Founder Impact Stats -->
+        <div class="founder-stats-row reveal-3d-stagger" style="margin-top:3rem;">
+          <div class="founder-stat-pill-card card-3d-interactive">
+            <div class="num count-up" data-target="58" data-suffix="%">58%</div>
+            <div class="lbl">Rural Reach</div>
           </div>
+          <div class="founder-stat-pill-card card-3d-interactive">
+            <div class="num count-up" data-target="187" data-suffix="M">187M</div>
+            <div class="lbl">Impact Imprints</div>
+          </div>
+          <div class="founder-stat-pill-card card-3d-interactive">
+            <div class="num count-up" data-target="13" data-suffix="+">13+</div>
+            <div class="lbl">Years of Service</div>
+          </div>
+          <div class="founder-stat-pill-card card-3d-interactive">
+            <div class="num count-up" data-target="133" data-suffix="">133</div>
+            <div class="lbl">Direct Initiatives</div>
+          </div>
+          <div class="founder-stat-pill-card card-3d-interactive">
+            <div class="num count-up" data-target="365" data-suffix="M">₹365M</div>
+            <div class="lbl">Capital Mobilized</div>
+          </div>
+        </div>
 
-          <!-- 4 Floating Connected Pillar Tags -->
-          <div class="floating-pillar-tag tag-pos-1">
-            <i class="fa-solid fa-users" style="color:var(--teal-subtle);"></i> Community Growth
-          </div>
-          <div class="floating-pillar-tag tag-pos-2">
-            <i class="fa-solid fa-heart-pulse" style="color:#E11D48;"></i> Healthcare
-          </div>
-          <div class="floating-pillar-tag tag-pos-3">
-            <i class="fa-solid fa-graduation-cap" style="color:var(--accent-gold);"></i> Education
-          </div>
-          <div class="floating-pillar-tag tag-pos-4">
-            <i class="fa-solid fa-apple-whole" style="color:var(--teal-subtle);"></i> Nutrition
-          </div>
+        <!-- Photo Gallery Strip -->
+        <h4 style="font-family:var(--font-main); font-size:1.25rem; font-weight:700; color:var(--navy-heading); margin: 3.5rem 0 1.25rem;">
+          Authentic Ground Footprint & Field Visits
+        </h4>
+        <div class="founder-gallery-strip reveal-3d-stagger">
+          <div class="gallery-thumb-3d card-3d-interactive"><img src="assets/images/field-education.jpg" alt="Classroom visit by Anand Singh"></div>
+          <div class="gallery-thumb-3d card-3d-interactive"><img src="assets/images/hero-community.jpg" alt="Community ration distribution"></div>
+          <div class="gallery-thumb-3d card-3d-interactive"><img src="assets/images/campaign-women.jpg" alt="Women self-help workshop"></div>
+          <div class="gallery-thumb-3d card-3d-interactive"><img src="assets/images/campaign-relief.jpg" alt="Flood rescue and relief mission"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== CORE VALUES SECTION ==================== -->
+  <!-- ==================== TRUSTEE & GOVERNANCE PILLARS ==================== -->
   <section style="padding: 4.5rem 0; background:var(--bg-subtle); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
     <div class="container">
       <div class="section-title-wrap reveal-3d">
-        <h2 class="section-title">Our Guiding Core Values</h2>
+        <h2 class="section-title">Trustee Leadership & Governance Mandate</h2>
       </div>
       <p class="section-subtitle reveal-3d">
-        The non-negotiable principles that guide every decision, field deployment, and initiative at S. A. Foundation.
+        How the Board of Trustees and Executive Council ensure 100% regulatory compliance and measurable grassroots delivery.
       </p>
 
-      <div class="about-values-grid reveal-3d reveal-3d-stagger">
-        <div class="value-card-3d card-3d-interactive">
-          <div class="value-icon-circle" style="background:rgba(236, 70, 36, 0.12); color:var(--red-cta);">
-            <i class="fa-solid fa-hand-holding-heart"></i>
+      <div class="pillars-grid-3 reveal-3d reveal-3d-stagger">
+        <div class="pillar-card-box card-3d-interactive">
+          <div style="font-size:1.8rem; color:var(--teal-subtle); margin-bottom:1rem;">
+            <i class="fa-solid fa-scale-balanced"></i>
           </div>
-          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Empathy & Dignity</h3>
+          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Fiduciary Responsibility</h3>
           <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
-            Treating every beneficiary as an equal partner in growth, ensuring respect, human dignity, and lasting empowerment.
+            Zero tolerance for inefficiency. 85% of every funded rupee goes straight to frontline village interventions.
           </p>
         </div>
 
-        <div class="value-card-3d card-3d-interactive">
-          <div class="value-icon-circle" style="background:rgba(13, 148, 136, 0.12); color:var(--teal-subtle);">
-            <i class="fa-solid fa-shield-halved"></i>
+        <div class="pillar-card-box card-3d-interactive">
+          <div style="font-size:1.8rem; color:var(--red-cta); margin-bottom:1rem;">
+            <i class="fa-solid fa-users-gear"></i>
           </div>
-          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">100% Transparency</h3>
+          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Grassroots Ownership</h3>
           <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
-            Audited financial governance, 85%+ direct program deployment ratio, and real-time verifiable progress metrics.
+            Engaging village Panchayats and Mukhiyas as active co-designers of health, education, and ration programs.
           </p>
         </div>
 
-        <div class="value-card-3d card-3d-interactive">
-          <div class="value-icon-circle" style="background:rgba(245, 158, 11, 0.12); color:#B45309;">
-            <i class="fa-solid fa-seedling"></i>
+        <div class="pillar-card-box card-3d-interactive">
+          <div style="font-size:1.8rem; color:var(--accent-gold); margin-bottom:1rem;">
+            <i class="fa-solid fa-award"></i>
           </div>
-          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Sustainable Self-Reliance</h3>
+          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Statutory Excellence</h3>
           <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
-            Creating community-owned systems and women-led cooperatives that thrive independently for generations.
-          </p>
-        </div>
-
-        <div class="value-card-3d card-3d-interactive">
-          <div class="value-icon-circle" style="background:rgba(59, 130, 246, 0.12); color:#2563EB;">
-            <i class="fa-solid fa-bolt"></i>
-          </div>
-          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Innovation & Rigor</h3>
-          <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
-            Fusing technological smart solutions, solar power, and data analytics with boots-on-the-ground execution.
+            Fully certified with 80G tax exemption, 12A trust registration, FCRA approval, and CSR-1 schedule compliance.
           </p>
         </div>
       </div>
@@ -361,7 +353,7 @@
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="index.html#founder">Our Founder</a></li>
+            <li><a href="leadership.html">Our Leadership & Trustees</a></li>
             <li><a href="index.html#areas">Our Work</a></li>
             <li><a href="index.html#impact-map">Impact Map</a></li>
             <li><a href="index.html#campaigns">Campaigns</a></li>
