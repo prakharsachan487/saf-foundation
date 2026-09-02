@@ -473,10 +473,12 @@ function setSiteLanguage(lang) {
   if (p3) p3.innerHTML = `<strong>${t.hero_stat3_num}</strong><span>${t.hero_stat3_lbl}</span>`;
 
   // 2.5 Gallery Section
+  const galleryBadge = document.querySelector('.gallery-section .hero-tag-badge');
+  if (galleryBadge) galleryBadge.innerHTML = `<span class="badge-dot"></span> ` + (lang === 'hi' ? 'प्रत्यक्ष जमीनी बदलाव' : 'Real Change in Action');
   const galleryTitle = document.querySelector('.gallery-section .section-title');
-  if (galleryTitle) galleryTitle.textContent = lang === 'hi' ? 'इंटरैक्टिव ग्राउंड गैलरी' : 'Interactive Ground Gallery';
+  if (galleryTitle) galleryTitle.textContent = lang === 'hi' ? 'उम्मीद की किरणें: जमीनी हकीकत की कहानियां' : 'Moments of Hope: Stories from Ground Zero';
   const gallerySub = document.querySelector('.gallery-section .section-subtitle');
-  if (gallerySub) gallerySub.textContent = lang === 'hi' ? 'भारत भर में हमारी जमीनी पहलों, राहत कार्यों और परिवर्तित समुदायों के वास्तविक दृश्य देखें।' : 'Explore authentic snapshots of our grassroots initiatives, relief operations, and transformed communities across India.';
+  if (gallerySub) gallerySub.textContent = lang === 'hi' ? 'दूरदराज के गांवों में डिजिटल कक्षाओं से लेकर बाढ़ राहत और स्वावलंबी महिलाओं तक — देखिए कैसे आपकी हर मदद जिंदगियों को बदल रही है।' : 'Witness firsthand the lives transformed by your kindness — from smart digital classrooms and emergency disaster relief to rural women leading self-reliant communities.';
   
   const filterBtns = document.querySelectorAll('.gallery-filter-btn');
   if (filterBtns[0]) filterBtns[0].textContent = lang === 'hi' ? 'सभी कार्य' : 'All Initiatives';
