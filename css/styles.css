@@ -343,6 +343,50 @@ button {
   gap: 0.75rem;
 }
 
+/* Language Switcher Pill Toggle */
+.lang-switch-wrap {
+  display: inline-flex;
+  align-items: center;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-pill);
+  padding: 3px 5px;
+  gap: 3px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 4px 9px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: inherit;
+  line-height: 1;
+}
+
+.lang-btn:hover {
+  color: var(--navy-heading);
+}
+
+.lang-btn.active {
+  background: var(--navy-heading);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 2px 5px rgba(15, 23, 42, 0.18);
+}
+
+.lang-divider {
+  color: var(--border-light);
+  font-size: 0.7rem;
+  user-select: none;
+}
+
 /* Mobile Hamburger Menu Button */
 .mobile-menu-btn {
   display: none;

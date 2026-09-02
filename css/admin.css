@@ -1,0 +1,741 @@
+/**
+ * SAF FOUNDATION - ADMIN PANEL & CMS STYLES
+ * Dark Glassmorphic Modern Design System
+ */
+
+:root {
+  --admin-bg: #0b1120;
+  --admin-surface: #131d31;
+  --admin-surface-card: #18233c;
+  --admin-surface-hover: #1f2e4e;
+  --admin-border: rgba(255, 255, 255, 0.1);
+  --admin-border-active: rgba(245, 158, 11, 0.5);
+  --admin-primary: #f59e0b;
+  --admin-primary-hover: #d97706;
+  --admin-red: #ec4624;
+  --admin-teal: #0d9488;
+  --admin-text-main: #f8fafc;
+  --admin-text-muted: #94a3b8;
+  --admin-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  --admin-radius-lg: 20px;
+  --admin-radius-md: 12px;
+  --admin-radius-sm: 8px;
+}
+
+/* ==================== 1. FLOATING ADMIN DOCK ==================== */
+.saf-admin-dock {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(15, 23, 42, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--admin-border);
+  border-radius: 40px;
+  padding: 8px 14px;
+  box-shadow: var(--admin-shadow);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.saf-admin-dock:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 35px -5px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.2);
+  border-color: var(--admin-primary);
+}
+
+.saf-dock-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--admin-primary);
+  padding: 4px 8px;
+  border-radius: 20px;
+  background: rgba(245, 158, 11, 0.12);
+}
+
+.saf-dock-badge .dock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: safPulse 2s infinite;
+}
+
+@keyframes safPulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.saf-dock-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--admin-text-main);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 7px 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.saf-dock-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.saf-dock-btn.btn-primary {
+  background: linear-gradient(135deg, var(--admin-primary), #d97706);
+  color: #0f172a;
+  font-weight: 700;
+  border: none;
+}
+
+.saf-dock-btn.btn-primary:hover {
+  background: linear-gradient(135deg, #fbbf24, var(--admin-primary));
+  box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+}
+
+/* ==================== 2. PIN AUTHENTICATION MODAL ==================== */
+.saf-admin-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100000;
+  background: rgba(5, 10, 20, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 1.5rem;
+}
+
+.saf-admin-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.saf-pin-dialog {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-lg);
+  width: 100%;
+  max-width: 420px;
+  padding: 2.25rem 2rem;
+  box-shadow: var(--admin-shadow);
+  color: var(--admin-text-main);
+  text-align: center;
+  transform: scale(0.92) translateY(20px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.saf-admin-modal-backdrop.active .saf-pin-dialog {
+  transform: scale(1) translateY(0);
+}
+
+.saf-pin-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  color: var(--admin-primary);
+  font-size: 1.75rem;
+}
+
+.saf-pin-dialog h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.saf-pin-dialog p {
+  font-size: 0.88rem;
+  color: var(--admin-text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.saf-pin-input-wrap {
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.saf-pin-input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  text-align: center;
+  background: var(--admin-bg);
+  border: 2px solid var(--admin-border);
+  border-radius: var(--admin-radius-md);
+  color: #fff;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.saf-pin-input:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
+}
+
+.saf-pin-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.saf-btn {
+  flex: 1;
+  padding: 0.85rem 1.2rem;
+  border-radius: var(--admin-radius-md);
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.saf-btn-primary {
+  background: linear-gradient(135deg, var(--admin-primary), #d97706);
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.saf-btn-primary:hover {
+  background: linear-gradient(135deg, #fbbf24, var(--admin-primary));
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+}
+
+.saf-btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--admin-text-main);
+  border: 1px solid var(--admin-border);
+}
+
+.saf-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* ==================== 3. FULL ADMIN CMS DRAWER / DASHBOARD ==================== */
+.saf-cms-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  background: rgba(5, 10, 20, 0.85);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  display: flex;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.saf-cms-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.saf-cms-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background: var(--admin-bg);
+  color: var(--admin-text-main);
+  box-shadow: var(--admin-shadow);
+  overflow: hidden;
+}
+
+/* CMS Topbar */
+.saf-cms-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.75rem;
+  background: var(--admin-surface);
+  border-bottom: 1px solid var(--admin-border);
+  flex-shrink: 0;
+}
+
+.saf-cms-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.saf-cms-brand-badge {
+  background: linear-gradient(135deg, var(--admin-primary), var(--admin-red));
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 6px;
+  letter-spacing: 1px;
+}
+
+.saf-cms-brand h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+.saf-cms-top-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* CMS Body Layout (Sidebar + Content) */
+.saf-cms-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar Nav */
+.saf-cms-sidebar {
+  width: 280px;
+  background: var(--admin-surface);
+  border-right: 1px solid var(--admin-border);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+
+.saf-cms-search-box {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--admin-border);
+}
+
+.saf-cms-search-input {
+  width: 100%;
+  padding: 0.65rem 1rem 0.65rem 2.2rem;
+  background: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-sm);
+  color: #fff;
+  font-size: 0.88rem;
+  font-family: inherit;
+  outline: none;
+}
+
+.saf-cms-search-input:focus {
+  border-color: var(--admin-primary);
+}
+
+.saf-cms-search-wrap {
+  position: relative;
+}
+
+.saf-cms-search-wrap i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--admin-text-muted);
+  font-size: 0.85rem;
+}
+
+.saf-cms-nav-list {
+  list-style: none;
+  padding: 0.75rem 0.65rem;
+  margin: 0;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.saf-cms-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.7rem 1rem;
+  border-radius: var(--admin-radius-sm);
+  color: var(--admin-text-muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-bottom: 3px;
+}
+
+.saf-cms-nav-item i {
+  width: 20px;
+  font-size: 0.95rem;
+  color: var(--admin-text-muted);
+  transition: color 0.2s;
+}
+
+.saf-cms-nav-item:hover {
+  background: var(--admin-surface-hover);
+  color: #fff;
+}
+
+.saf-cms-nav-item:hover i {
+  color: var(--admin-primary);
+}
+
+.saf-cms-nav-item.active {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fff;
+  font-weight: 600;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.saf-cms-nav-item.active i {
+  color: var(--admin-primary);
+}
+
+.saf-cms-sidebar-footer {
+  padding: 1rem;
+  border-top: 1px solid var(--admin-border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* CMS Main Content Area */
+.saf-cms-content-area {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem 2.5rem;
+  background: var(--admin-bg);
+}
+
+.saf-cms-section-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--admin-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.saf-cms-section-header h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.saf-cms-section-header p {
+  color: var(--admin-text-muted);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* Form Groups & Cards */
+.saf-form-card {
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-md);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.saf-form-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.saf-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+.saf-form-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+}
+
+.saf-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.saf-form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.saf-form-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--admin-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.saf-form-input,
+.saf-form-textarea,
+.saf-form-select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-sm);
+  color: #fff;
+  font-size: 0.92rem;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.saf-form-textarea {
+  min-height: 90px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.saf-form-input:focus,
+.saf-form-textarea:focus,
+.saf-form-select:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.2);
+}
+
+/* Image preview upload input */
+.saf-image-input-wrap {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.saf-image-preview {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--admin-bg);
+  border: 1px solid var(--admin-border);
+  flex-shrink: 0;
+}
+
+.saf-file-label-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--admin-surface-card);
+  border: 1px solid var(--admin-border);
+  color: var(--admin-text-main);
+  padding: 0.7rem 1rem;
+  border-radius: var(--admin-radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.saf-file-label-btn:hover {
+  background: var(--admin-surface-hover);
+  border-color: var(--admin-primary);
+}
+
+.saf-file-input {
+  display: none;
+}
+
+/* Dynamic Item Card (Campaigns, Stories, Testimonials, News) */
+.saf-dynamic-card {
+  background: var(--admin-surface-card);
+  border: 1px solid var(--admin-border);
+  border-radius: var(--admin-radius-md);
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  position: relative;
+  transition: all 0.2s;
+}
+
+.saf-dynamic-card:hover {
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.saf-dynamic-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.saf-dynamic-card-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--admin-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.saf-btn-delete-card {
+  background: rgba(236, 70, 36, 0.15);
+  color: #f87171;
+  border: 1px solid rgba(236, 70, 36, 0.3);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.saf-btn-delete-card:hover {
+  background: #ec4624;
+  color: #fff;
+}
+
+.saf-btn-add-item {
+  width: 100%;
+  padding: 0.85rem;
+  background: rgba(245, 158, 11, 0.1);
+  border: 2px dashed rgba(245, 158, 11, 0.4);
+  color: var(--admin-primary);
+  border-radius: var(--admin-radius-md);
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.saf-btn-add-item:hover {
+  background: rgba(245, 158, 11, 0.2);
+  border-color: var(--admin-primary);
+  transform: translateY(-2px);
+}
+
+/* ==================== 4. IN-PLACE VISUAL EDITING HIGHLIGHTS ==================== */
+body.saf-inline-edit-active [data-cms-editable] {
+  position: relative;
+  outline: 2px dashed rgba(245, 158, 11, 0.7) !important;
+  outline-offset: 4px;
+  cursor: pointer !important;
+  transition: outline 0.2s ease, background 0.2s ease;
+}
+
+body.saf-inline-edit-active [data-cms-editable]:hover {
+  outline: 2px solid #f59e0b !important;
+  background: rgba(245, 158, 11, 0.1) !important;
+}
+
+body.saf-inline-edit-active [data-cms-editable]::after {
+  content: '✎ Edit';
+  position: absolute;
+  top: -12px;
+  right: -6px;
+  background: #f59e0b;
+  color: #000;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 100;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+/* Quick In-place Edit Modal */
+.saf-inline-edit-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100005;
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border-active);
+  border-radius: var(--admin-radius-md);
+  padding: 1.5rem;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8);
+  color: #fff;
+}
+
+/* Toast Message */
+.saf-admin-toast {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  z-index: 100010;
+  background: var(--admin-surface);
+  border: 1px solid var(--admin-border-active);
+  border-radius: var(--admin-radius-md);
+  padding: 1rem 1.25rem;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: var(--admin-shadow);
+  transform: translateY(-50px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.saf-admin-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .saf-cms-body {
+    flex-direction: column;
+  }
+  .saf-cms-sidebar {
+    width: 100%;
+    max-height: 200px;
+    border-right: none;
+    border-bottom: 1px solid var(--admin-border);
+  }
+  .saf-cms-content-area {
+    padding: 1.25rem;
+  }
+  .saf-admin-dock {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+    justify-content: space-between;
+  }
+}

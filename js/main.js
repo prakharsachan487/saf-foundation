@@ -12,6 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initNewsletter();
 });
 
+window.init3DCardTilt = init3DCardTilt;
+window.initActionButtons = initActionButtons;
+window.initCounters = initCounters;
+
 /* ==================== 1. NAVBAR & MOBILE DRAWER ==================== */
 function initNavbar() {
   const header = document.querySelector('.site-header');
