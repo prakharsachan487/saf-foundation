@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DScrollObserver();
   init3DCardTilt();
   initCounters();
+  initInteractiveGallery();
   initActionButtons();
   initNewsletter();
 });
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 window.init3DCardTilt = init3DCardTilt;
 window.initActionButtons = initActionButtons;
 window.initCounters = initCounters;
+window.initInteractiveGallery = initInteractiveGallery;
 
 /* ==================== 1. NAVBAR & MOBILE DRAWER ==================== */
 function initNavbar() {
@@ -165,6 +167,86 @@ function initActionButtons() {
       document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
       showToast('Please connect with our official grassroots desk below.', 'Welcome Aboard 🤝', 'fa-handshake-angle');
     });
+  });
+}
+
+/* ==================== 5.5. INTERACTIVE GALLERY & LIGHTBOX ==================== */
+function initInteractiveGallery() {
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  const cards = document.querySelectorAll('.gallery-item-card');
+  const modal = document.getElementById('galleryLightboxModal');
+  const modalImg = document.getElementById('galleryModalImg');
+  const modalTitle = document.getElementById('galleryModalTitle');
+  const modalDesc = document.getElementById('galleryModalDesc');
+  const modalLocation = document.getElementById('galleryModalLocation');
+  const closeBtn = document.getElementById('galleryModalClose');
+  const closeBtn2 = document.getElementById('galleryModalCloseBtn');
+
+  // Filter Buttons
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.getAttribute('data-filter');
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (filter === 'all' || cat === filter || (filter === 'health' && (cat === 'health' || cat === 'community'))) {
+          card.style.display = 'flex';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'scale(1)';
+          }, 50);
+        } else {
+          card.style.opacity = '0';
+          card.style.transform = 'scale(0.92)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 250);
+        }
+      });
+    });
+  });
+
+  // Lightbox Open
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      const img = card.getAttribute('data-img');
+      const title = card.getAttribute('data-title');
+      const desc = card.getAttribute('data-desc');
+      const location = card.getAttribute('data-location');
+
+      if (modal && modalImg && modalTitle && modalDesc) {
+        modalImg.src = img;
+        modalTitle.textContent = title;
+        modalDesc.textContent = desc;
+        if (modalLocation) {
+          modalLocation.innerHTML = `<i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> ${location}`;
+        }
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    });
+  });
+
+  // Lightbox Close
+  function closeModal() {
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  closeBtn?.addEventListener('click', closeModal);
+  closeBtn2?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal?.classList.contains('active')) {
+      closeModal();
+    }
   });
 }
 

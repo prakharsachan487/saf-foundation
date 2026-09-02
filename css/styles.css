@@ -637,9 +637,264 @@ button {
   color: var(--text-muted);
 }
 
-.pill-stat-1 { top: 15px; left: -10px; }
-.pill-stat-2 { bottom: 70px; left: -15px; }
-.pill-stat-3 { bottom: 15px; right: 10px; }
+/* ==================== 2.5 INTERACTIVE PHOTO GALLERY SECTION ==================== */
+.gallery-section {
+  padding: 4.5rem 0;
+  background: var(--bg-subtle);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  position: relative;
+}
+
+.gallery-filter-tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.75rem;
+}
+
+.gallery-filter-btn {
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.gallery-filter-btn:hover {
+  color: var(--navy-heading);
+  border-color: #CBD5E1;
+  transform: translateY(-2px);
+}
+
+.gallery-filter-btn.active {
+  background: var(--navy-heading);
+  color: #FFFFFF;
+  border-color: var(--navy-heading);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+}
+
+.gallery-3d-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item-card {
+  position: relative;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-item-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(236, 70, 36, 0.3);
+}
+
+.gallery-img-wrap {
+  width: 100%;
+  height: 220px;
+  position: relative;
+  overflow: hidden;
+  background: #E2E8F0;
+}
+
+.gallery-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item-card:hover .gallery-img-wrap img {
+  transform: scale(1.08);
+}
+
+.gallery-item-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.75) 100%);
+  opacity: 0;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.25rem;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item-card:hover .gallery-item-overlay {
+  opacity: 1;
+}
+
+.gallery-zoom-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy-heading);
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s ease;
+}
+
+.gallery-item-card:hover .gallery-zoom-badge {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.gallery-info-box {
+  padding: 1.25rem 1.25rem 1.1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-tag-pill {
+  display: inline-block;
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(245, 158, 11, 0.12);
+  color: #B45309;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-info-box h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--navy-heading);
+  margin-bottom: 0.35rem;
+  line-height: 1.35;
+}
+
+.gallery-info-box p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+  flex: 1;
+}
+
+.gallery-location-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-top: 1px solid var(--border-light);
+  padding-top: 0.65rem;
+  margin-top: auto;
+}
+
+/* Lightbox Modal */
+.gallery-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(10, 15, 29, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-modal-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.gallery-modal-dialog {
+  background: #FFFFFF;
+  border-radius: var(--radius-card);
+  max-width: 780px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  transform: scale(0.92);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.gallery-modal-backdrop.active .gallery-modal-dialog {
+  transform: scale(1);
+}
+
+.gallery-modal-img-wrap {
+  width: 100%;
+  max-height: 420px;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-modal-img-wrap img {
+  width: 100%;
+  height: 100%;
+  max-height: 420px;
+  object-fit: contain;
+}
+
+.gallery-modal-content {
+  padding: 1.75rem;
+}
+
+.gallery-modal-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  z-index: 10;
+}
+
+.gallery-modal-close-btn:hover {
+  background: #EC4624;
+}
 
 /* ==================== 3. IMPACT NUMBERS STRIP ==================== */
 .trust-strip-section {

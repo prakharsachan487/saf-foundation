@@ -472,6 +472,19 @@ function setSiteLanguage(lang) {
   const p3 = document.querySelector('.pill-stat-3');
   if (p3) p3.innerHTML = `<strong>${t.hero_stat3_num}</strong><span>${t.hero_stat3_lbl}</span>`;
 
+  // 2.5 Gallery Section
+  const galleryTitle = document.querySelector('.gallery-section .section-title');
+  if (galleryTitle) galleryTitle.textContent = lang === 'hi' ? 'इंटरैक्टिव ग्राउंड गैलरी' : 'Interactive Ground Gallery';
+  const gallerySub = document.querySelector('.gallery-section .section-subtitle');
+  if (gallerySub) gallerySub.textContent = lang === 'hi' ? 'भारत भर में हमारी जमीनी पहलों, राहत कार्यों और परिवर्तित समुदायों के वास्तविक दृश्य देखें।' : 'Explore authentic snapshots of our grassroots initiatives, relief operations, and transformed communities across India.';
+  
+  const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+  if (filterBtns[0]) filterBtns[0].textContent = lang === 'hi' ? 'सभी कार्य' : 'All Initiatives';
+  if (filterBtns[1]) filterBtns[1].textContent = lang === 'hi' ? 'शिक्षा एवं विज्ञान' : 'Education & STEM';
+  if (filterBtns[2]) filterBtns[2].textContent = lang === 'hi' ? 'आपदा राहत' : 'Emergency Relief';
+  if (filterBtns[3]) filterBtns[3].textContent = lang === 'hi' ? 'महिला सशक्तिकरण' : 'Women Empowerment';
+  if (filterBtns[4]) filterBtns[4].textContent = lang === 'hi' ? 'स्वास्थ्य एवं पोषण' : 'Health & Nutrition';
+
   // 3. Impact Numbers
   const impactTitle = document.querySelector('.trust-strip-section .section-title');
   if (impactTitle) impactTitle.textContent = t.impact_title;
