@@ -425,14 +425,25 @@ function setSiteLanguage(lang) {
   // 1. Header & Navigation
   document.querySelectorAll('.desktop-nav .nav-link-item, .mobile-nav-links .mobile-nav-link').forEach(link => {
     const href = link.getAttribute('href');
-    if (href === '#about') link.innerHTML = lang === 'hi' ? (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-circle-info"></i> ' : '') + t.nav_about : (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-circle-info"></i> ' : '') + t.nav_about;
-    if (href === '#founder') link.innerHTML = lang === 'hi' ? (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-user-tie"></i> ' : '') + t.nav_founder : (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-user-tie"></i> ' : '') + t.nav_founder;
-    if (href === '#areas') link.innerHTML = lang === 'hi' ? (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-hand-holding-heart"></i> ' : '') + t.nav_work : (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-hand-holding-heart"></i> ' : '') + t.nav_work;
-    if (href === '#impact-map') link.innerHTML = lang === 'hi' ? (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-map-location-dot"></i> ' : '') + t.nav_map : (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-map-location-dot"></i> ' : '') + t.nav_map;
-    if (href === '#campaigns') link.innerHTML = lang === 'hi' ? (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-bullhorn"></i> ' : '') + t.nav_campaigns : (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-bullhorn"></i> ' : '') + t.nav_campaigns;
-    if (href === '#stories') link.innerHTML = lang === 'hi' ? (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-book-open"></i> ' : '') + t.nav_stories : (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-book-open"></i> ' : '') + t.nav_stories;
-    if (href === '#transparency') link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-shield-halved"></i> ' : '') + t.nav_governance;
-    if (href === '#help') link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-hands-holding-child"></i> ' : '') + t.nav_help;
+    if (href === 'index.html') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-house"></i> ' : '<i class="fa-solid fa-house" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'होम' : 'Home');
+    } else if (href === 'about.html' || href === '#about') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-circle-info"></i> ' : '<i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'हमारे बारे में' : 'About Us');
+    } else if (href === '#founder') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-user-tie"></i> ' : '') + t.nav_founder;
+    } else if (href === '#areas') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-hand-holding-heart"></i> ' : '') + t.nav_work;
+    } else if (href === '#impact-map') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-map-location-dot"></i> ' : '') + t.nav_map;
+    } else if (href === '#campaigns') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-bullhorn"></i> ' : '') + t.nav_campaigns;
+    } else if (href === '#stories') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-book-open"></i> ' : '') + t.nav_stories;
+    } else if (href === '#transparency') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-shield-halved"></i> ' : '') + t.nav_governance;
+    } else if (href === '#help') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-hands-holding-child"></i> ' : '') + t.nav_help;
+    }
   });
 
   document.querySelectorAll('.nav-donate-btn, .mobile-drawer-footer .btn-pill-red').forEach(btn => {

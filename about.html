@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us | SAF Foundation - S. A. FOUNDATION</title>
+  <meta name="description" content="Learn about S. A. Foundation (SAF), our mission, vision, grassroots development models, and commitment to uplifting underserved communities across India.">
+
+  <!-- Google Fonts (Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    /* Dedicated About Page Styles */
+    .page-hero-section {
+      padding: 8rem 0 3.5rem;
+      background: radial-gradient(circle at 10% 20%, rgba(254, 243, 199, 0.45) 0%, rgba(248, 250, 252, 1) 90%);
+      border-bottom: 1px solid var(--border-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      background: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-light);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+    }
+
+    .page-breadcrumb a {
+      color: var(--navy-heading);
+    }
+
+    .page-breadcrumb a:hover {
+      color: var(--red-cta);
+    }
+
+    .about-deep-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+      margin: 4rem 0;
+    }
+
+    .about-values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .value-card-3d {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-card);
+      padding: 2rem 1.75rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .value-card-3d:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: #CBD5E1;
+    }
+
+    .value-icon-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    @media (max-width: 900px) {
+      .about-deep-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+      .page-hero-section {
+        padding: 6.5rem 0 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="site-header" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <a href="index.html" class="brand-wrapper">
+          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <h2>SAF Foundation</h2>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="desktop-nav">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link-item"><i class="fa-solid fa-house" style="font-size:0.85rem; margin-right:4px;"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link-item active" style="font-weight:700; color:var(--navy-heading);"><i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> About Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-cta-wrap">
+          <!-- Language Switcher Toggle (EN / HI) -->
+          <div class="lang-switch-wrap" id="headerLangSwitch" title="Switch Language (English / हिन्दी)">
+            <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="hi" aria-label="Switch to Hindi">हिन्दी</button>
+          </div>
+
+          <a href="index.html#contact" class="btn-pill-red nav-donate-btn" data-open-donate data-campaign-title="General Impact Fund">
+            Donate Now
+          </a>
+          <!-- Mobile Hamburger Toggle Button -->
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Out Drawer Navigation -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-wrapper">
+          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <h2>SAF Foundation</h2>
+          </div>
+        </div>
+        <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="mobile-nav-link" style="color:var(--navy-heading); font-weight:700;"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <div style="display:flex; justify-content:center; margin-bottom:1rem;">
+          <div class="lang-switch-wrap" style="background:#F1F5F9;">
+            <button class="lang-btn active" data-lang="en">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="hi">हिन्दी</button>
+          </div>
+        </div>
+
+        <a href="index.html#contact" class="btn-pill-red" style="width:100%; justify-content:center; text-align:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
+          Donate Now
+        </a>
+        <div style="font-size:0.78rem; color:var(--text-muted); text-align:center; margin-top:1rem;">
+          80G Tax Exempted • 12A Certified
+        </div>
+      </div>
+    </div>
+    <!-- Mobile Backdrop Overlay -->
+    <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
+  </header>
+
+  <!-- ==================== ABOUT PAGE HERO & BREADCRUMB ==================== -->
+  <section class="page-hero-section">
+    <div class="container">
+      <div class="page-breadcrumb">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+        <span>/</span>
+        <span style="color:var(--text-body);">About Us</span>
+      </div>
+
+      <h1 class="hero-heading" style="font-size:clamp(2rem, 4vw, 2.85rem); margin-bottom:1rem;">
+        About S. A. Foundation
+      </h1>
+      <p class="hero-description" style="max-width:760px; font-size:1.05rem;">
+        Pioneering scalable, community-owned solutions in education, healthcare, and sustainable livelihood to build an inclusive, self-reliant India.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== MISSION, VISION & 3D VISUALS ==================== -->
+  <section class="about-section" style="padding: 4.5rem 0;">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content reveal-3d">
+          <div class="hero-tag-badge" style="margin-bottom:1rem;">
+            <span class="badge-dot"></span> Purpose & Driving Philosophy
+          </div>
+          <h2 class="section-title" style="text-align:left; margin-bottom:1.25rem;">Transforming Grassroots Communities</h2>
+          <p style="font-size:1.025rem; color:var(--text-body); line-height:1.75; margin-bottom:1.75rem;">
+            S. A. Foundation is dedicated to breaking cycles of intergenerational poverty through community-owned, data-driven social models in education, healthcare, and sustainable livelihood across India.
+          </p>
+
+          <div class="mission-vision-boxes">
+            <div class="mv-3d-box card-3d-interactive">
+              <h4>Mission</h4>
+              <p>Build sustainable community ecosystems that provide holistic nourishment and quality education to every child.</p>
+            </div>
+            <div class="mv-3d-box card-3d-interactive">
+              <h4>Vision</h4>
+              <p>An inclusive India where vulnerable families achieve dignity, economic freedom, and self-reliance.</p>
+            </div>
+          </div>
+
+          <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="index.html#founder" class="btn-pill-dark">
+              Meet Our Leadership
+            </a>
+            <a href="index.html#contact" class="btn-pill-red" data-open-donate>
+              Support Our Mission
+            </a>
+          </div>
+        </div>
+
+        <div class="about-3d-visual reveal-3d">
+          <div class="about-circle-container">
+            <img src="assets/images/about-circle-3d.jpg" alt="Community Collaboration">
+          </div>
+
+          <!-- 4 Floating Connected Pillar Tags -->
+          <div class="floating-pillar-tag tag-pos-1">
+            <i class="fa-solid fa-users" style="color:var(--teal-subtle);"></i> Community Growth
+          </div>
+          <div class="floating-pillar-tag tag-pos-2">
+            <i class="fa-solid fa-heart-pulse" style="color:#E11D48;"></i> Healthcare
+          </div>
+          <div class="floating-pillar-tag tag-pos-3">
+            <i class="fa-solid fa-graduation-cap" style="color:var(--accent-gold);"></i> Education
+          </div>
+          <div class="floating-pillar-tag tag-pos-4">
+            <i class="fa-solid fa-apple-whole" style="color:var(--teal-subtle);"></i> Nutrition
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CORE VALUES SECTION ==================== -->
+  <section style="padding: 4.5rem 0; background:var(--bg-subtle); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
+    <div class="container">
+      <div class="section-title-wrap reveal-3d">
+        <h2 class="section-title">Our Guiding Core Values</h2>
+      </div>
+      <p class="section-subtitle reveal-3d">
+        The non-negotiable principles that guide every decision, field deployment, and initiative at S. A. Foundation.
+      </p>
+
+      <div class="about-values-grid reveal-3d reveal-3d-stagger">
+        <div class="value-card-3d card-3d-interactive">
+          <div class="value-icon-circle" style="background:rgba(236, 70, 36, 0.12); color:var(--red-cta);">
+            <i class="fa-solid fa-hand-holding-heart"></i>
+          </div>
+          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Empathy & Dignity</h3>
+          <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
+            Treating every beneficiary as an equal partner in growth, ensuring respect, human dignity, and lasting empowerment.
+          </p>
+        </div>
+
+        <div class="value-card-3d card-3d-interactive">
+          <div class="value-icon-circle" style="background:rgba(13, 148, 136, 0.12); color:var(--teal-subtle);">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">100% Transparency</h3>
+          <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
+            Audited financial governance, 85%+ direct program deployment ratio, and real-time verifiable progress metrics.
+          </p>
+        </div>
+
+        <div class="value-card-3d card-3d-interactive">
+          <div class="value-icon-circle" style="background:rgba(245, 158, 11, 0.12); color:#B45309;">
+            <i class="fa-solid fa-seedling"></i>
+          </div>
+          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Sustainable Self-Reliance</h3>
+          <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
+            Creating community-owned systems and women-led cooperatives that thrive independently for generations.
+          </p>
+        </div>
+
+        <div class="value-card-3d card-3d-interactive">
+          <div class="value-icon-circle" style="background:rgba(59, 130, 246, 0.12); color:#2563EB;">
+            <i class="fa-solid fa-bolt"></i>
+          </div>
+          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Innovation & Rigor</h3>
+          <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
+            Fusing technological smart solutions, solar power, and data analytics with boots-on-the-ground execution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MEGA CTA BANNER ==================== -->
+  <section class="mega-cta-section">
+    <div class="container">
+      <div class="mega-cta-3d-card reveal-3d">
+        <div>
+          <h2>Together, We Can Create Change.</h2>
+          <p style="font-size:1.1rem; color:#E2E8F0; margin-bottom:2rem; line-height:1.65;">
+            Join Anand Singh and the S. A. Foundation in building an equitable, educated, and prosperous India.
+          </p>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="index.html#contact" class="btn-pill-red" data-open-donate data-campaign-title="Together We Can Create Change">
+              Donate Now
+            </a>
+            <a href="index.html#contact" class="btn-pill-outline" data-open-volunteer>
+              Become a Volunteer
+            </a>
+            <a href="index.html#contact" class="btn-pill-outline" data-open-partner>
+              Partner With Us
+            </a>
+          </div>
+        </div>
+
+        <div class="mega-cta-img-wrap">
+          <img src="assets/images/founder-anand-singh.jpg" alt="Anand Singh">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MEGA FOOTER ==================== -->
+  <footer class="mega-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid-cols">
+        <div>
+          <div class="footer-logo-wrap">
+            <img src="assets/images/logo.png" alt="SAF Logo">
+            <span>SAF Foundation</span>
+          </div>
+          <p style="font-size:0.875rem; line-height:1.65; margin-bottom:1.25rem; color:var(--text-muted);">
+            S. A. Foundation is a national non-profit organization dedicated to empowering grassroots communities across India.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Quick Links</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="index.html#founder">Our Founder</a></li>
+            <li><a href="index.html#areas">Our Work</a></li>
+            <li><a href="index.html#impact-map">Impact Map</a></li>
+            <li><a href="index.html#campaigns">Campaigns</a></li>
+            <li><a href="index.html#stories">Real Stories</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Contact Info</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
+            <li><i class="fa-solid fa-building" style="color:var(--accent-gold);"></i> HQ: New Delhi - 110001</li>
+            <li><i class="fa-solid fa-map-pin" style="color:var(--accent-gold);"></i> Field: Patna, Bihar - 800001</li>
+            <li><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +91 11 4987 6500</li>
+            <li><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> contact@saf-foundation.org</li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Newsletter Signup</h4>
+          <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.6rem;">
+            <input type="email" placeholder="Your Email Address" required style="padding:0.8rem 1.1rem; border-radius:var(--radius-pill); font-size:0.875rem; border:1px solid var(--border-light); outline:none; background:#ffffff;">
+            <button type="submit" class="btn-pill-red" style="padding:0.7rem 1.1rem; justify-content:center;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div style="text-align:center; padding-top:1.75rem; border-top:1px solid var(--border-light); font-size:0.825rem; color:var(--text-muted);">
+        Copyright &copy; 2026 <strong>S. A. FOUNDATION (SAF)</strong>. All Rights Reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/translations.js"></script>
+</body>
+</html>
