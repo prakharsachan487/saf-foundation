@@ -201,7 +201,7 @@ button {
   color: var(--text-muted);
   text-align: center;
   max-width: 640px;
-  margin: 0 auto 3rem auto;
+  margin: 0 auto 1.85rem auto;
   line-height: 1.6;
   font-weight: 400;
 }
@@ -503,7 +503,7 @@ button {
 /* ==================== 2. HERO SECTION ==================== */
 .hero-section {
   position: relative;
-  padding: 5rem 0 5.5rem 0;
+  padding: 3.25rem 0 3.25rem 0;
   background: var(--bg-page);
 }
 
@@ -639,7 +639,7 @@ button {
 
 /* ==================== 2.5 INTERACTIVE 3D PHOTO GALLERY SECTION ==================== */
 .gallery-section {
-  padding: 4.5rem 0;
+  padding: 3.25rem 0;
   background: radial-gradient(circle at 50% 0%, rgba(254, 243, 199, 0.35) 0%, rgba(248, 250, 252, 1) 75%);
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
@@ -1148,7 +1148,7 @@ button {
 
 /* ==================== 3. IMPACT NUMBERS STRIP ==================== */
 .trust-strip-section {
-  padding: 3rem 0;
+  padding: 2.25rem 0;
 }
 
 .trust-strip-grid {
@@ -1184,7 +1184,7 @@ button {
 
 /* ==================== 4. ABOUT SAF FOUNDATION ==================== */
 .about-section {
-  padding: 5rem 0;
+  padding: 3.5rem 0;
 }
 
 .about-grid {
@@ -1297,7 +1297,7 @@ button {
 
 /* ==================== 5. FOUNDER & LEADERSHIP ==================== */
 .founder-section {
-  padding: 5rem 0;
+  padding: 3.5rem 0;
 }
 
 .founder-main-layout {
@@ -1410,7 +1410,7 @@ button {
 
 /* ==================== 6. OUR AREAS OF WORK (WITH THEMATIC PHOTOS & 3D ICONS) ==================== */
 .areas-section {
-  padding: 5.5rem 0;
+  padding: 3.5rem 0;
   background: var(--bg-body);
 }
 
@@ -1664,7 +1664,7 @@ button {
 
 /* ==================== 8. FEATURED CAMPAIGNS ==================== */
 .campaigns-section {
-  padding: 5rem 0;
+  padding: 3.5rem 0;
 }
 
 .campaigns-3d-grid {
@@ -1821,7 +1821,7 @@ button {
 
 /* ==================== 11. WAYS TO GET INVOLVED ==================== */
 .help-section {
-  padding: 5rem 0;
+  padding: 3.5rem 0;
 }
 
 .help-3d-grid {
@@ -1860,7 +1860,7 @@ button {
 
 /* ==================== 12. TESTIMONIALS ==================== */
 .testimonials-section {
-  padding: 5rem 0;
+  padding: 3.5rem 0;
 }
 
 .testimonials-3d-grid {
@@ -1893,7 +1893,7 @@ button {
 
 /* ==================== 14. MEGA CTA BANNER & FOOTER ==================== */
 .mega-cta-section {
-  padding: 3rem 0 5rem 0;
+  padding: 2rem 0 3.5rem 0;
 }
 
 .mega-cta-3d-card {
@@ -1933,7 +1933,7 @@ button {
 .mega-footer {
   background: #F8FAFC;
   color: #64748B;
-  padding: 4.5rem 0 2rem 0;
+  padding: 3.25rem 0 1.75rem 0;
   border-top: 1px solid var(--border-light);
 }
 
