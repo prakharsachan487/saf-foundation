@@ -109,19 +109,20 @@
     <div class="container">
       <div class="nav-container">
         <a href="index.html" class="brand-wrapper">
-          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
           <div class="brand-text">
-            <h2>SAF Foundation</h2>
+            <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+            <span class="brand-subtitle">Charitable Trust</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
         <nav class="desktop-nav">
           <ul class="nav-links">
-            <li><a href="index.html" class="nav-link-item"><i class="fa-solid fa-house" style="font-size:0.85rem; margin-right:4px;"></i> Home</a></li>
-            <li><a href="about.html" class="nav-link-item active" style="font-weight:700; color:var(--navy-heading);"><i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> About Us</a></li>
-            <li><a href="leadership.html" class="nav-link-item"><i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> Our Leadership & Trustees</a></li>
-            <li><a href="gallery.html" class="nav-link-item"><i class="fa-solid fa-images" style="font-size:0.85rem; margin-right:4px;"></i> Ground Gallery</a></li>
+            <li><a href="index.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-house" style="font-size:0.85rem; margin-right:4px;"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link-item active" style="font-weight:700; font-size:0.95rem; color:var(--accent-gold);"><i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> About Us</a></li>
+            <li><a href="gallery.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-images" style="font-size:0.85rem; margin-right:4px;"></i> Gallery</a></li>
+            <li><a href="contact.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-envelope" style="font-size:0.85rem; margin-right:4px;"></i> Contact</a></li>
           </ul>
         </nav>
 
@@ -133,10 +134,9 @@
             <button class="lang-btn" data-lang="hi" aria-label="Switch to Hindi">हिन्दी</button>
           </div>
 
-          <a href="index.html#contact" class="btn-pill-red nav-donate-btn" data-open-donate data-campaign-title="General Impact Fund">
+          <button class="btn-pill-red nav-donate-btn" data-open-donate data-campaign-title="General Impact Fund">
             Donate Now
-          </a>
-          <!-- Mobile Hamburger Toggle Button -->
+          </button>
           <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
             <i class="fa-solid fa-bars-staggered"></i>
           </button>
@@ -148,9 +148,10 @@
     <div class="mobile-nav-drawer" id="mobileDrawer">
       <div class="mobile-drawer-header">
         <div class="brand-wrapper">
-          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
           <div class="brand-text">
-            <h2>SAF Foundation</h2>
+            <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+            <span class="brand-subtitle">Charitable Trust</span>
           </div>
         </div>
         <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
@@ -160,189 +161,147 @@
 
       <ul class="mobile-nav-links">
         <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
-        <li><a href="about.html" class="mobile-nav-link" style="color:var(--navy-heading); font-weight:700;"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
-        <li><a href="leadership.html" class="mobile-nav-link"><i class="fa-solid fa-user-tie"></i> Our Leadership & Trustees</a></li>
-        <li><a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-images"></i> Ground Gallery</a></li>
+        <li><a href="about.html" class="mobile-nav-link active" style="color:var(--accent-gold); font-weight:700;"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
       </ul>
 
       <div class="mobile-drawer-footer">
-        <div style="display:flex; justify-content:center; margin-bottom:1rem;">
-          <div class="lang-switch-wrap" style="background:#F1F5F9;">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <span class="lang-divider">|</span>
-            <button class="lang-btn" data-lang="hi">हिन्दी</button>
-          </div>
-        </div>
-
-        <a href="index.html#contact" class="btn-pill-red" style="width:100%; justify-content:center; text-align:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
+        <button class="btn-pill-red" style="width:100%; justify-content:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
           Donate Now
-        </a>
-        <div style="font-size:0.78rem; color:var(--text-muted); text-align:center; margin-top:1rem;">
-          80G Tax Exempted • 12A Certified
-        </div>
+        </button>
       </div>
     </div>
     <!-- Mobile Backdrop Overlay -->
     <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
   </header>
 
-  <!-- ==================== ABOUT PAGE HERO & BREADCRUMB ==================== -->
-  <section class="page-hero-section">
+  <!-- ==================== 1. CURVED HERO SECTION ==================== -->
+  <section class="about-curved-hero">
     <div class="container">
-      <div class="page-breadcrumb">
-        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <span>/</span>
-        <span style="color:var(--text-body);">About Us</span>
-      </div>
-
-      <h1 class="hero-heading" style="font-size:clamp(2rem, 4vw, 2.85rem); margin-bottom:1rem;">
-        About S. A. Foundation
+      <h1 class="about-hero-title">
+        About Us
       </h1>
-      <p class="hero-description" style="max-width:760px; font-size:1.05rem;">
-        Pioneering scalable, community-owned solutions in education, healthcare, and sustainable livelihood to build an inclusive, self-reliant India.
+      <p class="about-hero-desc">
+        Discover our inspiring journey and grassroots mission as an NGO, driven to make a measurable, generational impact across India.
       </p>
     </div>
   </section>
 
-  <!-- ==================== MISSION, VISION & 3D VISUALS ==================== -->
-  <section class="about-section" style="padding: 4.5rem 0;">
+  <!-- ==================== 2. MAIN STORY & PURPOSE GRID ==================== -->
+  <section class="about-story-section">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-content reveal-3d">
-          <div class="hero-tag-badge" style="margin-bottom:1rem;">
-            <span class="badge-dot"></span> Purpose & Driving Philosophy
+      <div class="about-story-grid">
+        <div class="about-story-content reveal-3d">
+          <div class="about-tag-accent">
+            About <em>Us</em>
           </div>
-          <h2 class="section-title" style="text-align:left; margin-bottom:1.25rem;">Transforming Grassroots Communities</h2>
-          <p style="font-size:1.025rem; color:var(--text-body); line-height:1.75; margin-bottom:1.75rem;">
-            S. A. Foundation is dedicated to breaking cycles of intergenerational poverty through community-owned, data-driven social models in education, healthcare, and sustainable livelihood across India.
+          <h3>Embracing Humanity: A Tale of Warmth, Dignity & True Grassroots Support</h3>
+          <p>
+            With a caring heart, transparent governance, and boots on the ground, S. A. Foundation strives to create a nurturing environment where vulnerable families find solace, education, and the strength to overcome life's challenges.
           </p>
-
-          <div class="mission-vision-boxes">
-            <div class="mv-3d-box card-3d-interactive">
-              <h4>Mission</h4>
-              <p>Build sustainable community ecosystems that provide holistic nourishment and quality education to every child.</p>
-            </div>
-            <div class="mv-3d-box card-3d-interactive">
-              <h4>Vision</h4>
-              <p>An inclusive India where vulnerable families achieve dignity, economic freedom, and self-reliance.</p>
-            </div>
-          </div>
-
+          <p>
+            Through genuine community connections and unwavering dedication, we aim to uplift the spirit of those in need, fostering self-reliance and generational prosperity across 30+ states in India.
+          </p>
+          
           <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="index.html#founder" class="btn-pill-dark">
+            <a href="leadership.html" class="btn-pill-dark" style="text-decoration:none;">
               Meet Our Leadership
             </a>
-            <a href="index.html#contact" class="btn-pill-red" data-open-donate>
-              Support Our Mission
+            <a href="volunteer.html" class="btn-pill-red" style="text-decoration:none;">
+              Join Our Mission
             </a>
           </div>
         </div>
 
-        <div class="about-3d-visual reveal-3d">
-          <div class="about-circle-container">
-            <img src="assets/images/about-circle-3d.jpg" alt="Community Collaboration">
+        <div class="about-story-photo-wrap reveal-3d">
+          <div class="about-story-photo-card card-3d-interactive">
+            <img src="assets/images/saf-hands-unity.jpg" alt="Grassroots Compassion & Unity">
+            <div class="about-story-badge">
+              <i class="fa-solid fa-hands-holding-heart" style="color:var(--accent-gold);"></i>
+              <span>Compassion &bull; Dignity &bull; Trust</span>
+            </div>
           </div>
+        </div>
+      </div>
 
-          <!-- 4 Floating Connected Pillar Tags -->
-          <div class="floating-pillar-tag tag-pos-1">
-            <i class="fa-solid fa-users" style="color:var(--teal-subtle);"></i> Community Growth
-          </div>
-          <div class="floating-pillar-tag tag-pos-2">
-            <i class="fa-solid fa-heart-pulse" style="color:#E11D48;"></i> Healthcare
-          </div>
-          <div class="floating-pillar-tag tag-pos-3">
-            <i class="fa-solid fa-graduation-cap" style="color:var(--accent-gold);"></i> Education
-          </div>
-          <div class="floating-pillar-tag tag-pos-4">
-            <i class="fa-solid fa-apple-whole" style="color:var(--teal-subtle);"></i> Nutrition
-          </div>
+      <!-- Impact Stats Dark Rounded Pill Strip -->
+      <div class="about-impact-pill-strip reveal-3d">
+        <div class="about-impact-col">
+          <div class="impact-number"><span>₹</span>45Cr+</div>
+          <div class="impact-label">Raised & Mobilized</div>
+        </div>
+
+        <div class="about-impact-col">
+          <div class="impact-number">373K<span>+</span></div>
+          <div class="impact-label">Lives Uplifted</div>
+        </div>
+
+        <div class="about-impact-col">
+          <div class="impact-number">2,900<span>+</span></div>
+          <div class="impact-label">Ground Volunteers</div>
+        </div>
+
+        <div class="about-impact-col">
+          <div class="impact-number">135<span>+</span></div>
+          <div class="impact-label">Villages Empowered</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== CORE VALUES SECTION ==================== -->
-  <section style="padding: 4.5rem 0; background:var(--bg-subtle); border-top:1px solid var(--border-light); border-bottom:1px solid var(--border-light);">
+  <!-- ==================== 3. HOW WE CREATE IMPACT (HELPED TILL NOW) ==================== -->
+  <section class="about-helped-section">
     <div class="container">
       <div class="section-title-wrap reveal-3d">
-        <h2 class="section-title">Our Guiding Core Values</h2>
+        <h2 class="section-title">
+          How We <span class="text-underline-gold">Create Impact</span>
+        </h2>
       </div>
-      <p class="section-subtitle reveal-3d">
-        The non-negotiable principles that guide every decision, field deployment, and initiative at S. A. Foundation.
+      <p class="section-subtitle reveal-3d" style="max-width:680px; margin:0 auto;">
+        Proven grassroots models delivering measurable transformation in education, healthcare, and sustainable livelihood.
       </p>
 
-      <div class="about-values-grid reveal-3d reveal-3d-stagger">
-        <div class="value-card-3d card-3d-interactive">
-          <div class="value-icon-circle" style="background:rgba(236, 70, 36, 0.12); color:var(--red-cta);">
+      <div class="about-helped-grid reveal-3d reveal-3d-stagger">
+        <!-- Card 1 -->
+        <div class="about-helped-card card-3d-interactive">
+          <div class="about-helped-icon" style="background:rgba(236, 70, 36, 0.12); color:var(--red-cta);">
             <i class="fa-solid fa-hand-holding-heart"></i>
           </div>
-          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Empathy & Dignity</h3>
-          <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
-            Treating every beneficiary as an equal partner in growth, ensuring respect, human dignity, and lasting empowerment.
+          <h4>Helping Humanity</h4>
+          <p>
+            Through quality education, primary healthcare, nutritional security, and rapid flood disaster relief, we make an immediate, life-saving difference.
           </p>
         </div>
 
-        <div class="value-card-3d card-3d-interactive">
-          <div class="value-icon-circle" style="background:rgba(13, 148, 136, 0.12); color:var(--teal-subtle);">
+        <!-- Card 2 -->
+        <div class="about-helped-card card-3d-interactive">
+          <div class="about-helped-icon" style="background:rgba(13, 148, 136, 0.12); color:var(--teal-subtle);">
             <i class="fa-solid fa-shield-halved"></i>
           </div>
-          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">100% Transparency</h3>
-          <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
-            Audited financial governance, 85%+ direct program deployment ratio, and real-time verifiable progress metrics.
+          <h4>Resilient Ecosystems</h4>
+          <p>
+            Through solar clean water filtration wells, digital model school labs, and community resource hubs, we ensure long-term village self-reliance.
           </p>
         </div>
 
-        <div class="value-card-3d card-3d-interactive">
-          <div class="value-icon-circle" style="background:rgba(245, 158, 11, 0.12); color:#B45309;">
-            <i class="fa-solid fa-seedling"></i>
+        <!-- Card 3 -->
+        <div class="about-helped-card card-3d-interactive">
+          <div class="about-helped-icon" style="background:rgba(245, 158, 11, 0.15); color:#D97706;">
+            <i class="fa-solid fa-users"></i>
           </div>
-          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Sustainable Self-Reliance</h3>
-          <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
-            Creating community-owned systems and women-led cooperatives that thrive independently for generations.
-          </p>
-        </div>
-
-        <div class="value-card-3d card-3d-interactive">
-          <div class="value-icon-circle" style="background:rgba(59, 130, 246, 0.12); color:#2563EB;">
-            <i class="fa-solid fa-bolt"></i>
-          </div>
-          <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Innovation & Rigor</h3>
-          <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
-            Fusing technological smart solutions, solar power, and data analytics with boots-on-the-ground execution.
+          <h4>Empowering Communities</h4>
+          <p>
+            Through women-led solar sewing hubs, micro-business incubators, and vocational skill centers, we enable families to permanently break cycles of poverty.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== MEGA CTA BANNER ==================== -->
-  <section class="mega-cta-section">
-    <div class="container">
-      <div class="mega-cta-3d-card reveal-3d">
-        <div>
-          <h2>Together, We Can Create Change.</h2>
-          <p style="font-size:1.1rem; color:#E2E8F0; margin-bottom:2rem; line-height:1.65;">
-            Join Anand Singh and the S. A. Foundation in building an equitable, educated, and prosperous India.
-          </p>
-          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="index.html#contact" class="btn-pill-red" data-open-donate data-campaign-title="Together We Can Create Change">
-              Donate Now
-            </a>
-            <a href="index.html#contact" class="btn-pill-outline" data-open-volunteer>
-              Become a Volunteer
-            </a>
-            <a href="index.html#contact" class="btn-pill-outline" data-open-partner>
-              Partner With Us
-            </a>
-          </div>
-        </div>
 
-        <div class="mega-cta-img-wrap">
-          <img src="assets/images/founder-anand-singh.jpg" alt="Anand Singh">
-        </div>
-      </div>
-    </div>
-  </section>
+
+
 
   <!-- ==================== MEGA FOOTER ==================== -->
   <footer class="mega-footer" id="contact">
@@ -350,8 +309,11 @@
       <div class="footer-grid-cols">
         <div>
           <div class="footer-logo-wrap">
-            <img src="assets/images/logo.png" alt="SAF Logo">
-            <span>SAF Foundation</span>
+            <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo">
+            <div class="brand-text">
+              <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+              <span class="brand-subtitle">Grassroots Trust &bull; India</span>
+            </div>
           </div>
           <p style="font-size:0.875rem; line-height:1.65; margin-bottom:1.25rem; color:var(--text-muted);">
             S. A. Foundation is a national non-profit organization dedicated to empowering grassroots communities across India.
@@ -363,21 +325,20 @@
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="leadership.html">Our Leadership & Trustees</a></li>
-            <li><a href="index.html#gallery">Ground Gallery</a></li>
-            <li><a href="index.html#areas">Our Work</a></li>
-            <li><a href="index.html#campaigns">Campaigns</a></li>
-            <li><a href="index.html#help">Get Involved</a></li>
+            <li><a href="leadership.html">Leadership & Trustees</a></li>
+            <li><a href="gallery.html">Ground Gallery</a></li>
+            <li><a href="volunteer.html">Volunteer With Us</a></li>
+            <li><a href="faq.html">FAQ Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Contact Info</h4>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Legal & Admin</h4>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
-            <li><i class="fa-solid fa-building" style="color:var(--accent-gold);"></i> HQ: New Delhi - 110001</li>
-            <li><i class="fa-solid fa-map-pin" style="color:var(--accent-gold);"></i> Field: Patna, Bihar - 800001</li>
-            <li><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +91 11 4987 6500</li>
-            <li><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> contact@saf-foundation.org</li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><span style="color:#059669; font-weight:700;"><i class="fa-solid fa-award"></i> Registered Charitable Trust</span></li>
           </ul>
         </div>
 
@@ -385,17 +346,18 @@
           <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Newsletter Signup</h4>
           <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.6rem;">
             <input type="email" placeholder="Your Email Address" required style="padding:0.8rem 1.1rem; border-radius:var(--radius-pill); font-size:0.875rem; border:1px solid var(--border-light); outline:none; background:#ffffff;">
-            <button type="submit" class="btn-pill-red" style="padding:0.7rem 1.1rem; justify-content:center;">Subscribe</button>
+            <button type="submit" class="btn-pill-dark" style="justify-content:center;">Subscribe</button>
           </form>
         </div>
       </div>
 
       <div style="text-align:center; padding-top:1.75rem; border-top:1px solid var(--border-light); font-size:0.825rem; color:var(--text-muted);">
-        Copyright &copy; 2026 <strong>S. A. FOUNDATION (SAF)</strong>. All Rights Reserved.
+        Copyright &copy; 2026 <strong>S. A. FOUNDATION (SAF)</strong>. All Rights Reserved. Registered Non-Profit Organization.
       </div>
     </div>
   </footer>
 
+  <script src="js/qrcode.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/translations.js"></script>
 </body>

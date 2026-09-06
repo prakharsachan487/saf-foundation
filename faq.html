@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Frequently Asked Questions (FAQ) | SAF Foundation</title>
+  <meta name="description" content="Find answers to common questions about S. A. Foundation (SAF) donation transparency, volunteering, school tablet projects, and emergency relief.">
+
+  <!-- Schema.org JSON-LD FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How does SAF ensure complete financial and ground transparency?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every project is monitored with GPS geo-tagged dispatch reporting and third-party audited financial balance sheets. Donors receive live photographic dispatches from ground zero."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When and how do I receive my official donation receipt?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An official donation receipt with a unique transaction number and trust details is generated instantly upon completing your online or UPI donation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I donate using Google Pay, PhonePe, Paytm or other UPI apps?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! You can donate directly by scanning our verified UPI QR Code on the home page or by sending contributions to our official UPI ID."
+        }
+      }
+    ]
+  }
+  </script>
+      {
+        "@type": "Question",
+        "name": "Can I volunteer with SAF Foundation remotely or on the field?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, we welcome both remote digital mentors (curriculum creators, STEM mentors) and on-ground field volunteers for disaster relief, medical camps, and school tablet setups."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Google Fonts (Cinzel, Plus Jakarta Sans, Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .page-hero-section {
+      padding: 4rem 0 3rem;
+      background: radial-gradient(circle at 50% 10%, rgba(245, 158, 11, 0.15) 0%, rgba(248, 250, 252, 1) 85%);
+      border-bottom: 1px solid var(--border-light);
+      text-align: center;
+    }
+
+    .page-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      background: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-light);
+    }
+
+    .faq-cat-filter {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .faq-cat-btn {
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-light);
+      background: #FFFFFF;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .faq-cat-btn.active {
+      background: var(--navy-heading);
+      color: #FFFFFF;
+      border-color: var(--navy-heading);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER & NAVBAR ==================== -->
+  <header class="site-header" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <a href="index.html" class="brand-wrapper">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+            <span class="brand-subtitle">Charitable Trust</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="desktop-nav">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link-item"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link-item"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+            <li><a href="gallery.html" class="nav-link-item"><i class="fa-solid fa-images"></i> Gallery</a></li>
+            <li><a href="contact.html" class="nav-link-item"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-cta-wrap">
+          <div class="lang-switch-wrap" id="headerLangSwitch" title="Switch Language (English / हिन्दी)">
+            <button class="lang-btn active" data-lang="en" aria-label="Switch to English">EN</button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn" data-lang="hi" aria-label="Switch to Hindi">हिन्दी</button>
+          </div>
+
+          <button class="btn-pill-red nav-donate-btn" data-open-donate data-campaign-title="General Impact Fund">
+            Donate Now
+          </button>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-wrapper">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <h2>S. A. Foundation</h2>
+          </div>
+        </div>
+        <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn-pill-red" style="width:100%; justify-content:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
+          Donate Now
+        </button>
+        <div style="font-size:0.78rem; color:var(--text-muted); text-align:center; margin-top:1rem;">
+          Registered Charitable Trust
+        </div>
+      </div>
+    </div>
+    <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="page-hero-section">
+    <div class="container">
+      <div class="hero-tag-badge reveal-3d" style="margin-bottom:0.75rem;">
+        <span class="badge-dot"></span> Clarity & Transparency
+      </div>
+
+      <h1 class="section-title reveal-3d" style="font-size:clamp(2.1rem, 4vw, 3rem); margin-bottom:0.85rem;">
+        Frequently Asked Questions
+      </h1>
+
+      <p class="section-subtitle reveal-3d" style="max-width:720px; margin:0 auto 2rem;">
+        Everything you need to know about our fund governance, digital tablet distribution, donations, and volunteer involvement.
+      </p>
+
+      <!-- Live Search Input -->
+      <div class="faq-search-wrap reveal-3d">
+        <i class="fa-solid fa-magnifying-glass faq-search-icon"></i>
+        <input type="text" id="faqSearchInput" class="faq-search-input" placeholder="Search questions (e.g. donation receipt, volunteer, UPI, flood relief)...">
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ACCORDION SECTION ==================== -->
+  <section style="padding: 3.5rem 0 5rem;">
+    <div class="container">
+      
+      <!-- Category Filter Tabs -->
+      <div class="faq-cat-filter reveal-3d">
+        <button class="faq-cat-btn active" data-cat="all">All Topics</button>
+        <button class="faq-cat-btn" data-cat="donation">Donations & Support</button>
+        <button class="faq-cat-btn" data-cat="impact">Projects & Impact</button>
+        <button class="faq-cat-btn" data-cat="volunteer">Volunteering</button>
+        <button class="faq-cat-btn" data-cat="csr">CSR & Corporate</button>
+      </div>
+
+      <!-- FAQ Accordion List -->
+      <div class="faq-accordion-group reveal-3d" id="faqAccordionGroup">
+        
+        <!-- FAQ 1 -->
+        <div class="faq-item" data-category="donation">
+          <button class="faq-question">
+            <span>How does SAF ensure complete financial and ground transparency?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Every project is monitored with GPS geo-tagged dispatch reporting and third-party audited financial balance sheets. Donors receive live photographic dispatches and updates from ground zero.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item" data-category="donation">
+          <button class="faq-question">
+            <span>When and how do I receive my official donation receipt?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>An official donation receipt with a unique transaction number and trust details is generated <strong>instantly</strong> upon completing your online or UPI donation. You can view, download, and print it right away, and a copy is emailed to your registered address.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item" data-category="donation">
+          <button class="faq-question">
+            <span>Can I donate using Google Pay, PhonePe, Paytm or other UPI apps?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes! You can donate directly by scanning our verified UPI QR Code on the home page or by sending contributions to our official UPI ID: <code>safoundation@sbi</code>. We also support Credit Cards, Debit Cards, and NetBanking through our secure payment gateway.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item" data-category="donation">
+          <button class="faq-question">
+            <span>How does SAF Foundation allocate and spend donated funds?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>At least <strong>88% of all received funds</strong> go directly into grassroots field execution (purchasing STEM science tablets, emergency flood relief dry rations, solar clean water pumps, and sewing craft machines). Only ~12% covers essential administrative, logistical, and auditing costs.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item" data-category="impact">
+          <button class="faq-question">
+            <span>Where does S. A. Foundation carry out its primary humanitarian operations?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Our grassroots initiatives focus on underserved communities and flood-prone zones across Bihar (Patna, Kosi Basin, Madhubani, Gaya, Samastipur, Darbhanga, Nalanda) and adjoining rural districts.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item" data-category="volunteer">
+          <button class="faq-question">
+            <span>How can I join SAF Foundation as a volunteer or intern?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>You can fill out our interactive <a href="volunteer.html" style="color:#EC4624; font-weight:700;">Volunteer Application Form</a>. We offer both virtual opportunities (curriculum design, social media, translation) and field missions (teaching tablet classes, distributing relief packages, pediatric health camps). Certificates of service are provided upon program completion.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item" data-category="csr">
+          <button class="faq-question">
+            <span>Do you offer Corporate Social Responsibility (CSR) partnerships for enterprises?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Yes, SAF Foundation is registered with the Ministry of Corporate Affairs for undertaking CSR activities (Form CSR-1). We partner with leading corporations to establish smart school tablet labs, solar water hubs, and women craft clusters with complete quarterly milestone audit reports.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Still have questions? -->
+      <div style="background:#FFFFFF; border-radius:16px; border:1px solid var(--border-light); padding:2rem; text-align:center; max-width:850px; margin:3rem auto 0; box-shadow:0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size:1.25rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.5rem;">Still have questions or need specific help?</h3>
+        <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:1.25rem;">Our support team is always ready to assist with donation queries, volunteer onboarding, or inquiries.</p>
+        <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+          <a href="contact.html" class="btn-pill-red">Contact Support Desk</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== MEGA FOOTER ==================== -->
+  <footer class="mega-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid-cols">
+        <div>
+          <div class="footer-logo-wrap">
+            <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo">
+            <div class="brand-text">
+              <span class="brand-title" style="color: #FFFFFF;">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+              <span class="brand-subtitle">Charitable Trust</span>
+            </div>
+          </div>
+          <p style="font-size:0.875rem; line-height:1.65; margin-bottom:1.25rem; color:var(--text-muted);">
+            S. A. Foundation is a national non-profit organization dedicated to empowering grassroots communities across India.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Quick Links</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="leadership.html">Leadership & Trustees</a></li>
+            <li><a href="gallery.html">Ground Gallery</a></li>
+            <li><a href="volunteer.html">Volunteer With Us</a></li>
+            <li><a href="faq.html">FAQ Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Legal & Admin</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><span style="color:#059669; font-weight:700;"><i class="fa-solid fa-award"></i> Registered Charitable Trust</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Newsletter Signup</h4>
+          <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.6rem;">
+            <input type="email" placeholder="Your Email Address" required style="padding:0.8rem 1.1rem; border-radius:var(--radius-pill); font-size:0.875rem; border:1px solid var(--border-light); outline:none; background:#ffffff;">
+            <button class="btn-pill-dark" type="submit" style="justify-content:center;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--border-light); padding-top:1.5rem; text-align:center; font-size:0.825rem; color:var(--text-muted);">
+        &copy; 2026 S. A. Foundation. All rights reserved. Registered Non-Profit Organization.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Card -->
+  <div class="toast-notification-card" id="liveToast"></div>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/qrcode.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Accordion open/close
+      const faqItems = document.querySelectorAll('.faq-item');
+      faqItems.forEach(item => {
+        const btn = item.querySelector('.faq-question');
+        btn?.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+          faqItems.forEach(i => i.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
+        });
+      });
+
+      // Category filters
+      const catBtns = document.querySelectorAll('.faq-cat-btn');
+      catBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          catBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          const cat = btn.getAttribute('data-cat');
+
+          faqItems.forEach(item => {
+            const itemCat = item.getAttribute('data-category');
+            if (cat === 'all' || itemCat === cat) {
+              item.style.display = 'block';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Live keyword search
+      const searchInput = document.getElementById('faqSearchInput');
+      searchInput?.addEventListener('input', (e) => {
+        const term = e.target.value.toLowerCase().trim();
+        faqItems.forEach(item => {
+          const text = item.textContent.toLowerCase();
+          if (text.includes(term)) {
+            item.style.display = 'block';
+            if (term.length > 2) item.classList.add('active');
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

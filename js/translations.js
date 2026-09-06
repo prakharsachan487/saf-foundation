@@ -15,7 +15,7 @@ const SAF_TRANSLATIONS = {
     nav_governance: 'Governance & Trust',
     nav_help: 'Ways to Help',
     nav_donate: 'Donate Now',
-    tax_exempt_badge: '80G Tax Exempted • 12A Certified',
+    tax_exempt_badge: 'Registered Charitable Trust',
 
     // Hero
     hero_badge: 'Grassroots Empowerment Across India',
@@ -52,15 +52,15 @@ const SAF_TRANSLATIONS = {
     pillar3: 'Education',
     pillar4: 'Nutrition',
 
-    // Founder
-    founder_title: 'Leadership & Vision — Anand Singh',
-    founder_subtitle: 'Visionary leadership fusing corporate execution rigor with deep grassroots empathy.',
+    // Trustee & Leadership
+    founder_title: 'Board of Trustees & Leadership',
+    founder_subtitle: 'Guiding S. A. Foundation with fiduciary responsibility and deep grassroots empathy.',
     founder_name: 'Anand Singh',
-    founder_tagline: 'Founder & Managing Trustee, S. A. Foundation',
-    founder_quote: '“Social responsibility of each individual builds and economically empowers communities.”',
-    founder_quote_author: '— Anand Singh',
-    founder_bio: 'Anand Singh channeled his entrepreneurial success into building scalable grassroots systems across India. Under his leadership, SAF Foundation has mobilized hundreds of millions in relief aid, established digital classrooms, and fostered self-reliant village cooperatives.',
-    founder_connect_btn: 'Connect With Founder',
+    founder_tagline: 'Trustee & Managing Trustee, S. A. Foundation',
+    founder_quote: '“Social responsibility of each individual builds and economically empowers resilient communities.”',
+    founder_quote_author: '— Anand Singh, Managing Trustee',
+    founder_bio: 'Anand Singh leads S. A. Foundation with dedicated grassroots stewardship. Under his guidance, SAF Foundation has mobilized hundreds of millions in relief aid, established digital classrooms, and fostered self-reliant village cooperatives.',
+    founder_connect_btn: 'Connect With Trustee Desk',
     founder_gallery_title: 'Authentic Ground Footprint & Field Visits',
     founder_stat1_lbl: 'Rural Reach',
     founder_stat2_lbl: 'Impact Imprints',
@@ -127,15 +127,15 @@ const SAF_TRANSLATIONS = {
 
     // Governance
     trans_title: 'Governance & Transparency',
-    trans_subtitle: '100% compliant, audited, and tax-exempt NGO in India.',
+    trans_subtitle: '100% compliant and audited NGO in India.',
     trans_heading: 'Highest Regulatory & Ethical Standards',
     trans_programs: 'Direct Programs',
     trans_ops: 'Ops',
     trans_admin: 'Admin',
     trans_donors_lbl: 'Donors & Verified Audits',
     trans_overhead_lbl: 'Overhead Ratio',
-    trans_badge1: '80G Tax Exemption',
-    trans_badge2: '12A Certified',
+    trans_badge1: 'Registered Trust',
+    trans_badge2: 'Audited Governance',
     trans_badge3: 'FCRA Approved',
     trans_badge4: 'CSR-1 Registered',
 
@@ -143,7 +143,7 @@ const SAF_TRANSLATIONS = {
     help_title: 'Ways to Get Involved',
     help_subtitle: 'Simple, impactful pathways to be a part of the nation-building journey.',
     help1_title: 'Donate',
-    help1_desc: 'Make a 50% 80G tax-exempt donation towards education, food, or emergency relief.',
+    help1_desc: 'Make a direct donation towards education, food, or emergency relief.',
     help1_btn: 'Donate',
     help2_title: 'Volunteer',
     help2_desc: 'Join our on-ground volunteer force across 30+ states in teaching and relief camps.',
@@ -217,7 +217,7 @@ const SAF_TRANSLATIONS = {
     nav_governance: 'पारदर्शिता एवं सुशासन',
     nav_help: 'सहयोग के तरीके',
     nav_donate: 'दान करें',
-    tax_exempt_badge: '80G आयकर छूट • 12A प्रमाणित',
+    tax_exempt_badge: 'पंजीकृत चेरिटेबल ट्रस्ट',
 
     // Hero
     hero_badge: 'भारत भर में जमीनी सशक्तिकरण',
@@ -254,15 +254,15 @@ const SAF_TRANSLATIONS = {
     pillar3: 'गुणवत्तापूर्ण शिक्षा',
     pillar4: 'पोषण सुरक्षा',
 
-    // Founder
-    founder_title: 'नेतृत्व एवं विज़न — आनंद सिंह',
-    founder_subtitle: 'गहरी जमीनी संवेदनशीलता के साथ कॉर्पोरेट कार्यकुशलता का अनूठा संगम।',
+    // Trustee & Leadership
+    founder_title: 'बोर्ड ऑफ ट्रस्टीज़ एवं नेतृत्व',
+    founder_subtitle: 'गहरी जमीनी संवेदनशीलता के साथ न्यासी कार्यकुशलता और पारदर्शिता का अनूठा संगम।',
     founder_name: 'आनंद सिंह',
-    founder_tagline: 'संस्थापक एवं प्रबंध न्यासी, एस. ए. फाउंडेशन',
+    founder_tagline: 'प्रबंध न्यासी एवं ट्रस्टी, एस. ए. फाउंडेशन',
     founder_quote: '“प्रत्येक व्यक्ति की सामाजिक जिम्मेदारी ही समुदायों का निर्माण और उन्हें आर्थिक रूप से सशक्त बनाती है।”',
-    founder_quote_author: '— आनंद सिंह',
-    founder_bio: 'आनंद सिंह ने अपनी उद्यमशीलता की सफलता को भारत भर में बड़े पैमाने पर जमीनी सामाजिक प्रणालियों के निर्माण में लगाया। उनके नेतृत्व में, एसएएफ फाउंडेशन ने करोड़ों की राहत सहायता पहुंचाई, डिजिटल स्मार्ट कक्षाएं स्थापित कीं और आत्मनिर्भर ग्रामीण सहकारी समितियों को बढ़ावा दिया।',
-    founder_connect_btn: 'संस्थापक से जुड़ें',
+    founder_quote_author: '— आनंद सिंह, प्रबंध न्यासी',
+    founder_bio: 'आनंद सिंह एस. ए. फाउंडेशन का नेतृत्व समर्पित जमीनी मार्गदर्शन के साथ करते हैं। उनके नेतृत्व में, एसएएफ फाउंडेशन ने करोड़ों की राहत सहायता पहुंचाई, डिजिटल स्मार्ट कक्षाएं स्थापित कीं और आत्मनिर्भर ग्रामीण सहकारी समितियों को बढ़ावा दिया।',
+    founder_connect_btn: 'ट्रस्टी डेस्क से संपर्क करें',
     founder_gallery_title: 'प्रामाणिक जमीनी कार्य एवं क्षेत्रीय दौरे',
     founder_stat1_lbl: 'ग्रामीण पहुंच',
     founder_stat2_lbl: 'प्रभाव के निशान',
@@ -329,15 +329,15 @@ const SAF_TRANSLATIONS = {
 
     // Governance
     trans_title: 'पारदर्शिता एवं सुशासन',
-    trans_subtitle: '100% अनुपालन, ऑडिटेड और कर-मुक्त भारतीय गैर-सरकारी संगठन (NGO)।',
+    trans_subtitle: '100% अनुपालन और ऑडिटेड भारतीय गैर-सरकारी संगठन (NGO)।',
     trans_heading: 'सर्वोच्च नियामक और नैतिक मानक',
     trans_programs: 'प्रत्यक्ष कार्यक्रम',
     trans_ops: 'संचालन',
     trans_admin: 'प्रशासन',
     trans_donors_lbl: 'दानकर्ता और सत्यापित ऑडिट',
     trans_overhead_lbl: 'ओवरहेड अनुपात',
-    trans_badge1: '80G आयकर छूट',
-    trans_badge2: '12A प्रमाणित',
+    trans_badge1: 'पंजीकृत ट्रस्ट',
+    trans_badge2: 'ऑडिटेड सुशासन',
     trans_badge3: 'FCRA स्वीकृत',
     trans_badge4: 'CSR-1 पंजीकृत',
 
@@ -345,7 +345,7 @@ const SAF_TRANSLATIONS = {
     help_title: 'सहयोग के तरीके',
     help_subtitle: 'राष्ट्र निर्माण की इस यात्रा का हिस्सा बनने के सरल और प्रभावशाली रास्ते।',
     help1_title: 'दान करें',
-    help1_desc: 'शिक्षा, भोजन या राहत सहायता के लिए 50% 80G कर-मुक्त योगदान दें।',
+    help1_desc: 'शिक्षा, भोजन या राहत सहायता के लिए प्रत्यक्ष योगदान दें।',
     help1_btn: 'दान करें',
     help2_title: 'स्वयंसेवक बनें',
     help2_desc: '30+ राज्यों में शिक्षण और राहत शिविरों में हमारी टीम से जुड़ें।',
@@ -430,9 +430,17 @@ function setSiteLanguage(lang) {
     } else if (href === 'about.html' || href === '#about') {
       link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-circle-info"></i> ' : '<i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'हमारे बारे में' : 'About Us');
     } else if (href === 'leadership.html' || href === '#founder') {
-      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-user-tie"></i> ' : '<i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'हमारा नेतृत्व एवं न्यासी' : 'Our Leadership & Trustees');
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-user-tie"></i> ' : '<i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'नेतृत्व' : 'Leadership');
     } else if (href === 'gallery.html' || href === '#gallery') {
-      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-images"></i> ' : '<i class="fa-solid fa-images" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'जमीनी गैलरी' : 'Ground Gallery');
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-images"></i> ' : '<i class="fa-solid fa-images" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'गैलरी' : 'Gallery');
+    } else if (href === 'volunteer.html') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-hand-holding-heart"></i> ' : '<i class="fa-solid fa-hand-holding-heart" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'स्वयंसेवक बनें' : 'Volunteer');
+    } else if (href === 'faq.html') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-circle-question"></i> ' : '<i class="fa-solid fa-circle-question" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'सवाल-जवाब (FAQ)' : 'FAQ');
+    } else if (href === 'contact.html') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-envelope"></i> ' : '<i class="fa-solid fa-envelope" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'संपर्क करें' : 'Contact');
+    } else if (href === 'admin.html') {
+      link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-lock"></i> ' : '<i class="fa-solid fa-lock" style="font-size:0.85rem; margin-right:4px;"></i> ') + (lang === 'hi' ? 'एडमिन पोर्टल' : 'Admin Portal');
     } else if (href === '#areas') {
       link.innerHTML = (link.classList.contains('mobile-nav-link') ? '<i class="fa-solid fa-hand-holding-heart"></i> ' : '') + t.nav_work;
     } else if (href === '#impact-map') {
@@ -473,6 +481,18 @@ function setSiteLanguage(lang) {
   if (p2) p2.innerHTML = `<strong>${t.hero_stat2_num}</strong><span>${t.hero_stat2_lbl}</span>`;
   const p3 = document.querySelector('.pill-stat-3');
   if (p3) p3.innerHTML = `<strong>${t.hero_stat3_num}</strong><span>${t.hero_stat3_lbl}</span>`;
+
+  // QR Card Translations
+  const qrTag = document.querySelector('.qr-card-tag');
+  if (qrTag) qrTag.textContent = lang === 'hi' ? 'तत्काल UPI दान' : 'Instant UPI Donation';
+  const qrTitle = document.querySelector('.qr-card-title');
+  if (qrTitle) qrTitle.textContent = lang === 'hi' ? 'सीधे स्कैन करके मदद करें' : 'Scan & Support Directly';
+  const qrTax = document.querySelector('.qr-tax-badge');
+  if (qrTax) qrTax.innerHTML = `<i class="fa-solid fa-shield-halved"></i> ` + (lang === 'hi' ? '100% सुरक्षित दान' : '100% Direct Impact');
+  const qrHint = document.querySelector('.qr-scan-hint');
+  if (qrHint) qrHint.innerHTML = `<i class="fa-solid fa-qrcode" style="color:var(--accent-gold);"></i> ` + (lang === 'hi' ? 'Google Pay, PhonePe, Paytm, BHIM से स्कैन करें' : 'Scan with Google Pay, PhonePe, Paytm, BHIM');
+  const quickLabel = document.querySelector('.quick-amt-label');
+  if (quickLabel) quickLabel.textContent = lang === 'hi' ? 'राशि चुनें:' : 'Quick Select:';
 
   // 2.5 Gallery Section
   const galleryBadge = document.querySelector('.gallery-section .hero-tag-badge');
@@ -753,24 +773,25 @@ function setSiteLanguage(lang) {
   if (megaH2) megaH2.textContent = t.mega_cta_title;
   const megaP = document.querySelector('.mega-cta-3d-card p');
   if (megaP) megaP.textContent = t.mega_cta_desc;
-  const megaBtns = document.querySelectorAll('.mega-cta-3d-card button');
-  if (megaBtns[0]) megaBtns[0].textContent = t.mega_cta_donate;
-  if (megaBtns[1]) megaBtns[1].textContent = t.mega_cta_volunteer;
-  if (megaBtns[2]) megaBtns[2].textContent = t.mega_cta_partner;
+  const megaLinks = document.querySelectorAll('.mega-cta-3d-card a, .mega-cta-3d-card button');
+  if (megaLinks[0]) megaLinks[0].textContent = lang === 'hi' ? 'स्वयंसेवक बनें' : 'Become a Volunteer';
+  if (megaLinks[1]) megaLinks[1].textContent = lang === 'hi' ? 'साझेदारी करें' : (megaLinks[1].getAttribute('href')?.includes('contact') ? 'Contact Us' : 'Partner With Us');
 
   const footerAbout = document.querySelector('.footer-grid-cols > div:first-child > p');
   if (footerAbout) footerAbout.textContent = t.footer_about;
 
-  const footerHeadings = document.querySelectorAll('.footer-grid-cols h4');
-  if (footerHeadings[0]) footerHeadings[0].textContent = t.footer_quick_links;
-  if (footerHeadings[1]) footerHeadings[1].textContent = t.footer_contact_info;
-  if (footerHeadings[2]) footerHeadings[2].textContent = t.footer_newsletter;
-
-  const contactLis = document.querySelectorAll('.footer-grid-cols > div:nth-child(3) ul li');
-  if (contactLis[0]) contactLis[0].innerHTML = `<i class="fa-solid fa-building" style="color:var(--accent-gold);"></i> ${t.footer_hq}`;
-  if (contactLis[1]) contactLis[1].innerHTML = `<i class="fa-solid fa-map-pin" style="color:var(--accent-gold);"></i> ${t.footer_field}`;
-  if (contactLis[2]) contactLis[2].innerHTML = `<i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> ${t.footer_phone}`;
-  if (contactLis[3]) contactLis[3].innerHTML = `<i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> ${t.footer_email}`;
+  document.querySelectorAll('.footer-grid-cols h4').forEach(h4 => {
+    const text = h4.textContent.trim().toLowerCase();
+    if (text.includes('quick') || text.includes('त्वरित')) {
+      h4.textContent = lang === 'hi' ? 'त्वरित लिंक्स' : 'Quick Links';
+    } else if (text.includes('legal') || text.includes('कानूनी')) {
+      h4.textContent = lang === 'hi' ? 'कानूनी एवं एडमिन' : 'Legal & Admin';
+    } else if (text.includes('contact') || text.includes('संपर्क')) {
+      h4.textContent = lang === 'hi' ? 'संपर्क जानकारी' : 'Contact Info';
+    } else if (text.includes('newsletter') || text.includes('न्यूज़लेटर')) {
+      h4.textContent = lang === 'hi' ? 'न्यूज़लेटर सदस्यता' : 'Newsletter Signup';
+    }
+  });
 
   const newsInput = document.querySelector('#newsletterForm input[type="email"]');
   if (newsInput) newsInput.placeholder = t.footer_email_placeholder;
@@ -778,7 +799,7 @@ function setSiteLanguage(lang) {
   if (newsSubmit) newsSubmit.textContent = t.footer_subscribe_btn;
 
   const footerCopy = document.querySelector('.mega-footer div[style*="text-align:center"]');
-  if (footerCopy) footerCopy.innerHTML = t.footer_copyright;
+  if (footerCopy) footerCopy.innerHTML = lang === 'hi' ? 'कॉपीराइट &copy; 2026 <strong>एस. ए. फाउंडेशन (SAF)</strong>. सर्वाधिकार सुरक्षित। पंजीकृत गैर-लाभकारी संगठन।' : 'Copyright &copy; 2026 <strong>S. A. FOUNDATION (SAF)</strong>. All Rights Reserved. Registered Non-Profit Organization.';
 
   // Update switcher buttons active state
   document.querySelectorAll('.lang-btn').forEach(btn => {

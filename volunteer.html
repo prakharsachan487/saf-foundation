@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Volunteer Registration | SAF Foundation</title>
+  <meta name="description" content="Join S. A. Foundation as a grassroots volunteer or digital mentor. Empower rural schools, assist in emergency flood relief, and lead community development across India.">
+
+  <!-- Google Fonts: Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    .page-hero-section {
+      padding: 4rem 0 3rem;
+      background: radial-gradient(circle at 50% 15%, rgba(13, 148, 136, 0.15) 0%, rgba(248, 250, 252, 1) 85%);
+      border-bottom: 1px solid var(--border-light);
+      text-align: center;
+    }
+
+    .page-breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      background: #FFFFFF;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-light);
+    }
+  </style>
+  <!-- Google Fonts (Cinzel, Plus Jakarta Sans, Poppins) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==================== 1. HEADER & NAVBAR ==================== -->
+  <header class="site-header" id="navbar">
+    <div class="container">
+      <div class="nav-container">
+        <a href="index.html" class="brand-wrapper">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+            <span class="brand-subtitle">Charitable Trust</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="desktop-nav">
+          <ul class="nav-links">
+            <li><a href="index.html" class="nav-link-item"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link-item"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+            <li><a href="gallery.html" class="nav-link-item"><i class="fa-solid fa-images"></i> Gallery</a></li>
+            <li><a href="contact.html" class="nav-link-item"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-cta-wrap">
+          <button class="btn-pill-red nav-donate-btn" data-open-donate data-campaign-title="Volunteer Fund">
+            Donate Now
+          </button>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+            <i class="fa-solid fa-bars-staggered"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Slide-Out Drawer Navigation -->
+    <div class="mobile-nav-drawer" id="mobileDrawer">
+      <div class="mobile-drawer-header">
+        <div class="brand-wrapper">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <div class="brand-text">
+            <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+            <span class="brand-subtitle">Charitable Trust</span>
+          </div>
+        </div>
+        <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <ul class="mobile-nav-links">
+        <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+      </ul>
+
+      <div class="mobile-drawer-footer">
+        <button class="btn-pill-red" style="width:100%; justify-content:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
+          Donate Now
+        </button>
+      </div>
+    </div>
+    <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="page-hero-section">
+    <div class="container">
+      <div class="hero-tag-badge reveal-3d" style="margin-bottom:0.75rem;">
+        <span class="badge-dot"></span> Join 2,900+ Grassroots Changemakers
+      </div>
+
+      <h1 class="section-title reveal-3d" style="font-size:clamp(2.1rem, 4vw, 3rem); margin-bottom:0.85rem;">
+        Become an Impact Ambassador
+      </h1>
+
+      <p class="section-subtitle reveal-3d" style="max-width:720px; margin:0 auto;">
+        Offer your time, skills, or professional expertise to empower village schools, assist emergency flood rescue operations, and foster women cooperatives across India.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== VOLUNTEER REGISTRATION FORM ==================== -->
+  <section style="padding: 4rem 0 5rem;">
+    <div class="container">
+      <div style="max-width:850px; margin:0 auto;" class="form-3d-card reveal-3d">
+        <div style="text-align:center; margin-bottom:2rem;">
+          <h2 style="font-size:1.6rem; font-weight:800; color:var(--navy-heading); margin-bottom:0.4rem;">
+            Volunteer Registration Form
+          </h2>
+          <p style="font-size:0.9rem; color:var(--text-muted); margin:0;">
+            Fill out your details below. Our volunteering coordinator will review and connect with you via email or WhatsApp.
+          </p>
+        </div>
+
+        <form id="volunteerRegistrationForm">
+          <!-- Step 1: Personal Info -->
+          <div style="margin-bottom:1.75rem;">
+            <h4 style="font-size:1.05rem; font-weight:700; color:var(--navy-heading); border-bottom:1px solid var(--border-light); padding-bottom:0.5rem; margin-bottom:1rem;">
+              1. Personal Details
+            </h4>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label for="volFullName">Full Name *</label>
+                <input type="text" id="volFullName" class="form-input" placeholder="e.g. Priya Sharma" required>
+              </div>
+              <div class="form-group">
+                <label for="volEmail">Email Address *</label>
+                <input type="email" id="volEmail" class="form-input" placeholder="priya@example.com" required>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:1rem;">
+              <div class="form-group">
+                <label for="volPhone">Phone / WhatsApp *</label>
+                <input type="tel" id="volPhone" class="form-input" placeholder="+91 98765 43210" required>
+              </div>
+              <div class="form-group">
+                <label for="volCity">City / District *</label>
+                <input type="text" id="volCity" class="form-input" placeholder="e.g. Patna / New Delhi" required>
+              </div>
+              <div class="form-group">
+                <label for="volState">State *</label>
+                <select id="volState" class="form-select" required>
+                  <option value="">Select State</option>
+                  <option value="Bihar">Bihar</option>
+                  <option value="Delhi">Delhi NCR</option>
+                  <option value="Uttar Pradesh">Uttar Pradesh</option>
+                  <option value="Jharkhand">Jharkhand</option>
+                  <option value="Maharashtra">Maharashtra</option>
+                  <option value="Karnataka">Karnataka</option>
+                  <option value="West Bengal">West Bengal</option>
+                  <option value="Other">Other State</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Preferred Cause & Role -->
+          <div style="margin-bottom:1.75rem;">
+            <h4 style="font-size:1.05rem; font-weight:700; color:var(--navy-heading); border-bottom:1px solid var(--border-light); padding-bottom:0.5rem; margin-bottom:1rem;">
+              2. Areas of Interest & Volunteering Mode
+            </h4>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem;">
+              <div class="form-group">
+                <label for="volPrimaryCause">Primary Area of Interest *</label>
+                <select id="volPrimaryCause" class="form-select" required>
+                  <option value="Smart Digital Science Labs">Smart Digital Classrooms & STEM Labs</option>
+                  <option value="Emergency Flood Relief & Food">Emergency Flood Rescue & Clean Water</option>
+                  <option value="Women Solar Sewing Hubs">Women Solar Sewing Hubs & Livelihood</option>
+                  <option value="Pediatric Healthcare Camps">Pediatric Health & Nutrition Camps</option>
+                  <option value="Fundraising & CSR Advocacy">Fundraising & Corporate CSR Outreach</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="volAvailability">Availability & Mode *</label>
+                <select id="volAvailability" class="form-select" required>
+                  <option value="Weekends (4-8 hours/week)">Weekends (4-8 hours/week)</option>
+                  <option value="Remote / Virtual Mentor (2-4 hrs/week)">Remote / Virtual Mentor (2-4 hrs/week)</option>
+                  <option value="Full-time Field Volunteer (1-3 months)">Full-time Field Volunteer (1-3 months)</option>
+                  <option value="Emergency Relief On-Call">Emergency Disaster On-Call Specialist</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Skill Tags -->
+            <label style="font-size:0.82rem; font-weight:700; color:var(--navy-heading); display:block; margin-bottom:0.5rem;">
+              Skills You Can Contribute (Select all that apply):
+            </label>
+            <div class="skill-chips-grid">
+              <label class="skill-chip-item"><input type="checkbox" name="skills" value="Teaching/Tutoring"> Teaching / STEM</label>
+              <label class="skill-chip-item"><input type="checkbox" name="skills" value="Medical/Healthcare"> Medical / First Aid</label>
+              <label class="skill-chip-item"><input type="checkbox" name="skills" value="Field Operations"> Field Distribution</label>
+              <label class="skill-chip-item"><input type="checkbox" name="skills" value="Social Media/Writing"> Content / Media</label>
+              <label class="skill-chip-item"><input type="checkbox" name="skills" value="Graphic Design/Video"> Design / Video</label>
+              <label class="skill-chip-item"><input type="checkbox" name="skills" value="Fundraising/Corporate"> CSR / Grants</label>
+            </div>
+          </div>
+
+          <!-- Step 3: Motivation Statement -->
+          <div style="margin-bottom:1.75rem;">
+            <h4 style="font-size:1.05rem; font-weight:700; color:var(--navy-heading); border-bottom:1px solid var(--border-light); padding-bottom:0.5rem; margin-bottom:1rem;">
+              3. Why do you want to volunteer with SAF Foundation?
+            </h4>
+            <div class="form-group">
+              <textarea id="volStatement" class="form-textarea" rows="3" placeholder="Tell us briefly about your motivation or past social work experience..." required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-pill-red" style="width:100%; justify-content:center; padding:0.95rem; font-size:1rem;">
+            <i class="fa-solid fa-check" style="margin-right:8px;"></i> Submit Volunteer Application
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MEGA FOOTER ==================== -->
+  <footer class="mega-footer" id="contact">
+    <div class="container">
+      <div class="footer-grid-cols">
+        <div>
+          <div class="footer-logo-wrap">
+            <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo">
+            <div class="brand-text">
+              <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+              <span class="brand-subtitle">Grassroots Trust &bull; India</span>
+            </div>
+          </div>
+          <p style="font-size:0.875rem; line-height:1.65; margin-bottom:1.25rem; color:var(--text-muted);">
+            S. A. Foundation is a national non-profit organization dedicated to empowering grassroots communities across India.
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Quick Links</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="leadership.html">Leadership & Trustees</a></li>
+            <li><a href="gallery.html">Ground Gallery</a></li>
+            <li><a href="volunteer.html">Volunteer With Us</a></li>
+            <li><a href="faq.html">FAQ Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Legal & Admin</h4>
+          <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><span style="color:#059669; font-weight:700;"><i class="fa-solid fa-award"></i> Registered Charitable Trust</span></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Newsletter Signup</h4>
+          <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.6rem;">
+            <input type="email" placeholder="Your Email Address" required style="padding:0.8rem 1.1rem; border-radius:var(--radius-pill); font-size:0.875rem; border:1px solid var(--border-light); outline:none; background:#ffffff;">
+            <button class="btn-pill-dark" type="submit" style="justify-content:center;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div style="border-top:1px solid var(--border-light); padding-top:1.5rem; text-align:center; font-size:0.825rem; color:var(--text-muted);">
+        &copy; 2026 S. A. Foundation. All rights reserved. Registered Non-Profit Organization.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Card -->
+  <div class="toast-notification-card" id="liveToast"></div>
+
+  <!-- Scripts -->
+  <script src="js/translations.js"></script>
+  <script src="js/qrcode.min.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('volunteerRegistrationForm');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const selectedSkills = Array.from(document.querySelectorAll('input[name="skills"]:checked')).map(cb => cb.value);
+
+        const volunteer = {
+          id: 'VOL-' + Date.now().toString().slice(-6),
+          date: new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' }),
+          name: document.getElementById('volFullName')?.value,
+          email: document.getElementById('volEmail')?.value,
+          phone: document.getElementById('volPhone')?.value,
+          city: document.getElementById('volCity')?.value,
+          state: document.getElementById('volState')?.value,
+          cause: document.getElementById('volPrimaryCause')?.value,
+          availability: document.getElementById('volAvailability')?.value,
+          skills: selectedSkills.join(', ') || 'General Grassroots Support',
+          statement: document.getElementById('volStatement')?.value,
+          status: 'Under Review'
+        };
+
+        const existing = JSON.parse(localStorage.getItem('saf_volunteers') || '[]');
+        existing.unshift(volunteer);
+        localStorage.setItem('saf_volunteers', JSON.stringify(existing));
+
+        showToast(`Congratulations ${volunteer.name}! Your volunteer application [${volunteer.id}] has been submitted. Our team will contact you soon.`, 'Application Submitted 🌟', 'fa-hand-holding-heart');
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>

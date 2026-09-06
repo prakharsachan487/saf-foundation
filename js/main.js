@@ -141,7 +141,7 @@ function initCounters() {
   counterElements.forEach(el => observer.observe(el));
 }
 
-/* ==================== 5. ACTIONS & SMOOTH SCROLL ==================== */
+/* ==================== 5. ACTIONS & PAYMENT GATEWAY ==================== */
 function initActionButtons() {
   function closeDrawerIfOpen() {
     const mobileDrawer = document.getElementById('mobileDrawer');
@@ -151,23 +151,379 @@ function initActionButtons() {
     document.body.style.overflow = '';
   }
 
+  // Open Payment Gateway Modal
   document.querySelectorAll('[data-open-donate]').forEach(btn => {
     btn.addEventListener('click', (e) => {
       e.preventDefault();
       closeDrawerIfOpen();
-      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-      showToast('Thank you for choosing to empower village communities! Please connect with us below for official contribution details.', 'Heartfelt Gratitude ❤️', 'fa-heart');
+      const campaign = btn.getAttribute('data-campaign-title') || 'Grassroots Impact Fund';
+      openPaymentGateway(campaign);
     });
   });
 
-  document.querySelectorAll('[data-open-volunteer], [data-open-partner]').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      closeDrawerIfOpen();
-      document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
-      showToast('Please connect with our official grassroots desk below.', 'Welcome Aboard 🤝', 'fa-handshake-angle');
+  // Hero Donation QR Card: UPI Copy Button
+  const copyHeroUpiBtn = document.getElementById('copyHeroUpiBtn');
+  copyHeroUpiBtn?.addEventListener('click', () => {
+    const upiId = document.getElementById('upiIdValue')?.textContent?.trim() || 'safoundation@sbi';
+    navigator.clipboard.writeText(upiId).then(() => {
+      showToast(`UPI ID "${upiId}" copied to clipboard! Paste it in Google Pay, PhonePe or Paytm to donate.`, 'Copied to Clipboard 📋', 'fa-circle-check');
+      const span = copyHeroUpiBtn.querySelector('span');
+      if (span) {
+        const orig = span.textContent;
+        span.textContent = 'Copied!';
+        setTimeout(() => { span.textContent = orig; }, 2000);
+      }
+    }).catch(() => {
+      showToast(`Official UPI ID: ${upiId}`, 'UPI ID', 'fa-wallet');
     });
   });
+
+  // Hero Donation QR Card: Quick Amount Buttons
+  document.querySelectorAll('.quick-amt-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const amt = btn.getAttribute('data-amt');
+      document.querySelectorAll('.quick-amt-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      openPaymentGateway('General Grassroots Fund', amt);
+    });
+  });
+}
+
+/* ==================== 5.2. INTERACTIVE UPI DONATION & DYNAMIC QR ENGINE ==================== */
+let currentDonationState = {
+  amount: 1000,
+  campaign: 'Grassroots Development',
+  name: '',
+  email: '',
+  phone: ''
+};
+
+function ensurePaymentModalExists() {
+  let modal = document.getElementById('donationPaymentModal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'donationPaymentModal';
+    modal.className = 'modal-backdrop';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.style.display = 'none';
+
+    modal.innerHTML = `
+      <div class="payment-modal-dialog">
+        <!-- Compact Header -->
+        <div class="payment-modal-header">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <img src="assets/images/logo-icon.png" alt="SAF Logo" style="height:26px; width:26px; border-radius:50%; background:#fff;">
+            <h3 id="payModalCampaignTitle" style="font-size:0.98rem; font-weight:700; color:#FFFFFF; margin:0;">Support S. A. Foundation</h3>
+          </div>
+          <button class="modal-close-btn" id="payModalClose" aria-label="Close dialog">&times;</button>
+        </div>
+
+        <!-- Body Container -->
+        <div class="payment-modal-body" id="payModalBody">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    modal.querySelector('#payModalClose')?.addEventListener('click', closePaymentGateway);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closePaymentGateway();
+    });
+  }
+  return modal;
+}
+
+function openPaymentGateway(campaign = 'Grassroots Development', prefilledAmount = 1000) {
+  const modal = ensurePaymentModalExists();
+  currentDonationState.campaign = campaign;
+  currentDonationState.amount = Number(prefilledAmount) || 1000;
+  
+  const titleEl = modal.querySelector('#payModalCampaignTitle');
+  if (titleEl) titleEl.textContent = `${campaign}`;
+
+  renderInteractiveDonationModal();
+  modal.style.display = 'flex';
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePaymentGateway() {
+  const modal = document.getElementById('donationPaymentModal');
+  if (modal) {
+    modal.style.display = 'none';
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+function drawDynamicModalQR(amt, campaign = 'Grassroots Aid') {
+  const canvas = document.getElementById('modalDynamicQrCanvas');
+  if (!canvas) return;
+
+  const upiPayload = `upi://pay?pa=safoundation@sbi&pn=S.%20A.%20Foundation&am=${amt}&cu=INR&tn=${encodeURIComponent('Donation for ' + campaign)}`;
+
+  if (window.QRCode && typeof window.QRCode.toCanvas === 'function') {
+    window.QRCode.toCanvas(canvas, upiPayload, {
+      width: 140,
+      margin: 1,
+      color: {
+        dark: '#0F172A',
+        light: '#FFFFFF'
+      },
+      errorCorrectionLevel: 'H'
+    }, function (error) {
+      if (error) {
+        console.error('QR Render Error:', error);
+        return;
+      }
+      // Draw centered logo badge
+      const ctx = canvas.getContext('2d');
+      const logo = new Image();
+      logo.onload = () => {
+        const size = 30;
+        const center = (canvas.width - size) / 2;
+        ctx.save();
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, (size / 2) + 2, 0, Math.PI * 2);
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fill();
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = '#F59E0B';
+        ctx.stroke();
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.arc(canvas.width / 2, canvas.height / 2, size / 2, 0, Math.PI * 2);
+        ctx.clip();
+        ctx.drawImage(logo, center, center, size, size);
+        ctx.restore();
+      };
+      logo.src = 'assets/images/logo-icon.png';
+    });
+  }
+}
+
+function launchUpiApp(appName) {
+  const amt = currentDonationState.amount || 1000;
+  const campaign = currentDonationState.campaign || 'Grassroots Aid';
+  const encodedCampaign = encodeURIComponent('Donation for ' + campaign);
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const isMobile = isAndroid || isIOS || window.innerWidth <= 768;
+
+  const genericUpi = `upi://pay?pa=safoundation@sbi&pn=S.%20A.%20Foundation&am=${amt}&cu=INR&tn=${encodedCampaign}`;
+
+  let targetUrl = genericUpi;
+
+  if (isAndroid) {
+    if (appName === 'gpay') {
+      targetUrl = `intent://pay?pa=safoundation@sbi&pn=S.%20A.%20Foundation&am=${amt}&cu=INR&tn=${encodedCampaign}#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end;`;
+    } else if (appName === 'phonepe') {
+      targetUrl = `intent://pay?pa=safoundation@sbi&pn=S.%20A.%20Foundation&am=${amt}&cu=INR&tn=${encodedCampaign}#Intent;scheme=upi;package=com.phonepe.app;end;`;
+    } else if (appName === 'paytm') {
+      targetUrl = `intent://pay?pa=safoundation@sbi&pn=S.%20A.%20Foundation&am=${amt}&cu=INR&tn=${encodedCampaign}#Intent;scheme=upi;package=net.one97.paytm;end;`;
+    } else if (appName === 'bhim') {
+      targetUrl = `intent://pay?pa=safoundation@sbi&pn=S.%20A.%20Foundation&am=${amt}&cu=INR&tn=${encodedCampaign}#Intent;scheme=upi;package=in.org.npci.upiapp;end;`;
+    }
+  } else if (isIOS) {
+    if (appName === 'gpay') {
+      targetUrl = `tez://upi/pay?pa=safoundation@sbi&pn=S.%20A.%20Foundation&am=${amt}&cu=INR&tn=${encodedCampaign}`;
+    } else if (appName === 'phonepe') {
+      targetUrl = `phonepe://pay?pa=safoundation@sbi&pn=S.%20A.%20Foundation&am=${amt}&cu=INR&tn=${encodedCampaign}`;
+    } else if (appName === 'paytm') {
+      targetUrl = `paytmmp://pay?pa=safoundation@sbi&pn=S.%20A.%20Foundation&am=${amt}&cu=INR&tn=${encodedCampaign}`;
+    } else {
+      targetUrl = genericUpi;
+    }
+  }
+
+  if (isMobile) {
+    const start = Date.now();
+    window.location.href = targetUrl;
+    
+    // Fallback to standard UPI picker if specific app doesn't launch
+    setTimeout(() => {
+      if (Date.now() - start < 1500 && targetUrl !== genericUpi) {
+        window.location.href = genericUpi;
+      }
+    }, 900);
+  } else {
+    // Desktop: copy UPI ID and show helpful guidance
+    navigator.clipboard.writeText('safoundation@sbi').catch(() => {});
+    showToast(`Amount ₹${amt.toLocaleString('en-IN')} & UPI ID safoundation@sbi ready! Scan the QR with ${appName.toUpperCase()} on your phone.`, `${appName.toUpperCase()} Ready 📱`, 'fa-mobile-screen-button');
+  }
+}
+
+function renderInteractiveDonationModal() {
+  const body = document.getElementById('payModalBody');
+  if (!body) return;
+
+  const amt = currentDonationState.amount;
+
+  body.innerHTML = `
+    <div>
+      <!-- 1. Central Dynamic QR Scanner Card (TOP) -->
+      <div class="qr-display-card">
+        <div class="qr-code-frame">
+          <canvas id="modalDynamicQrCanvas" width="140" height="140" style="display:block; border-radius:6px;"></canvas>
+          <div class="qr-laser-line"></div>
+        </div>
+
+        <div style="font-size:0.92rem; font-weight:800; color:var(--navy-heading); margin-bottom:0.35rem;">
+          Scan to Pay <span style="color:#059669;" id="qrAmtDisplay">₹${amt.toLocaleString('en-IN')}</span>
+        </div>
+
+        <!-- Verified UPI ID with One-Click Copy -->
+        <div>
+          <div class="upi-copy-pill" id="modalCopyUpiBtn" title="Click to copy official UPI ID">
+            <span style="color:var(--text-muted); font-size:0.75rem;">UPI:</span>
+            <span id="modalUpiText" style="font-family:monospace; font-size:0.82rem; font-weight:700;">safoundation@sbi</span>
+            <div class="upi-copy-btn-icon" id="modalCopyIcon">
+              <i class="fa-solid fa-copy"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Amount Selection (BELOW QR) -->
+      <div class="amount-select-section">
+        <div class="amount-pill-grid">
+          <button type="button" class="amt-pill-btn ${amt === 500 ? 'active' : ''}" data-amt="500">₹500</button>
+          <button type="button" class="amt-pill-btn ${amt === 1000 ? 'active' : ''}" data-amt="1000">₹1,000</button>
+          <button type="button" class="amt-pill-btn ${amt === 2500 ? 'active' : ''}" data-amt="2500">₹2,500</button>
+          <button type="button" class="amt-pill-btn ${amt === 5000 ? 'active' : ''}" data-amt="5000">₹5,000</button>
+        </div>
+
+        <!-- Custom Amount Input -->
+        <div class="custom-amt-input-wrap">
+          <span class="custom-amt-symbol">₹</span>
+          <input type="number" id="modalCustomAmtInput" class="custom-amt-field" placeholder="Custom amount" value="${amt}" min="50">
+        </div>
+      </div>
+
+      <!-- 3. Direct 1-Tap Mobile UPI Launcher -->
+      <div class="upi-app-launcher-row">
+        <button type="button" class="upi-app-btn" data-app="gpay">
+          <i class="fa-brands fa-google-pay" style="font-size:1.15rem; color:#4285F4;"></i>
+          <span>GPay</span>
+        </button>
+        <button type="button" class="upi-app-btn" data-app="phonepe">
+          <i class="fa-solid fa-mobile-screen-button" style="font-size:1rem; color:#5F259F;"></i>
+          <span>PhonePe</span>
+        </button>
+        <button type="button" class="upi-app-btn" data-app="paytm">
+          <i class="fa-solid fa-wallet" style="font-size:1rem; color:#00B9F5;"></i>
+          <span>Paytm</span>
+        </button>
+        <button type="button" class="upi-app-btn" data-app="bhim">
+          <i class="fa-solid fa-building-columns" style="font-size:1rem; color:#EC4624;"></i>
+          <span>BHIM</span>
+        </button>
+      </div>
+
+      <!-- 4. Action & Bank Details -->
+      <div style="display:flex; flex-direction:column; gap:6px; margin-top:0.75rem;">
+        <button type="button" id="btnToggleBankDetails" style="background:none; border:none; color:var(--text-muted); font-size:0.75rem; font-weight:600; cursor:pointer; text-decoration:underline; padding:2px;">
+          Need Direct Bank Transfer (NEFT / RTGS) Details?
+        </button>
+
+        <!-- Hidden Bank Details Box -->
+        <div id="bankDetailsBox" style="display:none; background:#FFFFFF; border:1px solid #CBD5E1; border-radius:10px; padding:0.75rem; margin-top:0.25rem; font-size:0.78rem;">
+          <h5 style="margin:0 0 4px 0; color:var(--navy-heading); font-size:0.82rem;">Official Charitable Bank Account:</h5>
+          <div style="line-height:1.5; color:var(--text-body);">
+            <strong>Account Name:</strong> S. A. FOUNDATION<br>
+            <strong>Bank:</strong> State Bank of India<br>
+            <strong>Account Number:</strong> 39820194821<br>
+            <strong>IFSC Code:</strong> SBIN0001234
+          </div>
+        </div>
+
+        <div style="font-size:0.73rem; color:var(--text-muted); text-align:center; margin-top:0.3rem;">
+          <i class="fa-solid fa-shield-halved" style="color:#059669;"></i> 100% Direct Grassroots Impact &bull; S. A. Foundation
+        </div>
+      </div>
+    </div>
+  `;
+
+  // Draw Dynamic QR Code with selected amount
+  drawDynamicModalQR(amt, currentDonationState.campaign);
+
+  // Attach Amount Pill Click Handlers
+  body.querySelectorAll('.amt-pill-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const selectedAmt = parseInt(btn.getAttribute('data-amt'));
+      currentDonationState.amount = selectedAmt;
+      
+      body.querySelectorAll('.amt-pill-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const customInput = document.getElementById('modalCustomAmtInput');
+      if (customInput) customInput.value = selectedAmt;
+
+      updateLiveModalAmounts(selectedAmt);
+    });
+  });
+
+  // Attach Custom Amount Input Handler
+  const customInput = document.getElementById('modalCustomAmtInput');
+  customInput?.addEventListener('input', (e) => {
+    const val = parseInt(e.target.value) || 0;
+    currentDonationState.amount = val;
+    
+    body.querySelectorAll('.amt-pill-btn').forEach(b => {
+      if (parseInt(b.getAttribute('data-amt')) === val) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+
+    updateLiveModalAmounts(val);
+  });
+
+  // Attach 1-Tap App Launcher Handlers
+  body.querySelectorAll('.upi-app-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const app = btn.getAttribute('data-app');
+      launchUpiApp(app);
+    });
+  });
+
+  // Attach UPI Copy Button Handler
+  const copyBtn = document.getElementById('modalCopyUpiBtn');
+  copyBtn?.addEventListener('click', () => {
+    const upi = 'safoundation@sbi';
+    navigator.clipboard.writeText(upi).then(() => {
+      const icon = document.getElementById('modalCopyIcon');
+      const text = document.getElementById('modalUpiText');
+      if (icon) icon.innerHTML = `<i class="fa-solid fa-check" style="color:#059669;"></i>`;
+      if (text) text.innerHTML = `<span style="color:#059669; font-weight:800;">Copied!</span>`;
+      showToast('UPI ID "safoundation@sbi" copied to clipboard.', 'Copied! 📋', 'fa-circle-check');
+      
+      setTimeout(() => {
+        if (icon) icon.innerHTML = `<i class="fa-solid fa-copy"></i>`;
+        if (text) text.textContent = 'safoundation@sbi';
+      }, 2500);
+    }).catch(() => {
+      showToast('UPI ID: safoundation@sbi', 'UPI ID', 'fa-wallet');
+    });
+  });
+
+  // Toggle Bank Details
+  document.getElementById('btnToggleBankDetails')?.addEventListener('click', () => {
+    const box = document.getElementById('bankDetailsBox');
+    if (box) box.style.display = box.style.display === 'none' ? 'block' : 'none';
+  });
+}
+
+function updateLiveModalAmounts(amt) {
+  const qrDisplay = document.getElementById('qrAmtDisplay');
+  if (qrDisplay) qrDisplay.textContent = `₹${amt.toLocaleString('en-IN')}`;
+
+  // Redraw QR Code with new amount encoded inside payload
+  drawDynamicModalQR(amt, currentDonationState.campaign);
 }
 
 /* ==================== 5.5. INTERACTIVE 3D GALLERY & LIGHTBOX ==================== */
@@ -320,15 +676,27 @@ function initInteractiveGallery() {
 
 /* ==================== 6. NEWSLETTER & TOASTS ==================== */
 function initNewsletter() {
-  const newsletterForm = document.getElementById('newsletterForm');
-  if (newsletterForm) {
-    newsletterForm.addEventListener('submit', (e) => {
+  const newsletterForms = document.querySelectorAll('#newsletterForm');
+  newsletterForms.forEach(form => {
+    form.addEventListener('submit', (e) => {
       e.preventDefault();
-      const email = newsletterForm.querySelector('input[type="email"]')?.value;
-      showToast(`Thank you! ${email} has been subscribed to SAF Foundation updates.`, 'Subscribed Successfully ✨', 'fa-circle-check');
-      newsletterForm.reset();
+      const emailInput = form.querySelector('input[type="email"]');
+      const email = emailInput?.value?.trim();
+      if (!email) return;
+
+      const subscribers = JSON.parse(localStorage.getItem('saf_subscribers') || '[]');
+      if (!subscribers.find(s => s.email === email)) {
+        subscribers.unshift({
+          email: email,
+          date: new Date().toLocaleDateString('en-IN', { day:'numeric', month:'short', year:'numeric' })
+        });
+        localStorage.setItem('saf_subscribers', JSON.stringify(subscribers));
+      }
+
+      showToast(`Thank you! ${email} has been registered for official SAF Foundation dispatches.`, 'Subscribed Successfully ✨', 'fa-circle-check');
+      form.reset();
     });
-  }
+  });
 }
 
 let toastTimeout = null;
@@ -372,4 +740,3 @@ function hideToast() {
     toast.classList.remove('show');
   }
 }
-

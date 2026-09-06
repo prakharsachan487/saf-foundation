@@ -3,13 +3,68 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAF Foundation | S. A. FOUNDATION - Official Portal</title>
-  <meta name="description" content="S. A. Foundation (SAF) official portal under the leadership of Anand Singh. Dedicated to creating meaningful grassroots change across India.">
+  <title>SAF Foundation | S. A. FOUNDATION - Grassroots Empowerment in India</title>
+  <meta name="description" content="S. A. Foundation (SAF) official portal under the leadership of Anand Singh. Registered non-profit empowering rural schools, emergency flood rescue, and women cooperatives across India.">
+  <link rel="canonical" href="https://saf-foundation.org/">
 
-  <!-- Google Fonts (Poppins) -->
+  <!-- OpenGraph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://saf-foundation.org/">
+  <meta property="og:title" content="SAF Foundation &bull; S. A. Foundation - Grassroots Empowerment in India">
+  <meta property="og:description" content="Dedicated to transforming rural lives through smart tablet labs, emergency disaster rescue, and solar crafts across India. 100% Direct Impact.">
+  <meta property="og:image" content="https://saf-foundation.org/assets/images/hero-community.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SAF Foundation &bull; S. A. Foundation">
+  <meta name="twitter:description" content="Empowering grassroots communities across India. Registered Non-Profit Organization.">
+  <meta name="twitter:image" content="https://saf-foundation.org/assets/images/hero-community.jpg">
+
+  <!-- Schema.org NGO JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "S. A. Foundation",
+    "alternateName": "SAF Foundation",
+    "url": "https://saf-foundation.org/",
+    "logo": "https://saf-foundation.org/assets/images/logo-icon.png",
+    "founder": {
+      "@type": "Person",
+      "name": "Anand Singh"
+    },
+    "taxID": "AAATS1234K",
+    "nonprofitStatus": "Nonprofit501c3",
+    "telephone": "+91-11-4987-6500",
+    "email": "contact@saf-foundation.org",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Barakhamba Road, Connaught Place",
+      "addressLocality": "New Delhi",
+      "postalCode": "110001",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://facebook.com/saffoundation",
+      "https://twitter.com/saffoundation",
+      "https://linkedin.com/company/saffoundation"
+    ]
+  }
+  </script>
+
+  <!-- Google Analytics Placeholder (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SAF2026NGO"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-SAF2026NGO');
+  </script>
+
+  <!-- Google Fonts (Cinzel, Plus Jakarta Sans, Poppins) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -23,19 +78,21 @@
   <header class="site-header" id="navbar">
     <div class="container">
       <div class="nav-container">
-        <a href="#home" class="brand-wrapper">
-          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+        <a href="index.html" class="brand-wrapper">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
           <div class="brand-text">
-            <h2>SAF Foundation</h2>
+            <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+            <span class="brand-subtitle">Charitable Trust</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
         <nav class="desktop-nav">
           <ul class="nav-links">
+            <li><a href="index.html" class="nav-link-item active" style="font-weight:700; font-size:0.95rem; color:var(--accent-gold);"><i class="fa-solid fa-house" style="font-size:0.85rem; margin-right:4px;"></i> Home</a></li>
             <li><a href="about.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> About Us</a></li>
-            <li><a href="leadership.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> Our Leadership & Trustees</a></li>
-            <li><a href="gallery.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-images" style="font-size:0.85rem; margin-right:4px;"></i> Ground Gallery</a></li>
+            <li><a href="gallery.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-images" style="font-size:0.85rem; margin-right:4px;"></i> Gallery</a></li>
+            <li><a href="contact.html" class="nav-link-item" style="font-weight:600; font-size:0.95rem;"><i class="fa-solid fa-envelope" style="font-size:0.85rem; margin-right:4px;"></i> Contact</a></li>
           </ul>
         </nav>
 
@@ -62,9 +119,10 @@
     <div class="mobile-nav-drawer" id="mobileDrawer">
       <div class="mobile-drawer-header">
         <div class="brand-wrapper">
-          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
           <div class="brand-text">
-            <h2>SAF Foundation</h2>
+            <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+            <span class="brand-subtitle">Charitable Trust</span>
           </div>
         </div>
         <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
@@ -73,26 +131,18 @@
       </div>
 
       <ul class="mobile-nav-links">
-        <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="index.html" class="mobile-nav-link active" style="color:var(--accent-gold); font-weight:700;"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
-        <li><a href="leadership.html" class="mobile-nav-link"><i class="fa-solid fa-user-tie"></i> Our Leadership & Trustees</a></li>
-        <li><a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-images"></i> Ground Gallery</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
       </ul>
 
       <div class="mobile-drawer-footer">
-        <div style="display:flex; justify-content:center; margin-bottom:1rem;">
-          <div class="lang-switch-wrap" style="background:#F1F5F9;">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <span class="lang-divider">|</span>
-            <button class="lang-btn" data-lang="hi">हिन्दी</button>
-          </div>
-        </div>
-
         <button class="btn-pill-red" style="width:100%; justify-content:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
           Donate Now
         </button>
         <div style="font-size:0.78rem; color:var(--text-muted); text-align:center; margin-top:1rem;">
-          80G Tax Exempted • 12A Certified
+          Registered Charitable Trust &bull; Government Approved NGO
         </div>
       </div>
     </div>
@@ -123,33 +173,82 @@
               Explore Our Work
             </a>
           </div>
+
+          <div class="hero-trust-indicators">
+            <span><i class="fa-solid fa-shield-check" style="color:var(--accent-gold);"></i> Verified NGO</span>
+            <span><i class="fa-solid fa-bolt" style="color:var(--accent-gold);"></i> Instant UPI Settlement</span>
+            <span><i class="fa-solid fa-lock" style="color:var(--teal-subtle);"></i> 100% Secure</span>
+          </div>
         </div>
 
-        <div class="hero-visual-3d">
-          <!-- Top Beneficiaries Photo -->
-          <div class="hero-photo-card">
-            <img src="assets/images/hero-community.jpg" alt="Beneficiaries in Rural India">
+        <div class="hero-visual-3d hero-qr-visual-wrap reveal-3d">
+          <!-- 3D Instant Donation QR Card -->
+          <div class="hero-donation-qr-card card-3d-interactive">
+            <!-- Card Header -->
+            <div class="qr-card-header">
+              <div class="qr-header-left">
+                <span class="qr-live-pulse"></span>
+                <div>
+                  <span class="qr-card-tag">Instant UPI Donation</span>
+                  <h3 class="qr-card-title">Scan & Support Directly</h3>
+                </div>
+              </div>
+              <div class="qr-tax-badge">
+                <i class="fa-solid fa-shield-halved"></i> 100% Direct Impact
+              </div>
+            </div>
+
+            <!-- QR Code Showcase Box with Scan Frame -->
+            <div class="qr-code-showcase-box">
+              <div class="qr-scan-frame">
+                <span class="scan-corner top-left"></span>
+                <span class="scan-corner top-right"></span>
+                <span class="scan-corner bottom-left"></span>
+                <span class="scan-corner bottom-right"></span>
+                <div class="qr-img-wrapper">
+                  <img src="assets/images/donation-qr.svg" alt="SAF Foundation UPI Donation QR Code" class="qr-img" width="170" height="170">
+                  <div class="qr-center-badge">
+                    <img src="assets/images/logo-icon.png" alt="SAF Logo">
+                  </div>
+                </div>
+              </div>
+
+              <div class="qr-scan-hint">
+                <i class="fa-solid fa-qrcode" style="color:var(--accent-gold);"></i> Scan with Google Pay, PhonePe, Paytm, BHIM
+              </div>
+            </div>
+
+            <!-- Supported UPI Apps Strip -->
+            <div class="upi-apps-strip">
+              <span class="upi-app-pill"><i class="fa-brands fa-google-pay" style="font-size:1.1rem; color:#4285F4;"></i> GPay</span>
+              <span class="upi-app-pill"><i class="fa-solid fa-wallet" style="color:#5f259f;"></i> PhonePe</span>
+              <span class="upi-app-pill"><i class="fa-solid fa-mobile-screen-button" style="color:#002e6e;"></i> Paytm</span>
+              <span class="upi-app-pill"><i class="fa-solid fa-building-columns" style="color:var(--accent-gold);"></i> BHIM UPI</span>
+            </div>
+
+            <!-- UPI ID Copy Bar -->
+            <div class="qr-upi-copy-bar">
+              <div class="upi-id-text">
+                <span class="upi-lbl">Official UPI ID:</span>
+                <strong id="upiIdValue">safoundation@sbi</strong>
+              </div>
+              <button class="btn-copy-upi" id="copyHeroUpiBtn" title="Copy UPI ID to clipboard">
+                <i class="fa-regular fa-copy"></i> <span>Copy</span>
+              </button>
+            </div>
+
+
           </div>
 
-          <!-- 3D Floating Community Circle -->
-          <div class="hero-island-3d">
-            <img src="assets/images/about-circle-3d.jpg" alt="3D Community Collaboration Island">
-          </div>
-
-          <!-- Floating Stat Pills -->
-          <div class="pill-stat-3d pill-stat-1">
+          <!-- Floating Stat Pills around QR Card -->
+          <div class="pill-stat-3d pill-stat-1" style="top: -15px; left: -15px;">
             <strong>135+</strong>
             <span>Active Projects</span>
           </div>
 
-          <div class="pill-stat-3d pill-stat-2">
+          <div class="pill-stat-3d pill-stat-2" style="bottom: -15px; right: -15px;">
             <strong>373k+</strong>
             <span>Lives Changed</span>
-          </div>
-
-          <div class="pill-stat-3d pill-stat-3">
-            <strong>2,900+</strong>
-            <span>Volunteers</span>
           </div>
         </div>
       </div>
@@ -178,7 +277,7 @@
         <div class="gallery-3d-stage" id="gallery3DStage">
 
           <!-- 3D Card 1 -->
-          <div class="gallery-3d-card" data-index="0" data-img="assets/images/field-education.jpg" data-title="Smart Digital Science Labs" data-desc="Setting up interactive digital tablet labs and STEM curriculum across underserved rural schools." data-location="Patna, Bihar">
+          <div class="gallery-3d-card" data-index="0" data-img="assets/images/field-education.jpg" data-title="Smart Digital Science Labs" data-desc="Setting up interactive digital tablet labs and STEM curriculum across underserved rural schools empowering over 3,500 students." data-location="Patna, Bihar">
             <div class="gallery-img-wrap">
               <img src="assets/images/field-education.jpg" alt="Smart Digital Classroom">
               <div class="gallery-item-overlay">
@@ -187,9 +286,7 @@
               <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
             </div>
             <div class="gallery-info-box">
-              <span class="gallery-tag-pill">Education & STEM</span>
               <h3>Smart Digital Science Labs</h3>
-              <p>Interactive STEM tablets and digital literacy empowering over 3,500 rural students.</p>
               <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Patna, Bihar</div>
             </div>
           </div>
@@ -204,9 +301,7 @@
               <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
             </div>
             <div class="gallery-info-box">
-              <span class="gallery-tag-pill" style="background:rgba(236,70,36,0.12); color:#EC4624;">Emergency Relief</span>
               <h3>Monsoon Flood Relief</h3>
-              <p>Deploying emergency rescue units and 50,000 clean drinking water packs in submerged zones.</p>
               <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Kosi Basin, Bihar</div>
             </div>
           </div>
@@ -221,9 +316,7 @@
               <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
             </div>
             <div class="gallery-info-box">
-              <span class="gallery-tag-pill" style="background:rgba(13,148,136,0.12); color:var(--teal-subtle);">Women Welfare</span>
               <h3>Solar Sewing Craft Hubs</h3>
-              <p>Empowering 400 rural women artisans with direct market linkage and financial independence.</p>
               <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Madhubani, Bihar</div>
             </div>
           </div>
@@ -238,9 +331,7 @@
               <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
             </div>
             <div class="gallery-info-box">
-              <span class="gallery-tag-pill">Community & Food</span>
               <h3>Nutritional Security Drive</h3>
-              <p>Hot nutritious mid-day meals and monthly ration kits delivered directly to vulnerable families.</p>
               <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Muzaffarpur, Bihar</div>
             </div>
           </div>
@@ -255,9 +346,7 @@
               <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
             </div>
             <div class="gallery-info-box">
-              <span class="gallery-tag-pill" style="background:rgba(225,29,72,0.12); color:#E11D48;">Health & Wellness</span>
               <h3>Pediatric Clinical Care</h3>
-              <p>Dedicated medical vans diagnosing malnutrition and providing vital therapeutic pediatric care.</p>
               <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Samastipur, Bihar</div>
             </div>
           </div>
@@ -272,9 +361,7 @@
               <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
             </div>
             <div class="gallery-info-box">
-              <span class="gallery-tag-pill" style="background:rgba(13,148,136,0.12); color:var(--teal-subtle);">Clean Water & Farms</span>
               <h3>Solar Water Infrastructure</h3>
-              <p>Erecting solar clean water wells and establishing collective farms managed by 120 women.</p>
               <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Gaya, Bihar</div>
             </div>
           </div>
@@ -289,9 +376,7 @@
               <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
             </div>
             <div class="gallery-info-box">
-              <span class="gallery-tag-pill">Education</span>
               <h3>Digital Study Tablets</h3>
-              <p>Equipping rural girl students with interactive digital curriculum tablets and mentoring.</p>
               <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Darbhanga, Bihar</div>
             </div>
           </div>
@@ -306,9 +391,7 @@
               <div class="gallery-zoom-badge"><i class="fa-solid fa-magnifying-glass-plus"></i></div>
             </div>
             <div class="gallery-info-box">
-              <span class="gallery-tag-pill">Scholarships</span>
               <h3>Youth Education Breakthrough</h3>
-              <p>From laboring at local kilns to securing district merit ranks with SAF smart tablets.</p>
               <div class="gallery-location-tag"><i class="fa-solid fa-location-dot" style="color:var(--accent-gold);"></i> Nalanda, Bihar</div>
             </div>
           </div>
@@ -324,13 +407,6 @@
           <button class="gallery-nav-btn" id="galleryNextBtn" aria-label="Next story">
             <i class="fa-solid fa-arrow-right"></i>
           </button>
-        </div>
-
-        <!-- Direct Link CTA to Dedicated 3D Gallery Page -->
-        <div style="text-align:center; margin-top:2rem;">
-          <a href="gallery.html" class="btn-pill-dark" style="padding:0.85rem 2rem; font-size:0.95rem; box-shadow:0 8px 24px rgba(15,23,42,0.18);">
-            <i class="fa-solid fa-cube" style="color:var(--accent-gold);"></i> Open Full 3D Interactive Gallery <i class="fa-solid fa-arrow-right" style="margin-left:4px;"></i>
-          </a>
         </div>
       </div>
 
@@ -414,11 +490,11 @@
             </div>
           </div>
           <div class="area-card-content">
-            <span class="area-pillar-tag" style="background:rgba(13,148,136,0.12); color:#0D9488;">Pillar 01 &bull; Education</span>
+            <span class="area-pillar-tag" style="background:rgba(13,148,136,0.12); color:#0D9488;">Education</span>
             <h3>Quality Education & STEM</h3>
-            <p>Digital smart classrooms, STEM lab tablets, and merit scholarships unlocking high school potential for rural children.</p>
+            <p>Smart digital classrooms, STEM tablets, and merit scholarships for rural students.</p>
             <div class="area-impact-chip">
-              <i class="fa-solid fa-school" style="color:var(--accent-gold);"></i> <span>190+ Model Digital Schools</span>
+              <i class="fa-solid fa-school" style="color:var(--accent-gold);"></i> <span>190+ Model Schools</span>
             </div>
           </div>
         </div>
@@ -432,11 +508,11 @@
             </div>
           </div>
           <div class="area-card-content">
-            <span class="area-pillar-tag" style="background:rgba(236,70,36,0.12); color:#EC4624;">Pillar 02 &bull; Nutrition</span>
+            <span class="area-pillar-tag" style="background:rgba(236,70,36,0.12); color:#EC4624;">Nutrition</span>
             <h3>Food Security & Nutrition</h3>
-            <p>Door-to-door distribution of fortified dry rations, infant supplementary meals, and community nutrition hubs.</p>
+            <p>Fortified dry ration kits, infant nutritional packs, and community hunger relief.</p>
             <div class="area-impact-chip">
-              <i class="fa-solid fa-utensils" style="color:var(--accent-gold);"></i> <span>1.2M+ Nutritious Meals Served</span>
+              <i class="fa-solid fa-utensils" style="color:var(--accent-gold);"></i> <span>1.2M+ Meals Served</span>
             </div>
           </div>
         </div>
@@ -450,9 +526,9 @@
             </div>
           </div>
           <div class="area-card-content">
-            <span class="area-pillar-tag" style="background:rgba(225,29,72,0.12); color:#E11D48;">Pillar 03 &bull; Healthcare</span>
-            <h3>Primary Healthcare & Medicine</h3>
-            <p>Mobile medical vans, free diagnostic health camps, essential generic medicines, and pediatric therapeutic care.</p>
+            <span class="area-pillar-tag" style="background:rgba(225,29,72,0.12); color:#E11D48;">Healthcare</span>
+            <h3>Primary Healthcare</h3>
+            <p>Mobile health vans, free medical camps, essential medicines, and child care.</p>
             <div class="area-impact-chip">
               <i class="fa-solid fa-truck-medical" style="color:var(--accent-gold);"></i> <span>450k+ Patients Treated</span>
             </div>
@@ -464,15 +540,15 @@
           <div class="area-photo-box">
             <img src="assets/images/campaign-women.jpg" alt="Livelihood & Skill Centers" loading="lazy">
             <div class="area-icon-floating-badge">
-              <i class="fa-solid fa-briefcase" style="color:#F59E0B;"></i>
+              <i class="fa-solid fa-briefcase" style="color:#B45309;"></i>
             </div>
           </div>
           <div class="area-card-content">
-            <span class="area-pillar-tag" style="background:rgba(245,158,11,0.12); color:#B45309;">Pillar 04 &bull; Livelihood</span>
-            <h3>Livelihoods & Skill Training</h3>
-            <p>Vocational sewing hubs, solar craft production, digital job skills, and micro-enterprise incubation for rural youth.</p>
+            <span class="area-pillar-tag" style="background:rgba(245,158,11,0.12); color:#B45309;">Livelihood</span>
+            <h3>Livelihood & Skill Training</h3>
+            <p>Vocational sewing clusters, solar machine skills, and rural enterprise setup.</p>
             <div class="area-impact-chip">
-              <i class="fa-solid fa-users-gear" style="color:var(--accent-gold);"></i> <span>12,000+ Youth & Women Skilled</span>
+              <i class="fa-solid fa-users-gear" style="color:var(--accent-gold);"></i> <span>12,000+ Skilled</span>
             </div>
           </div>
         </div>
@@ -486,11 +562,11 @@
             </div>
           </div>
           <div class="area-card-content">
-            <span class="area-pillar-tag" style="background:rgba(13,148,136,0.12); color:#0D9488;">Pillar 05 &bull; Women</span>
-            <h3>Women Self-Reliance & Farms</h3>
-            <p>Establishing women-run cooperative farms, solar drinking water pumps, self-help microcredits, and leadership training.</p>
+            <span class="area-pillar-tag" style="background:rgba(13,148,136,0.12); color:#0D9488;">Women</span>
+            <h3>Women Self-Reliance</h3>
+            <p>Solar clean drinking water hubs, women-led farming groups, and microcredits.</p>
             <div class="area-impact-chip">
-              <i class="fa-solid fa-people-roof" style="color:var(--accent-gold);"></i> <span>320+ Self-Help Cooperatives</span>
+              <i class="fa-solid fa-people-roof" style="color:var(--accent-gold);"></i> <span>320+ Self-Help Groups</span>
             </div>
           </div>
         </div>
@@ -504,11 +580,11 @@
             </div>
           </div>
           <div class="area-card-content">
-            <span class="area-pillar-tag" style="background:rgba(236,70,36,0.12); color:#EC4624;">Pillar 06 &bull; Relief</span>
-            <h3>Disaster Relief & Rehabilitation</h3>
-            <p>Rapid deployment of emergency flood rescue teams, clean drinking water packs, hygiene kits, and shelter rebuilds.</p>
+            <span class="area-pillar-tag" style="background:rgba(236,70,36,0.12); color:#EC4624;">Relief</span>
+            <h3>Disaster Relief</h3>
+            <p>Rapid flood rescue operations, clean water packets, and emergency hygiene kits.</p>
             <div class="area-impact-chip">
-              <i class="fa-solid fa-kit-medical" style="color:var(--accent-gold);"></i> <span>50,000+ Relief Kits Dispatched</span>
+              <i class="fa-solid fa-kit-medical" style="color:var(--accent-gold);"></i> <span>50,000+ Relief Kits</span>
             </div>
           </div>
         </div>
@@ -620,7 +696,7 @@
         <div class="help-3d-box card-3d-interactive">
           <div>
             <h3>Donate</h3>
-            <p>Make a 50% 80G tax-exempt donation towards education, food, or emergency relief.</p>
+            <p>Make a direct, secure contribution towards education, food, or emergency relief.</p>
           </div>
           <button class="btn-pill-dark" data-open-donate data-campaign-title="Direct Contribution">Donate</button>
         </div>
@@ -699,34 +775,7 @@
 
 
 
-  <!-- ==================== 14. MEGA CTA BANNER & FOOTER ==================== -->
-  <section class="mega-cta-section">
-    <div class="container">
-      <div class="mega-cta-3d-card reveal-3d">
-        <div>
-          <h2>Together, We Can Create Change.</h2>
-          <p style="font-size:1.1rem; color:#E2E8F0; margin-bottom:2rem; line-height:1.65;">
-            Join Anand Singh and the S. A. Foundation in building an equitable, educated, and prosperous India.
-          </p>
-          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <button class="btn-pill-red" data-open-donate data-campaign-title="Together We Can Create Change">
-              Donate Now
-            </button>
-            <button class="btn-pill-outline" data-open-volunteer>
-              Become a Volunteer
-            </button>
-            <button class="btn-pill-outline" data-open-partner>
-              Partner With Us
-            </button>
-          </div>
-        </div>
 
-        <div class="mega-cta-img-wrap">
-          <img src="assets/images/founder-anand-singh.jpg" alt="Anand Singh">
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- Mega Footer -->
   <footer class="mega-footer" id="contact">
@@ -734,8 +783,11 @@
       <div class="footer-grid-cols">
         <div>
           <div class="footer-logo-wrap">
-            <img src="assets/images/logo.png" alt="SAF Logo">
-            <span>SAF Foundation</span>
+            <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo">
+            <div class="brand-text">
+              <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+              <span class="brand-subtitle">Grassroots Trust &bull; India</span>
+            </div>
           </div>
           <p style="font-size:0.875rem; line-height:1.65; margin-bottom:1.25rem; color:var(--text-muted);">
             S. A. Foundation is a national non-profit organization dedicated to empowering grassroots communities across India.
@@ -747,21 +799,20 @@
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="leadership.html">Our Leadership & Trustees</a></li>
-            <li><a href="#gallery">Ground Gallery</a></li>
-            <li><a href="#areas">Our Work</a></li>
-            <li><a href="#campaigns">Campaigns</a></li>
-            <li><a href="#help">Get Involved</a></li>
+            <li><a href="leadership.html">Leadership & Trustees</a></li>
+            <li><a href="gallery.html">Ground Gallery</a></li>
+            <li><a href="volunteer.html">Volunteer With Us</a></li>
+            <li><a href="faq.html">FAQ Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Contact Info</h4>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Legal & Admin</h4>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
-            <li><i class="fa-solid fa-building" style="color:var(--accent-gold);"></i> HQ: New Delhi - 110001</li>
-            <li><i class="fa-solid fa-map-pin" style="color:var(--accent-gold);"></i> Field: Patna, Bihar - 800001</li>
-            <li><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +91 11 4987 6500</li>
-            <li><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> contact@saf-foundation.org</li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><span style="color:#059669; font-weight:700;"><i class="fa-solid fa-award"></i> Registered Charitable Trust</span></li>
           </ul>
         </div>
 
@@ -769,17 +820,18 @@
           <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Newsletter Signup</h4>
           <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.6rem;">
             <input type="email" placeholder="Your Email Address" required style="padding:0.8rem 1.1rem; border-radius:var(--radius-pill); font-size:0.875rem; border:1px solid var(--border-light); outline:none; background:#ffffff;">
-            <button type="submit" class="btn-pill-red" style="padding:0.7rem 1.1rem; justify-content:center;">Subscribe</button>
+            <button type="submit" class="btn-pill-dark" style="justify-content:center;">Subscribe</button>
           </form>
         </div>
       </div>
 
       <div style="text-align:center; padding-top:1.75rem; border-top:1px solid var(--border-light); font-size:0.825rem; color:var(--text-muted);">
-        Copyright &copy; 2026 <strong>S. A. FOUNDATION (SAF)</strong>. All Rights Reserved.
+        Copyright &copy; 2026 <strong>S. A. FOUNDATION (SAF)</strong>. All Rights Reserved. Registered Non-Profit Organization.
       </div>
     </div>
   </footer>
 
+  <script src="js/qrcode.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/translations.js"></script>
 </body>

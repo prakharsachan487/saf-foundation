@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Leadership & Vision | Anand Singh — Managing Trustee | SAF Foundation</title>
-  <meta name="description" content="Meet Anand Singh, Founder and Managing Trustee of S. A. Foundation (SAF). Discover our leadership philosophy, governance standards, and grassroots vision.">
+  <title>Board of Trustees & Leadership | S. A. Foundation (SAF)</title>
+  <meta name="description" content="Meet the Board of Trustees of S. A. Foundation (SAF) including Anand Singh (Managing Trustee) and Rashmi Singh (Trustee). Discover our governance and grassroots vision.">
 
-  <!-- Google Fonts (Poppins) -->
+  <!-- Google Fonts (Cinzel, Plus Jakarta Sans, Poppins) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- FontAwesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -20,43 +20,86 @@
   <style>
     /* Dedicated Leadership Page Styles */
     .page-hero-section {
-      padding: 8rem 0 3.5rem;
+      padding: 5rem 0 3rem;
       background: radial-gradient(circle at 10% 20%, rgba(254, 243, 199, 0.45) 0%, rgba(248, 250, 252, 1) 90%);
       border-bottom: 1px solid var(--border-light);
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
 
-    .page-breadcrumb {
-      display: inline-flex;
+    .trustee-card-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 3.5rem;
       align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-      background: #FFFFFF;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-      border: 1px solid var(--border-light);
-      box-shadow: 0 1px 4px rgba(0,0,0,0.03);
-    }
-
-    .page-breadcrumb a {
-      color: var(--navy-heading);
-    }
-
-    .page-breadcrumb a:hover {
-      color: var(--red-cta);
-    }
-
-    .leadership-deep-card {
       background: #FFFFFF;
       border: 1px solid var(--border-light);
       border-radius: var(--radius-card);
-      padding: 2.5rem;
-      box-shadow: var(--shadow-sm);
-      margin: 3rem 0;
+      padding: 2.75rem;
+      box-shadow: var(--shadow-card);
+      margin-bottom: 3.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .trustee-card-layout:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: rgba(245, 158, 11, 0.4);
+    }
+
+    .trustee-card-layout.layout-reverse {
+      grid-template-columns: 1.05fr 0.95fr;
+    }
+
+    .trustee-photo-frame {
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 3px solid #FFFFFF;
+      position: relative;
+      background: #E2E8F0;
+    }
+
+    .trustee-photo-frame img {
+      width: 100%;
+      height: 390px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .trustee-card-layout:hover .trustee-photo-frame img {
+      transform: scale(1.04);
+    }
+
+    .trustee-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(245, 158, 11, 0.12);
+      color: #B45309;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      margin-bottom: 0.75rem;
+    }
+
+    .trustee-name-heading {
+      font-family: var(--font-main);
+      font-size: clamp(1.85rem, 3vw, 2.35rem);
+      font-weight: 800;
+      color: var(--navy-heading);
+      line-height: 1.15;
+      margin-bottom: 0.35rem;
+    }
+
+    .trustee-designation-text {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--red-cta);
+      margin-bottom: 1.25rem;
     }
 
     .pillars-grid-3 {
@@ -82,11 +125,14 @@
     }
 
     @media (max-width: 900px) {
-      .page-hero-section {
-        padding: 6.5rem 0 2.5rem;
+      .trustee-card-layout,
+      .trustee-card-layout.layout-reverse {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 1.75rem;
       }
-      .leadership-deep-card {
-        padding: 1.5rem;
+      .trustee-photo-frame img {
+        height: 320px;
       }
     }
   </style>
@@ -98,19 +144,20 @@
     <div class="container">
       <div class="nav-container">
         <a href="index.html" class="brand-wrapper">
-          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
           <div class="brand-text">
-            <h2>SAF Foundation</h2>
+            <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+            <span class="brand-subtitle">Charitable Trust</span>
           </div>
         </a>
 
         <!-- Desktop Navigation Links -->
         <nav class="desktop-nav">
           <ul class="nav-links">
-            <li><a href="index.html" class="nav-link-item"><i class="fa-solid fa-house" style="font-size:0.85rem; margin-right:4px;"></i> Home</a></li>
-            <li><a href="about.html" class="nav-link-item"><i class="fa-solid fa-circle-info" style="font-size:0.85rem; margin-right:4px;"></i> About Us</a></li>
-            <li><a href="leadership.html" class="nav-link-item active" style="font-weight:700; color:var(--navy-heading);"><i class="fa-solid fa-user-tie" style="font-size:0.85rem; margin-right:4px;"></i> Our Leadership & Trustees</a></li>
-            <li><a href="gallery.html" class="nav-link-item"><i class="fa-solid fa-images" style="font-size:0.85rem; margin-right:4px;"></i> Ground Gallery</a></li>
+            <li><a href="index.html" class="nav-link-item"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="about.html" class="nav-link-item"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
+            <li><a href="gallery.html" class="nav-link-item"><i class="fa-solid fa-images"></i> Gallery</a></li>
+            <li><a href="contact.html" class="nav-link-item"><i class="fa-solid fa-envelope"></i> Contact</a></li>
           </ul>
         </nav>
 
@@ -122,9 +169,9 @@
             <button class="lang-btn" data-lang="hi" aria-label="Switch to Hindi">हिन्दी</button>
           </div>
 
-          <a href="index.html#contact" class="btn-pill-red nav-donate-btn" data-open-donate data-campaign-title="General Impact Fund">
+          <button class="btn-pill-red nav-donate-btn" data-open-donate data-campaign-title="General Impact Fund">
             Donate Now
-          </a>
+          </button>
           <!-- Mobile Hamburger Toggle Button -->
           <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
             <i class="fa-solid fa-bars-staggered"></i>
@@ -137,9 +184,10 @@
     <div class="mobile-nav-drawer" id="mobileDrawer">
       <div class="mobile-drawer-header">
         <div class="brand-wrapper">
-          <img src="assets/images/logo.png" alt="S. A. Foundation Logo" class="brand-logo-img">
+          <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo" class="brand-logo-img">
           <div class="brand-text">
-            <h2>SAF Foundation</h2>
+            <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+            <span class="brand-subtitle">Charitable Trust</span>
           </div>
         </div>
         <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Close menu">
@@ -150,83 +198,106 @@
       <ul class="mobile-nav-links">
         <li><a href="index.html" class="mobile-nav-link"><i class="fa-solid fa-house"></i> Home</a></li>
         <li><a href="about.html" class="mobile-nav-link"><i class="fa-solid fa-circle-info"></i> About Us</a></li>
-        <li><a href="leadership.html" class="mobile-nav-link" style="color:var(--navy-heading); font-weight:700;"><i class="fa-solid fa-user-tie"></i> Our Leadership & Trustees</a></li>
-        <li><a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-images"></i> Ground Gallery</a></li>
+        <li><a href="gallery.html" class="mobile-nav-link"><i class="fa-solid fa-images"></i> Gallery</a></li>
+        <li><a href="contact.html" class="mobile-nav-link"><i class="fa-solid fa-envelope"></i> Contact</a></li>
       </ul>
 
       <div class="mobile-drawer-footer">
-        <div style="display:flex; justify-content:center; margin-bottom:1rem;">
-          <div class="lang-switch-wrap" style="background:#F1F5F9;">
-            <button class="lang-btn active" data-lang="en">EN</button>
-            <span class="lang-divider">|</span>
-            <button class="lang-btn" data-lang="hi">हिन्दी</button>
-          </div>
-        </div>
-
-        <a href="index.html#contact" class="btn-pill-red" style="width:100%; justify-content:center; text-align:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
+        <button class="btn-pill-red" style="width:100%; justify-content:center;" data-open-donate data-campaign-title="Mobile Drawer Donation">
           Donate Now
-        </a>
-        <div style="font-size:0.78rem; color:var(--text-muted); text-align:center; margin-top:1rem;">
-          80G Tax Exempted • 12A Certified
-        </div>
+        </button>
       </div>
     </div>
     <!-- Mobile Backdrop Overlay -->
     <div class="mobile-nav-backdrop" id="mobileBackdrop"></div>
   </header>
 
-  <!-- ==================== LEADERSHIP PAGE HERO & BREADCRUMB ==================== -->
+  <!-- ==================== LEADERSHIP PAGE HERO ==================== -->
   <section class="page-hero-section">
     <div class="container">
-      <div class="page-breadcrumb">
-        <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
-        <span>/</span>
-        <span style="color:var(--text-body);">Our Leadership & Trustees</span>
+      <div class="hero-tag-badge reveal-3d" style="margin-bottom:0.75rem; display:inline-flex;">
+        <span class="badge-dot"></span> Governance & Stewardship
       </div>
-
-      <h1 class="hero-heading" style="font-size:clamp(2rem, 4vw, 2.85rem); margin-bottom:1rem;">
-        Leadership & Vision — Anand Singh
+      <h1 class="hero-heading reveal-3d" style="font-size:clamp(2.1rem, 4vw, 3rem); margin-bottom:0.85rem;">
+        Board of Trustees & Leadership
       </h1>
-      <p class="hero-description" style="max-width:760px; font-size:1.05rem;">
-        Visionary leadership fusing corporate execution rigor with deep grassroots empathy to transform millions of lives across India.
+      <p class="hero-description reveal-3d" style="max-width:760px; font-size:1.05rem; margin-left:auto; margin-right:auto;">
+        Guiding S. A. Foundation with unwavering fiduciary responsibility, executive rigor, and deep grassroots empathy to transform millions of underserved lives across India.
       </p>
     </div>
   </section>
 
-  <!-- ==================== FOUNDER & TRUSTEE PROFILE SECTION ==================== -->
+  <!-- ==================== TRUSTEES PROFILES SECTION ==================== -->
   <section class="founder-section" style="padding: 4.5rem 0;">
     <div class="container">
       <div class="founder-main-layout reveal-3d">
-        <div class="founder-profile-grid">
-          <div class="founder-img-card-3d card-3d-interactive">
-            <img src="assets/images/founder-anand-singh.jpg" alt="Anand Singh - Founder & Managing Trustee SAF Foundation">
+        
+        <!-- 1. TRUSTEE 1: Anand Singh (Managing Trustee) -->
+        <div class="trustee-card-layout">
+          <div class="trustee-photo-frame card-3d-interactive">
+            <img src="assets/images/founder-anand-singh.jpg" alt="Anand Singh - Managing Trustee SAF Foundation">
           </div>
 
           <div class="founder-details">
-            <h2>Anand Singh</h2>
-            <div class="founder-tagline">Founder & Managing Trustee, S. A. Foundation</div>
+            <span class="trustee-badge-pill">
+              <i class="fa-solid fa-shield-halved"></i> Board of Trustees
+            </span>
+            <h2 class="trustee-name-heading">Anand Singh</h2>
+            <div class="trustee-designation-text">Trustee & Managing Trustee, S. A. Foundation</div>
 
             <div class="founder-quote-3d card-3d-interactive">
-              “Social responsibility of each individual builds and economically empowers communities.”
-              <br><strong style="font-size:0.85rem; color:var(--text-muted);">— Anand Singh</strong>
+              “Social responsibility of each individual builds and economically empowers resilient communities.”
+              <br><strong style="font-size:0.85rem; color:var(--text-muted);">— Anand Singh, Managing Trustee</strong>
             </div>
 
-            <p style="font-size:0.98rem; color:var(--text-body); line-height:1.75; margin-bottom:1.5rem;">
-              Anand Singh channeled his entrepreneurial success into building scalable grassroots systems across India. Under his visionary stewardship, S. A. Foundation has mobilized hundreds of millions in relief aid, established modern digital classrooms, and fostered self-reliant village cooperatives.
+            <p style="font-size:0.98rem; color:var(--text-body); line-height:1.75; margin-bottom:1.25rem;">
+              Anand Singh channeled his entrepreneurial success and social vision into building scalable grassroots systems across India. Under his dedicated stewardship, S. A. Foundation has mobilized hundreds of millions in relief aid, established modern digital classrooms, and fostered self-reliant village cooperatives.
             </p>
 
-            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.7; margin-bottom:1.75rem;">
-              His hands-on ground leadership ensures every rupee donated directly reaches the vulnerable child, mother, and farmer, fostering generational socio-economic resilience.
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.7; margin-bottom:1.5rem;">
+              His hands-on ground leadership ensures every rupee contributed directly reaches the vulnerable child, mother, and farmer, fostering generational socio-economic resilience.
             </p>
 
-            <a href="index.html#contact" class="btn-pill-dark" data-open-partner>
-              Connect With Founder & Board
+            <a href="contact.html" class="btn-pill-dark" data-open-partner>
+              <i class="fa-solid fa-handshake" style="margin-right:6px;"></i> Connect With Trustee Desk
             </a>
           </div>
         </div>
 
-        <!-- 5 Founder Impact Stats -->
-        <div class="founder-stats-row reveal-3d-stagger" style="margin-top:3rem;">
+        <!-- 2. TRUSTEE 2: Rashmi Singh (Trustee & Executive Director) -->
+        <div class="trustee-card-layout layout-reverse">
+          <div class="founder-details">
+            <span class="trustee-badge-pill" style="background:rgba(13,148,136,0.12); color:var(--teal-subtle); border-color:rgba(13,148,136,0.3);">
+              <i class="fa-solid fa-hand-holding-heart"></i> Board of Trustees
+            </span>
+            <h2 class="trustee-name-heading">Rashmi Singh</h2>
+            <div class="trustee-designation-text" style="color:var(--teal-subtle);">Trustee & Executive Director, S. A. Foundation</div>
+
+            <div class="founder-quote-3d card-3d-interactive" style="border-left-color:var(--teal-subtle);">
+              “Empowering women and educating children creates an unstoppable ripple effect of generational prosperity.”
+              <br><strong style="font-size:0.85rem; color:var(--text-muted);">— Rashmi Singh, Trustee</strong>
+            </div>
+
+            <p style="font-size:0.98rem; color:var(--text-body); line-height:1.75; margin-bottom:1.25rem;">
+              Rashmi Singh spearheads the Foundation's women welfare initiatives, maternal health programs, and rural girl-child STEM scholarships. With over a decade of hands-on community mobilization experience, she drives grassroots micro-entrepreneurship and solar handicraft clusters.
+            </p>
+
+            <p style="font-size:0.95rem; color:var(--text-body); line-height:1.7; margin-bottom:1.5rem;">
+              Her strategic focus on community ownership ensures sustainable health, nutrition, and education models that empower rural women as self-reliant decision makers.
+            </p>
+
+            <a href="contact.html" class="btn-pill-dark" data-open-partner>
+              <i class="fa-solid fa-envelope" style="margin-right:6px;"></i> Connect With Trustee Desk
+            </a>
+          </div>
+
+          <div class="trustee-photo-frame card-3d-interactive">
+            <img src="assets/images/trustee-rashmi-singh.jpg" alt="Rashmi Singh - Trustee & Executive Director SAF Foundation">
+          </div>
+        </div>
+
+        <!-- 5 Trustee Impact Stats -->
+        <div class="founder-stats-row reveal-3d-stagger" style="margin-top:2rem;">
           <div class="founder-stat-pill-card card-3d-interactive">
             <div class="num count-up" data-target="58" data-suffix="%">58%</div>
             <div class="lbl">Rural Reach</div>
@@ -254,7 +325,7 @@
           Authentic Ground Footprint & Field Visits
         </h4>
         <div class="founder-gallery-strip reveal-3d-stagger">
-          <div class="gallery-thumb-3d card-3d-interactive"><img src="assets/images/field-education.jpg" alt="Classroom visit by Anand Singh"></div>
+          <div class="gallery-thumb-3d card-3d-interactive"><img src="assets/images/field-education.jpg" alt="Classroom visit by Trustees"></div>
           <div class="gallery-thumb-3d card-3d-interactive"><img src="assets/images/hero-community.jpg" alt="Community ration distribution"></div>
           <div class="gallery-thumb-3d card-3d-interactive"><img src="assets/images/campaign-women.jpg" alt="Women self-help workshop"></div>
           <div class="gallery-thumb-3d card-3d-interactive"><img src="assets/images/campaign-relief.jpg" alt="Flood rescue and relief mission"></div>
@@ -300,41 +371,14 @@
           </div>
           <h3 style="font-size:1.15rem; font-weight:700; color:var(--navy-heading); margin-bottom:0.6rem;">Statutory Excellence</h3>
           <p style="font-size:0.925rem; color:var(--text-body); line-height:1.65;">
-            Fully certified with 80G tax exemption, 12A trust registration, FCRA approval, and CSR-1 schedule compliance.
+            Fully certified charitable trust with FCRA approval and CSR-1 schedule compliance.
           </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== MEGA CTA BANNER ==================== -->
-  <section class="mega-cta-section">
-    <div class="container">
-      <div class="mega-cta-3d-card reveal-3d">
-        <div>
-          <h2>Together, We Can Create Change.</h2>
-          <p style="font-size:1.1rem; color:#E2E8F0; margin-bottom:2rem; line-height:1.65;">
-            Join Anand Singh and the S. A. Foundation in building an equitable, educated, and prosperous India.
-          </p>
-          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-            <a href="index.html#contact" class="btn-pill-red" data-open-donate data-campaign-title="Together We Can Create Change">
-              Donate Now
-            </a>
-            <a href="index.html#contact" class="btn-pill-outline" data-open-volunteer>
-              Become a Volunteer
-            </a>
-            <a href="index.html#contact" class="btn-pill-outline" data-open-partner>
-              Partner With Us
-            </a>
-          </div>
-        </div>
 
-        <div class="mega-cta-img-wrap">
-          <img src="assets/images/founder-anand-singh.jpg" alt="Anand Singh">
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- ==================== MEGA FOOTER ==================== -->
   <footer class="mega-footer" id="contact">
@@ -342,8 +386,11 @@
       <div class="footer-grid-cols">
         <div>
           <div class="footer-logo-wrap">
-            <img src="assets/images/logo.png" alt="SAF Logo">
-            <span>SAF Foundation</span>
+            <img src="assets/images/logo-icon.png" alt="S. A. Foundation Logo">
+            <div class="brand-text">
+              <span class="brand-title">S. A. <span class="brand-title-accent">FOUNDATION</span></span>
+              <span class="brand-subtitle">Grassroots Trust &bull; India</span>
+            </div>
           </div>
           <p style="font-size:0.875rem; line-height:1.65; margin-bottom:1.25rem; color:var(--text-muted);">
             S. A. Foundation is a national non-profit organization dedicated to empowering grassroots communities across India.
@@ -355,21 +402,20 @@
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
-            <li><a href="leadership.html">Our Leadership & Trustees</a></li>
-            <li><a href="index.html#gallery">Ground Gallery</a></li>
-            <li><a href="index.html#areas">Our Work</a></li>
-            <li><a href="index.html#campaigns">Campaigns</a></li>
-            <li><a href="index.html#help">Get Involved</a></li>
+            <li><a href="leadership.html">Leadership & Trustees</a></li>
+            <li><a href="gallery.html">Ground Gallery</a></li>
+            <li><a href="volunteer.html">Volunteer With Us</a></li>
+            <li><a href="faq.html">FAQ Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Contact Info</h4>
+          <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Legal & Admin</h4>
           <ul style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.875rem;">
-            <li><i class="fa-solid fa-building" style="color:var(--accent-gold);"></i> HQ: New Delhi - 110001</li>
-            <li><i class="fa-solid fa-map-pin" style="color:var(--accent-gold);"></i> Field: Patna, Bihar - 800001</li>
-            <li><i class="fa-solid fa-phone" style="color:var(--accent-gold);"></i> +91 11 4987 6500</li>
-            <li><i class="fa-solid fa-envelope" style="color:var(--accent-gold);"></i> contact@saf-foundation.org</li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><span style="color:#059669; font-weight:700;"><i class="fa-solid fa-award"></i> Registered Charitable Trust</span></li>
           </ul>
         </div>
 
@@ -377,17 +423,18 @@
           <h4 style="color:var(--navy-heading); font-size:1.05rem; margin-bottom:1rem;">Newsletter Signup</h4>
           <form id="newsletterForm" style="display:flex; flex-direction:column; gap:0.6rem;">
             <input type="email" placeholder="Your Email Address" required style="padding:0.8rem 1.1rem; border-radius:var(--radius-pill); font-size:0.875rem; border:1px solid var(--border-light); outline:none; background:#ffffff;">
-            <button type="submit" class="btn-pill-red" style="padding:0.7rem 1.1rem; justify-content:center;">Subscribe</button>
+            <button type="submit" class="btn-pill-dark" style="justify-content:center;">Subscribe</button>
           </form>
         </div>
       </div>
 
       <div style="text-align:center; padding-top:1.75rem; border-top:1px solid var(--border-light); font-size:0.825rem; color:var(--text-muted);">
-        Copyright &copy; 2026 <strong>S. A. FOUNDATION (SAF)</strong>. All Rights Reserved.
+        Copyright &copy; 2026 <strong>S. A. FOUNDATION (SAF)</strong>. All Rights Reserved. Registered Non-Profit Organization.
       </div>
     </div>
   </footer>
 
+  <script src="js/qrcode.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/translations.js"></script>
 </body>
